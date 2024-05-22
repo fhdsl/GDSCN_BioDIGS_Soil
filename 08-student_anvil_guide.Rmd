@@ -1,8 +1,61 @@
-# (PART\*) Student Guide to Galaxy on AnVIL {-}
+# (PART\*) Student Guide to AnVIL {-}
 
 
 ```{r, include = FALSE}
 ottrpal::set_knitr_image_path()
+```
+
+# Using RStudio on AnVIL
+
+In the next few steps, you will walk through how to get set up to use RStudio on the AnVIL platform. AnVIL is centered around different “Workspaces”. Each Workspace functions almost like a mini code laboratory - it is a place where data can be examined, stored, and analyzed. The first thing we want to do is to copy or “clone” a Workspace to create a space for you to experiment.
+
+Use a web browser to go to the AnVIL website. In the browser type:
+
+```
+anvil.terra.bio
+```
+
+:::{.notice}
+**Tip**
+At this point, it might make things easier to open up a new window in your browser and split your screen. That way, you can follow along with this guide on one side and execute the steps on the other.
+:::
+
+Your instructor will give you information on which workspace you should clone.
+
+## Video overview of RStudio on AnVIL
+
+```{r, echo = FALSE, results='asis'}
+cow::borrow_chapter(
+  doc_path = "child/_child_rstudio_video.Rmd",
+  repo_name = "jhudsl/AnVIL_Template"
+)
+```
+
+## Launching RStudio
+
+```{r, echo = FALSE, results='asis'}
+cow::borrow_chapter(
+  doc_path = "child/_child_rstudio_launch.Rmd",
+  repo_name = "jhudsl/AnVIL_Template"
+)
+```
+
+## Touring RStudio
+
+```{r, echo = FALSE, results='asis'}
+cow::borrow_chapter(
+  doc_path = "child/_child_rstudio_tour.Rmd",
+  repo_name = "jhudsl/AnVIL_Template"
+)
+```
+
+## Pausing RStudio
+
+```{r, echo = FALSE, results='asis'}
+cow::borrow_chapter(
+  doc_path = "child/_child_rstudio_pause.Rmd",
+  repo_name = "jhudsl/AnVIL_Template"
+)
 ```
 
 

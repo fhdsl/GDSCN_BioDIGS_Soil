@@ -1,0 +1,24 @@
+book_filename: "BioDIGS in the Classroom: Exploring Soil Data"
+chapter_name: "Chapter "
+repo: https://github.com/jhudsl/AnVIL_BioDIGS_Book/
+rmd_files: ["index.Rmd",
+            "01-BioDIGS_project_overview.Rmd",
+            "02-research_team.Rmd",
+            "03-data_tour.Rmd",
+            "04-billing_modules.Rmd",
+            "05-anvil_onboarding.Rmd",
+            "06-using_platforms_modules.Rmd",
+            "07-instructor_guide.Rmd",
+            "08-student_anvil_guide.Rmd",
+            "09-data_exploration.Rmd",
+            "About.Rmd",
+            "References.Rmd"]
+new_session: yes
+bibliography: [book.bib]
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Chapter"
+output_dir: "docs"
+output:
+    bookdown::html_book
