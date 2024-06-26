@@ -1,7 +1,7 @@
 :::: {.borrowed_chunk}
 ```{r, echo = FALSE, results='asis'}
 cow::borrow_chapter(
-  doc_path = "03-data_tour.Rmd",
+  doc_path = "docs/03-data_tour.md",
   repo_name = "fhdsl/GDSCN_BioDIGS_Book"
 )
 ```
