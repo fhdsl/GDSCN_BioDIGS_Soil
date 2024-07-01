@@ -7,4 +7,4 @@ You might want to create a student guide that contains a different subset of Rmd
 
 ## Activity Two
 
-Steps of the guide could go here.
+Steps of the guide _could_ go here.

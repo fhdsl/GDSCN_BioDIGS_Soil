@@ -1,0 +1,8 @@
+:::: {.borrowed_chunk}
+```{r, echo = FALSE, results='asis'}
+cow::borrow_chapter(
+  doc_path = "docs/02-research_team.md",
+  repo_name = "fhdsl/GDSCN_BioDIGS_Book"
+)
+```
+::::

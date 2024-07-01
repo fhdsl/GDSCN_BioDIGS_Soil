@@ -1,0 +1,10 @@
+# (PART\*) Instructor Checklist for AnVIL {-}
+
+:::: {.borrowed_chunk}
+```{r, echo = FALSE, results='asis'}
+cow::borrow_chapter(
+  doc_path = "docs/07-instructor_guide.md",
+  repo_name = "fhdsl/GDSCN_BioDIGS_Book"
+)
+```
+::::

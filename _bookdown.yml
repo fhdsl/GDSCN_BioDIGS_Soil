@@ -1,18 +1,15 @@
-book_filename: "Course_Name"
+book_filename: "BioDIGS in the Classroom: Exploring Soil Data"
 chapter_name: "Chapter "
-repo: https://github.com/jhudsl/AnVIL_Template/
+repo: https://github.com/jhudsl/AnVIL_BioDIGS_Book/
 rmd_files: ["index.Rmd",
-            "01-intro.Rmd",
-            "02-chapter_of_course.Rmd",
-            "03-AnVIL_modules.Rmd",
-            "04-workspace_modules.Rmd",
-            "05-billing_modules.Rmd",
-            "06-onboarding_modules.Rmd",
-            "07-using_platforms_modules.Rmd",
-            "08-student_modules.Rmd",
-            "10-user_management_modules.Rmd",
-            "11-why-anvil.Rmd",
-            "12-instructor_modules.Rmd",
+            "01-BioDIGS_project_overview.Rmd",
+            "02-research_team.Rmd",
+            "03-data_tour.Rmd",
+            "04-billing_modules.Rmd",
+            "07-instructor_guide.Rmd",
+            "05-anvil_onboarding.Rmd",
+            "08-student_using_rstudio.Rmd",
+            "09-soil_exploration_module.Rmd",
             "About.Rmd",
             "References.Rmd"]
 new_session: yes
@@ -24,4 +21,3 @@ language:
 output_dir: "docs"
 output:
     bookdown::html_book
-      

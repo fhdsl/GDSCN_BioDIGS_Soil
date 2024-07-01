@@ -1,0 +1,10 @@
+# (PART\*) Student Guide to AnVIL {-}
+
+:::: {.borrowed_chunk}
+```{r, echo = FALSE, results='asis'}
+cow::borrow_chapter(
+  doc_path = "docs/05-anvil_onboarding.md",
+  repo_name = "fhdsl/GDSCN_BioDIGS_Book"
+)
+```
+::::
