@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 13 Exploring Soil Testing Data With R | BioDIGS in the Classroom: Exploring Soil Data</title>
+  <meta name="description" content="This activity guides students through exploration of the BioDIGS soil data using the tidyverse in R." />
+  <meta name="generator" content="bookdown 0.39.1 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 13 Exploring Soil Testing Data With R | BioDIGS in the Classroom: Exploring Soil Data" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This activity guides students through exploration of the BioDIGS soil data using the tidyverse in R." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 13 Exploring Soil Testing Data With R | BioDIGS in the Classroom: Exploring Soil Data" />
+  
+  <meta name="twitter:description" content="This activity guides students through exploration of the BioDIGS soil data using the tidyverse in R." />
+  
+
+
+
+<meta name="date" content="2024-08-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="assets/GDSCN_style/gdscn_favicon.ico" type="image/x-icon" />
+<link rel="prev" href="using-rstudio-on-anvil.html"/>
+<link rel="next" href="about-the-authors.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={MeasurementID}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '{MeasurementID}');
+</script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #204a87; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #204a87; font-weight: bold; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="assets/style.css" type="text/css" />
+<link rel="stylesheet" href="assets/AnVIL_style/anvil.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="https://anvilproject.org/" target="_blank"><img src="assets/AnVIL_style/logo-anvil.png" style="width: 80%; padding-left: 15px; padding-top: 8px;"</a>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About this Book</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#target-audience"><i class="fa fa-check"></i><b>0.1</b> Target Audience</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#platform"><i class="fa fa-check"></i><b>0.2</b> Platform</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#data"><i class="fa fa-check"></i><b>0.3</b> Data</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-1.html"><a href="data-1.html"><i class="fa fa-check"></i><b>4</b> Data</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-1.html"><a href="data-1.html#sample-metadata"><i class="fa fa-check"></i><b>4.1</b> Sample Metadata</a></li>
+<li class="chapter" data-level="4.2" data-path="data-1.html"><a href="data-1.html#soil-testing-data"><i class="fa fa-check"></i><b>4.2</b> Soil Testing Data</a></li>
+<li class="chapter" data-level="4.3" data-path="data-1.html"><a href="data-1.html#genomics-and-metagenomics-data"><i class="fa fa-check"></i><b>4.3</b> Genomics and Metagenomics Data</a></li>
+</ul></li>
+<li class="part"><span><b>Instructor Checklist for AnVIL</b></span></li>
+<li class="part"><span><b>Student Guide to AnVIL</b></span></li>
+<li class="chapter" data-level="11" data-path="anvil-workspace.html"><a href="anvil-workspace.html"><i class="fa fa-check"></i><b>11</b> AnVIL Workspace</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="anvil-workspace.html"><a href="anvil-workspace.html#create-google-account"><i class="fa fa-check"></i><b>11.1</b> Create Google Account</a></li>
+<li class="chapter" data-level="11.2" data-path="anvil-workspace.html"><a href="anvil-workspace.html#clone-the-workspace"><i class="fa fa-check"></i><b>11.2</b> Clone the Workspace</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="using-rstudio-on-anvil.html"><a href="using-rstudio-on-anvil.html"><i class="fa fa-check"></i><b>12</b> Using RStudio on AnVIL</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="using-rstudio-on-anvil.html"><a href="using-rstudio-on-anvil.html#video-overview-of-rstudio-on-anvil"><i class="fa fa-check"></i><b>12.1</b> Video overview of RStudio on AnVIL</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="using-rstudio-on-anvil.html"><a href="using-rstudio-on-anvil.html#objectives"><i class="fa fa-check"></i><b>12.1.1</b> Objectives</a></li>
+<li class="chapter" data-level="12.1.2" data-path="using-rstudio-on-anvil.html"><a href="using-rstudio-on-anvil.html#slides"><i class="fa fa-check"></i><b>12.1.2</b> Slides</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="using-rstudio-on-anvil.html"><a href="using-rstudio-on-anvil.html#launching-rstudio"><i class="fa fa-check"></i><b>12.2</b> Launching RStudio</a></li>
+<li class="chapter" data-level="12.3" data-path="using-rstudio-on-anvil.html"><a href="using-rstudio-on-anvil.html#touring-rstudio"><i class="fa fa-check"></i><b>12.3</b> Touring RStudio</a></li>
+<li class="chapter" data-level="12.4" data-path="using-rstudio-on-anvil.html"><a href="using-rstudio-on-anvil.html#pausing-rstudio"><i class="fa fa-check"></i><b>12.4</b> Pausing RStudio</a></li>
+</ul></li>
+<li class="part"><span><b>Data Exploration</b></span></li>
+<li class="chapter" data-level="13" data-path="exploring-soil-testing-data-with-r.html"><a href="exploring-soil-testing-data-with-r.html"><i class="fa fa-check"></i><b>13</b> Exploring Soil Testing Data With R</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="exploring-soil-testing-data-with-r.html"><a href="exploring-soil-testing-data-with-r.html#before-you-start"><i class="fa fa-check"></i><b>13.1</b> Before You Start</a></li>
+<li class="chapter" data-level="13.2" data-path="exploring-soil-testing-data-with-r.html"><a href="exploring-soil-testing-data-with-r.html#objectives-1"><i class="fa fa-check"></i><b>13.2</b> Objectives</a></li>
+<li class="chapter" data-level="13.3" data-path="exploring-soil-testing-data-with-r.html"><a href="exploring-soil-testing-data-with-r.html#part-1.-data-import"><i class="fa fa-check"></i><b>13.3</b> Part 1. Data Import</a></li>
+<li class="chapter" data-level="13.4" data-path="exploring-soil-testing-data-with-r.html"><a href="exploring-soil-testing-data-with-r.html#part-2.-data-summarization"><i class="fa fa-check"></i><b>13.4</b> Part 2. Data Summarization</a></li>
+<li class="chapter" data-level="13.5" data-path="exploring-soil-testing-data-with-r.html"><a href="exploring-soil-testing-data-with-r.html#part-3.-data-visualization"><i class="fa fa-check"></i><b>13.5</b> Part 3. Data Visualization</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
+<li class="chapter" data-level="14" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>14</b> References</a></li>
+<li class="divider"></li>
+<p style="text-align:center;"> <a href="https://github.com/jhudsl/OTTR_Template" target="blank" > This content was published with</a> <a href="https://bookdown.org/" target="blank"> bookdown by: </a> </p>
+<p style="text-align:center;"> <a href="https://hutchdatascience.org/"> The Fred Hutch Data Science Lab </a></p>
+<a href="https://hutchdatascience.org/" target="_blank"><img src="https://raw.githubusercontent.com/jhudsl/OTTR_Template/main/style-sets/fhdasl/copy_to_assets/big-dasl-stacked.png" style="width: 80%; padding-left: 34px; padding-top: 8px;"</a>
+<p style="text-align:center; font-size: 12px;"> <a href="https://github.com/rstudio4edu/rstudio4edu-book/"> Style adapted from: rstudio4edu-book </a> <a href ="https://creativecommons.org/licenses/by/2.0/"> (CC-BY 2.0) </a></p>
+<p style="padding-left: 40px;"><div class="trapezoid" style = "padding-left: 40px;"><span><a href="https://docs.google.com/forms/d/e/1FAIpQLScrDVb_utm55pmb_SHx-RgELTEbCCWdLea0T3IzS0Oj00GE4w/viewform?usp=pp_url&entry.1565230805=BioDIGS+in+the+Classroom:+Exploring+Soil+Data"> Click here to provide feedback</a> <img src="assets/itcr_arrow.png" style=" width: 10%" ></span></div></p>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">BioDIGS in the Classroom: Exploring Soil Data</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<head>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=10.0,initial-scale=1.0">
+  <!--script src="https://kit.fontawesome.com/6a26f47516.js"></script-->
+  <!--<script src="assets/hideOutput.js"></script>-->
+</head>
+        
+
+
+<div class="hero-image-container"> 
+  <img class= "hero-image" src="assets/AnVIL_style/dasl_thin_main_image.png">
+</div>
+<div id="exploring-soil-testing-data-with-r" class="section level1 hasAnchor" number="13">
+<h1><span class="header-section-number">Chapter 13</span> Exploring Soil Testing Data With R<a href="exploring-soil-testing-data-with-r.html#exploring-soil-testing-data-with-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In this activity, you’ll have a chance to become familiar with the BioDIGS soil testing data. This dataset includes information on the inorganic components of each soil sample, particularly metal concentrations. Human activity can increase the concentration of inorganic compounds in the soil. When cars drive on roads, compounds from the exhaust, oil, and other fluids might settle onto the roads and be washed into the soil. When we put salt on roads, parking lots, and sidewalks, the salts themselves will eventually be washed away and enter the ecosystem through both water and soil. Chemicals from factories and other businesses also leech into our environment. All of this means the concentration of heavy metals and other chemicals will vary among the soil samples collected for the BioDIGS project.</p>
+<div id="before-you-start" class="section level2 hasAnchor" number="13.1">
+<h2><span class="header-section-number">13.1</span> Before You Start<a href="exploring-soil-testing-data-with-r.html#before-you-start" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>If you do not already have a Google account that you would like to use for accessing Terra, <a href="https://accounts.google.com/SignUp">create one now</a>.</p>
+<p>If you would like to create a Google account that is associated with your non-Gmail, institutional email address, follow <a href="https://support.terra.bio/hc/en-us/articles/360029186611">these instructions</a>.</p>
+</div>
+<div id="objectives-1" class="section level2 hasAnchor" number="13.2">
+<h2><span class="header-section-number">13.2</span> Objectives<a href="exploring-soil-testing-data-with-r.html#objectives-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This activity will teach you how to use the AnVIL platform to:</p>
+<ol style="list-style-type: decimal">
+<li>Import data into RStudio</li>
+<li>Examine a csv file that contains the soil testing data from the BioDIGS project</li>
+<li>Calculate summary statistics for variables in the soil testing data</li>
+<li>Create and interpret histograms and boxplots for variables in the soil testing data</li>
+</ol>
+</div>
+<div id="part-1.-data-import" class="section level2 hasAnchor" number="13.3">
+<h2><span class="header-section-number">13.3</span> Part 1. Data Import<a href="exploring-soil-testing-data-with-r.html#part-1.-data-import" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We will use the <code>BioDIGS</code> package to retrieve the data. We first need to install the package from where it is stored on GitHub.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="exploring-soil-testing-data-with-r.html#cb4-1" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;fhdsl/BioDIGSData&quot;</span>)</span></code></pre></div>
+<p>Once you’ve installed the package, we can load the library and assign the soil testing data to an <em>object</em>. This command follows the code structure:</p>
+<p>dataset_object_name &lt;- stored_BioDIGS_dataset</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="exploring-soil-testing-data-with-r.html#cb5-1" tabindex="-1"></a><span class="fu">library</span>(BioDIGSData)</span>
+<span id="cb5-2"><a href="exploring-soil-testing-data-with-r.html#cb5-2" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="exploring-soil-testing-data-with-r.html#cb5-3" tabindex="-1"></a>soil.values <span class="ot">&lt;-</span> <span class="fu">BioDIGS_soil_data</span>()</span></code></pre></div>
+<p>It <em>seems</em> like the dataset loaded, but it’s always a good idea to verify. There are many ways to check, but the easiest approach (if you’re using RStudio) is to look at the Environment tab on the upper right-hand side of the screen. You should now have an object called <code>soil.values</code> that includes some number of observations for 28 variables. The <em>observations</em> refer to the number of rows in the dataset, while the <em>variables</em> tell you the number of columns. As long as neither the observations or variables are 0, you can be confident that your dataset loaded.</p>
+<p>Let’s take a quick look at the dataset. We can do this by clicking on soil.values object in the Environment tab. (Note: this is equivalent to typing <code>View(soil.values)</code> in the R console.)</p>
+<p><img src="resources/images/08-environment.png" title="If the dataset loaded, you will see an object with non-zero observations and variables in the Environment tab" alt="If the dataset loaded, you will see an object with non-zero observations and variables in the Environment tab" style="display: block; margin: auto;" /></p>
+<p>This will open a new window for us to scroll through the dataset.</p>
+<p><img src="resources/images/08-scrolling_through_dataset.png" title="You can click on the object in the Environment tab to open a new window that allows you to scroll through the loaded dataset" alt="You can click on the object in the Environment tab to open a new window that allows you to scroll through the loaded dataset" style="display: block; margin: auto;" /></p>
+<p>Well, the data definitely loaded, but those column names aren’t immediately understandable. What could <strong>As_EPA3051</strong> possibly mean? In addition to the dataset, we need to load the <em>data dictionary</em> as well.</p>
+<div class="dictionary">
+<p><strong>Data dictionary:</strong> a file containing the names, definitions, and attributes about data in a database or dataset.</p>
+</div>
+<p>In this case, the data dictionary can help us make sense of what sort of values each column represents. The data dictionary for the BioDIGS soil testing data is available in the R package (see code below), but we have also reproduced it here.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="exploring-soil-testing-data-with-r.html#cb6-1" tabindex="-1"></a>?<span class="fu">BioDIGS_soil_data</span>()</span></code></pre></div>
+<div class="dictionary">
+<ul>
+<li><strong>site_id</strong> Unique letter and number site name</li>
+<li><strong>full_name</strong> Full site name</li>
+<li><strong>As_EPA3051</strong> Arsenic (mg/kg), EPA Method 3051A. Quantities &lt; 3.0 are not detectable.</li>
+<li><strong>Cd_EPA3051</strong> Cadmium (mg/kg), EPA Method 3051A. Quantities &lt; 0.2 are not detectable.</li>
+<li><strong>Cr_EPA3051</strong> Chromium (mg/kg), EPA Method 3051A</li>
+<li><strong>Cu_EPA3051</strong> Copper (mg/kg), EPA Method 3051A</li>
+<li><strong>Ni_EPA3051</strong> Nickel (mg/kg), EPA Method 3051A</li>
+<li><strong>Pb_EPA3051</strong> Lead (mg/kg), EPA Method 3051A</li>
+<li><strong>Zn_EPA3051</strong> Zinc (mg/kg), EPA Method 3051A</li>
+<li><strong>water_pH</strong></li>
+<li><strong>A-E_Buffer_pH</strong></li>
+<li><strong>OM_by_LOI_pct</strong> Organic Matter by Loss on Ignition</li>
+<li><strong>P_Mehlich3</strong> Phosphorus (mg/kg), using the Mehlich 3 soil test extractant</li>
+<li><strong>K_Mehlich3 Potassium</strong> (mg/kg), using the Mehlich 3 soil test extractant</li>
+<li><strong>Ca_Mehlich3</strong> Calcium (mg/kg), using the Mehlich 3 soil test extractant</li>
+<li><strong>Mg_Mehlich3</strong> Magnesium (mg/kg), using the Mehlich 3 soil test extractant</li>
+<li><strong>Mn_Mehlich3</strong> Manganese (mg/kg), using the Mehlich 3 soil test extractant</li>
+<li><strong>Zn_Mehlich3</strong> Zinc (mg/kg), using the Mehlich 3 soil test extractant</li>
+<li><strong>Cu_Mehlich3</strong> Copper (mg/kg), using the Mehlich 3 soil test extractant</li>
+<li><strong>Fe_Mehlich3</strong> Iron (mg/kg), using the Mehlich 3 soil test extractant</li>
+<li><strong>B_Mehlich3</strong> Boron (mg/kg), using the Mehlich 3 soil test extractant</li>
+<li><strong>S_Mehlich3</strong> Sulfur (mg/kg), using the Mehlich 3 soil test extractant</li>
+<li><strong>Na_Mehlich3</strong> Sodium (mg/kg), using the Mehlich 3 soil test extractant</li>
+<li><strong>Al_Mehlich3</strong> Aluminum (mg/kg), using the Mehlich 3 soil test extractant</li>
+<li><strong>Est_CEC</strong> Cation Exchange Capacity (meq/100g) at pH 7.0 (CEC)</li>
+<li><strong>Base_Sat_pct</strong> Base saturation (BS). This represents the percentage of CEC occupied by bases (Ca2+, Mg2+, K+, and Na+). The %BS increases with increasing soil pH. The availability of Ca2+, Mg2+, and K+ increases with increasing %BS.</li>
+<li><strong>P_Sat_ratio</strong> Phosphorus saturation ratio. This is the ratio between the amount of phosphorus present in the soil and the total capacity of that soil to retain phosphorus. The ability of phosphorus to be bound in the soil is primary a function of iron (Fe) and aluminum (Al) content in that soil.</li>
+</ul>
+</div>
+<p>Using the data dictionary, we find that the values in column <code>As_EPA3051</code> give us the arsenic concentration in mg/kg of each soil sample, as determined by EPA Method 3051A. While arsenic can occur naturally in soils, higher levels suggest the soil may have been contaminated by mining, hazardous waste, or pesticide application. Arsenic is toxic to humans.</p>
+<p>We can also look at just the names of all the columns using the R console using the <code>colnames()</code> command.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="exploring-soil-testing-data-with-r.html#cb7-1" tabindex="-1"></a><span class="fu">colnames</span>(soil.values)</span></code></pre></div>
+<pre><code>##  [1] &quot;site_id&quot;       &quot;site_name&quot;     &quot;type&quot;          &quot;As_EPA3051&quot;   
+##  [5] &quot;Cd_EPA3051&quot;    &quot;Cr_EPA3051&quot;    &quot;Cu_EPA3051&quot;    &quot;Ni_EPA3051&quot;   
+##  [9] &quot;Pb_EPA3051&quot;    &quot;Zn_EPA3051&quot;    &quot;water_pH&quot;      &quot;OM_by_LOI_pct&quot;
+## [13] &quot;P_Mehlich3&quot;    &quot;K_Mehlich3&quot;    &quot;Ca_Mehlich3&quot;   &quot;Mg_Mehlich3&quot;  
+## [17] &quot;Mn_Mehlich3&quot;   &quot;Zn_Mehlich3&quot;   &quot;Cu_Mehlich3&quot;   &quot;Fe_Mehlich3&quot;  
+## [21] &quot;B_Mehlich3&quot;    &quot;S_Mehlich3&quot;    &quot;Na_Mehlich3&quot;   &quot;Al_Mehlich3&quot;  
+## [25] &quot;Est_CEC&quot;       &quot;Base_Sat_pct&quot;  &quot;P_Sat_ratio&quot;   &quot;region&quot;</code></pre>
+<p>Most of the column names are found in the data dictionary, but the very last column (“region”) isn’t. How peculiar! Let’s look at what sort of values this particular column contains. The tab with the table of the <code>soil.views</code> object should still be open in the upper left pane of the RStudio window. If not, you can open it again by clicking on <code>soils.view</code> in the Environment pane, or by using the <code>View()</code> command.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="exploring-soil-testing-data-with-r.html#cb9-1" tabindex="-1"></a><span class="fu">View</span>(soil.values)</span></code></pre></div>
+<p><img src="resources/images/08-soil_values_object.png" title="Switch to the soil.values tab to look at what values are in the region column" alt="Switch to the soil.values tab to look at what values are in the region column" style="display: block; margin: auto;" /></p>
+<p>If you scroll to the end of the table, we can see that “region” seems to refer to the city or area where the samples were collected. For example, the first 24 samples all come from Baltimore City.</p>
+<p><img src="resources/images/08-region.png" title="We can see the first samples in the dataset were collected in Baltimore City" alt="We can see the first samples in the dataset were collected in Baltimore City" style="display: block; margin: auto;" /></p>
+<p>You may notice that some cells in the <code>soil.values</code> table contain <em>NA</em>. This just means that the soil testing data for that sample isn’t available yet. We’ll take care of those values in the next part.</p>
+<div class="reflection">
+<p>QUESTIONS:</p>
+<ol style="list-style-type: decimal">
+<li><p>How many observations are in the soil testing values dataset that you loaded? What do each of these observations refer to?</p></li>
+<li><p>What data is found in the column labeled “Fe_Mehlich3”? Why would we be interested how much of this is in the soil? (You may have to search the internet for this answer.)</p></li>
+</ol>
+</div>
+</div>
+<div id="part-2.-data-summarization" class="section level2 hasAnchor" number="13.4">
+<h2><span class="header-section-number">13.4</span> Part 2. Data Summarization<a href="exploring-soil-testing-data-with-r.html#part-2.-data-summarization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now that we have the dataset loaded, let’s explore the data in more depth.</p>
+<p>First, we should remove those samples that don’t have soil testing data yet. We <em>could</em> keep them in the dataset, but removing them at this stage will make the analysis a little cleaner. In this case, as we know the reason the data are missing (and that reason will not skew our analysis), we can safely remove these samples. This will not be the case for every data analysis.</p>
+<p>We can remove the unanalyzed samples using the <code>drop_na()</code> function from the <code>tidyr</code> package. This function removes any rows from a table that contains <em>NA</em> for a particular column. This command follows the code structure:</p>
+<p>dataset_new_name &lt;- dataset %&gt;% drop_na(column_name)</p>
+<p>The `%&gt;% is called a pipe and it tells R that the commands after it should all be applied to the object in front of it. (In this case, we can filter out all samples missing a value for “As_EPA3051” as a proxy for samples without soil testing data.)</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="exploring-soil-testing-data-with-r.html#cb10-1" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb10-2"><a href="exploring-soil-testing-data-with-r.html#cb10-2" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="exploring-soil-testing-data-with-r.html#cb10-3" tabindex="-1"></a>soil.values.clean <span class="ot">&lt;-</span> soil.values <span class="sc">%&gt;%</span> <span class="fu">drop_na</span>(As_EPA3051)</span></code></pre></div>
+<p>Great! Now let’s calculate some basic statistics. For example, we might want to know what the mean (average) lead concentration is for each soil sample. According to the data dictionary, the values for lead concentration are in the column labeled “Pb_EPA3051”. We can use a combination of two functions: <code>pull()</code> and <code>mean()</code>.<code>pull()</code> lets you extract a column from your table for statistical analysis, while <code>mean()</code> calculates the average value for the extracted column.</p>
+<p>This command follows the code structure:</p>
+<p>OBJECT %&gt;% pull(column_name) %&gt;% mean()</p>
+<p><code>pull()</code> is a command from the <code>tidyverse</code> package, so we’ll need to load that library before our command.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="exploring-soil-testing-data-with-r.html#cb11-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb11-2"><a href="exploring-soil-testing-data-with-r.html#cb11-2" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="exploring-soil-testing-data-with-r.html#cb11-3" tabindex="-1"></a>soil.values.clean <span class="sc">%&gt;%</span> <span class="fu">pull</span>(As_EPA3051) <span class="sc">%&gt;%</span> <span class="fu">mean</span>()</span></code></pre></div>
+<pre><code>## [1] 5.10875</code></pre>
+<p>We can run similar commands to calculate the standard deviation, minimum, and maximum for the soil arsenic values.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="exploring-soil-testing-data-with-r.html#cb13-1" tabindex="-1"></a>soil.values.clean <span class="sc">%&gt;%</span> <span class="fu">pull</span>(As_EPA3051) <span class="sc">%&gt;%</span> <span class="fu">sd</span>()</span></code></pre></div>
+<pre><code>## [1] 5.606926</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="exploring-soil-testing-data-with-r.html#cb15-1" tabindex="-1"></a>soil.values.clean <span class="sc">%&gt;%</span> <span class="fu">pull</span>(As_EPA3051) <span class="sc">%&gt;%</span> <span class="fu">min</span>()</span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="exploring-soil-testing-data-with-r.html#cb17-1" tabindex="-1"></a>soil.values.clean <span class="sc">%&gt;%</span> <span class="fu">pull</span>(As_EPA3051) <span class="sc">%&gt;%</span> <span class="fu">max</span>()</span></code></pre></div>
+<pre><code>## [1] 27.3</code></pre>
+<p>As you can see, the standard deviation of the arsenic concentrations is listed first, then the minimum concentration, and finally the maximum concentration.</p>
+<p>The soil testing dataset contains samples from multiple geographic regions, so maybe it’s more meaningful to find out what the average arsenic values are for each region. We have to do a little bit of clever coding trickery for this using the <code>group_by</code> and <code>summarize</code> functions. First, we tell R to split our dataset up by a particular column (in this case, region) using the <code>group_by</code> function, then we tell R to summarize the mean arsenic concentration for each group. Because there are several different functions with the name <code>summarize</code> in R, we have to specify that we want to use <code>summarize</code> from the <code>dplyr</code> package. This command follows the code structure:</p>
+<p>dataset %&gt;%
+group_by(column_name) %&gt;%
+dplyr::summarize(Mean = mean(column_name))</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="exploring-soil-testing-data-with-r.html#cb19-1" tabindex="-1"></a>soil.values.clean <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="exploring-soil-testing-data-with-r.html#cb19-2" tabindex="-1"></a>    <span class="fu">group_by</span>(region) <span class="sc">%&gt;%</span></span>
+<span id="cb19-3"><a href="exploring-soil-testing-data-with-r.html#cb19-3" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">summarize</span>(<span class="at">Mean =</span> <span class="fu">mean</span>(As_EPA3051))</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 2
+##   region             Mean
+##   &lt;chr&gt;             &lt;dbl&gt;
+## 1 Baltimore City     5.56
+## 2 Montgomery County  4.66</code></pre>
+<p>Now we know that the mean arsenic concentration might be different for each region, and appears higher for the Baltimore City samples than the Montgomery County samples.</p>
+<div class="reflection">
+<p>QUESTIONS:</p>
+<ol start="3" style="list-style-type: decimal">
+<li><p>What is the mean iron concentration for samples in this dataset? What about the standard deviation, minimum value, and maximum value?</p></li>
+<li><p>Calculate the mean iron concentration by region. Which region has the highest mean iron concentration? What about the lowest?</p></li>
+</ol>
+</div>
+</div>
+<div id="part-3.-data-visualization" class="section level2 hasAnchor" number="13.5">
+<h2><span class="header-section-number">13.5</span> Part 3. Data Visualization<a href="exploring-soil-testing-data-with-r.html#part-3.-data-visualization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Often, it can be easier to immediately interpret data displayed as a plot than as a list of values. For example, we can more easily understand how the arsenic concentration of the soil samples are distributed if we create histograms compared to looking at point values like mean, standard deviation, minimum, and maximum.</p>
+<p>One way to make histograms in R is to use the <code>hist()</code> function. We can again use the <code>pull()</code> command and pipes (<code>%&gt;%</code>) to choose the column we want from the <code>soil.values.clean</code> dataset and make a histogram of them. Remember, this command follows the code structure:</p>
+<p>dataset %&gt;%
+pull(column_name) %&gt;%
+hist(main = chart_title, xlab = x_axis_title)</p>
+<p>In this case, we do <em>not</em> have to use the <code>dplyr::summarize</code> command before <code>hist()</code> because there’s only one function called <code>hist()</code> in the packages we’re using.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="exploring-soil-testing-data-with-r.html#cb21-1" tabindex="-1"></a>soil.values.clean <span class="sc">%&gt;%</span> </span>
+<span id="cb21-2"><a href="exploring-soil-testing-data-with-r.html#cb21-2" tabindex="-1"></a>    <span class="fu">pull</span>(As_EPA3051) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-3"><a href="exploring-soil-testing-data-with-r.html#cb21-3" tabindex="-1"></a>    <span class="fu">hist</span>(<span class="at">main =</span> <span class="st">&#39;Histogram of Arsenic Concentration&#39;</span>, </span>
+<span id="cb21-4"><a href="exploring-soil-testing-data-with-r.html#cb21-4" tabindex="-1"></a>         <span class="at">xlab =</span><span class="st">&#39;Concentration in mg/kg&#39;</span> )</span></code></pre></div>
+<p><img src="resources/images/09-soil_exploration_module_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>We can see that almost all the soil samples had very low concentrations of arsenic (which is good news for the soil health!). In fact, many of them had arsenic concentrations close to 0, and only one sampling location appears to have high levels of arsenic.</p>
+<p>We might also want to graphically compare arsenic concentrations among the geographic regions in our dataset. We can do this by creating boxplots. Boxplots are particularly useful when comparing the mean, variation, and distributions among multiple groups. In R, one way to create a boxplot is using the <code>boxplot()</code> function. We don’t need to use pipes for this command, but instead will specify what columns we want to use from the dataset inside the <code>boxplot()</code> function itself.</p>
+<p>This command follows the code structure:</p>
+<p>boxplot(arsenic_concentration ~ grouping_variable,
+data = dataset,
+main = “Title of Graph”,
+xlab = “x_axis_title”,
+ylab = “y_axis_title”)</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="exploring-soil-testing-data-with-r.html#cb22-1" tabindex="-1"></a><span class="fu">boxplot</span>(As_EPA3051 <span class="sc">~</span> region, <span class="at">data =</span> soil.values.clean,</span>
+<span id="cb22-2"><a href="exploring-soil-testing-data-with-r.html#cb22-2" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Arsenic Concentration by Geographic Region&quot;</span>,</span>
+<span id="cb22-3"><a href="exploring-soil-testing-data-with-r.html#cb22-3" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;Region&quot;</span>,</span>
+<span id="cb22-4"><a href="exploring-soil-testing-data-with-r.html#cb22-4" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">&quot;Arsenic Concentration in mg/kg&quot;</span>)</span></code></pre></div>
+<p><img src="resources/images/09-soil_exploration_module_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p>By using a boxplot, we can quickly see that, while one sampling site within Baltimore City has a very high concentration of arsenic in the soil, in general there isn’t a difference in arsenic content between Baltimore City and Montgomery County.</p>
+<div class="reflection">
+<p>QUESTIONS:</p>
+<ol start="5" style="list-style-type: decimal">
+<li><p>Create a histogram for <em>iron</em> concentration, as well as a boxplot comparing iron concentration by region. Is the iron concentration similar among regions? Are there any outlier sites with unusually high or low iron concentrations?</p></li>
+<li><p>Create a histogram for <em>lead</em> concentration, as well as a boxplot comparing lead concentration by region. Is the lead concentration similar among regions? Are there any outlier sites with unusually high or low lead concentrations?</p></li>
+<li><p>Look at the maps for <a href="https://biodigs.org/#iron_map">iron</a> and <a href="https://biodigs.org/#lead_map">lead</a> on the BioDIGS website. Do the boxplots you created make sense, given what you see on these maps? Why or why not?</p></li>
+</ol>
+</div>
+
+</div>
+</div>
+<hr>
+<center> 
+  <div class="footer">
+      All illustrations <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY. </a>
+      <br>
+      All other materials <a href= "https://creativecommons.org/licenses/by/4.0/"> CC-BY </a> unless noted otherwise.
+  </div>
+</center>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="using-rstudio-on-anvil.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="about-the-authors.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
