@@ -18,8 +18,8 @@ If you would like to create a Google account that is associated with your non-Gm
 
 This activity will teach you how to use the AnVIL platform to:
 
-1. Import data into RStudio
-1. Examine a csv file that contains the soil testing data from the BioDIGS project
+1. Open data from an R package
+1. Examine objects in R
 1. Calculate summary statistics for variables in the soil testing data
 1. Create and interpret histograms and boxplots for variables in the soil testing data
 
@@ -48,6 +48,11 @@ soil.values <- BioDIGS_soil_data()
 ```
 
 It _seems_ like the dataset loaded, but it's always a good idea to verify. There are many ways to check, but the easiest approach (if you're using RStudio) is to look at the Environment tab on the upper right-hand side of the screen. You should now have an object called `soil.values` that includes some number of observations for 28 variables. The _observations_ refer to the number of rows in the dataset, while the _variables_ tell you the number of columns. As long as neither the observations or variables are 0, you can be confident that your dataset loaded.
+
+If the `BioDIGSData` package won't install, you can also retrieve the data from where it is stored on GitHub, using the following commands:
+
+
+
 
 Let's take a quick look at the dataset. We can do this by clicking on soil.values object in the Environment tab. (Note: this is equivalent to typing `View(soil.values)` in the R console.)
 
@@ -105,7 +110,9 @@ In this case, the data dictionary can help us make sense of what sort of values 
 
 :::
 
-Using the data dictionary, we find that the values in column `As_EPA3051` give us the arsenic concentration in mg/kg of each soil sample, as determined by EPA Method 3051A. While arsenic can occur naturally in soils, higher levels suggest the soil may have been contaminated by mining, hazardous waste, or pesticide application. Arsenic is toxic to humans.
+Using the data dictionary, we find that the values in column `As_EPA3051` give us the arsenic concentration in mg/kg of each soil sample, as determined by [EPA Method 3051A](https://www.epa.gov/sites/default/files/2015-12/documents/3051a.pdf). This method uses a combination of heat and acid to extract specific elements (like arsenic, cadmium, chromium, copper, nickel, lead, and zinc) from soil samples. 
+
+While arsenic can occur naturally in soils, higher levels suggest the soil may have been contaminated by mining, hazardous waste, or pesticide application. Arsenic is toxic to humans.
 
 We can also look at just the names of all the columns using the R console using the `colnames()` command.
 
@@ -169,7 +176,7 @@ library(tidyr)
 soil.values.clean <- soil.values %>% drop_na(As_EPA3051)
 ```
 
-Great! Now let's calculate some basic statistics. For example, we might want to know what the mean (average) lead concentration is for each soil sample. According to the data dictionary, the values for lead concentration are in the column labeled "Pb_EPA3051". We can use a combination of two functions: `pull()` and `mean()`.`pull()` lets you extract a column from your table for statistical analysis, while `mean()` calculates the average value for the extracted column.
+Great! Now let's calculate some basic statistics. For example, we might want to know what the mean (average) arsenic concentration is for each soil sample. According to the data dictionary, the values for arsenic concentration are in the column labeled "As_EPA3051". We can use a combination of two functions: `pull()` and `mean()`.`pull()` lets you extract a column from your table for statistical analysis, while `mean()` calculates the average value for the extracted column.
 
 This command follows the code structure:
 
@@ -226,7 +233,7 @@ dataset %>%
 ``` r
 soil.values.clean %>%
     group_by(region) %>%
-    dplyr::summarize(Mean = mean(As_EPA3051))
+    summarize(Mean = mean(As_EPA3051))
 ```
 
 ```
@@ -244,7 +251,45 @@ QUESTIONS:
 
 3. What is the mean iron concentration for samples in this dataset? What about the standard deviation, minimum value, and maximum value?
 
-2. Calculate the mean iron concentration by region. Which region has the highest mean iron concentration? What about the lowest?
+4. Calculate the mean iron concentration by region. Which region has the highest mean iron concentration? What about the lowest?
+
+:::
+
+Given that there are 25 different soil composition measures in the `soil.values` dataset, it would be time consuming to run our code from above for each individual measure. We can add an `sapply` command to tell R to calculate statistics for all the measures at once.
+
+First, let's make a vector that contains the names of all the columns we want to calculate summary statistics for.
+
+
+``` r
+columns_to_include <- c("As_EPA3051", "Cd_EPA3051", "Cr_EPA3051", "Cu_EPA3051", "Ni_EPA3051", "Pb_EPA3051", "Zn_EPA3051", "water_pH", "OM_by_LOI_pct", "P_Mehlich3", "K_Mehlich3", "Ca_Mehlich3", "Mg_Mehlich3", "Mn_Mehlich3", "Zn_Mehlich3", "Cu_Mehlich3", "Fe_Mehlich3", "B_Mehlich3", "S_Mehlich3", "Na_Mehlich3", "Al_Mehlich3", "Est_CEC", "Base_Sat_pct", "P_Sat_ratio")
+```
+
+
+``` r
+soil.values.clean %>%
+    group_by(region) %>%
+    summarize(across(all_of(columns_to_include), mean))
+```
+
+```
+## # A tibble: 2 × 25
+##   region       As_EPA3051 Cd_EPA3051 Cr_EPA3051 Cu_EPA3051 Ni_EPA3051 Pb_EPA3051
+##   <chr>             <dbl>      <dbl>      <dbl>      <dbl>      <dbl>      <dbl>
+## 1 Baltimore C…       5.56      0.359       34.5       35.0       17.4       67.2
+## 2 Montgomery …       4.66      0.402       29.9       24.3       23.4       38.7
+## # ℹ 18 more variables: Zn_EPA3051 <dbl>, water_pH <dbl>, OM_by_LOI_pct <dbl>,
+## #   P_Mehlich3 <dbl>, K_Mehlich3 <dbl>, Ca_Mehlich3 <dbl>, Mg_Mehlich3 <dbl>,
+## #   Mn_Mehlich3 <dbl>, Zn_Mehlich3 <dbl>, Cu_Mehlich3 <dbl>, Fe_Mehlich3 <dbl>,
+## #   B_Mehlich3 <dbl>, S_Mehlich3 <dbl>, Na_Mehlich3 <dbl>, Al_Mehlich3 <dbl>,
+## #   Est_CEC <dbl>, Base_Sat_pct <dbl>, P_Sat_ratio <dbl>
+```
+
+::: {.reflection}
+QUESTIONS:
+
+5. Which elements have a higher average value in Baltimore City compared to Montgomery County? Which elements have a higher average value in Montgomery County?
+
+6. Calculate the maximum values for all the elements. (HINT: change the function you call in the `summarize` statement.) What is the maximum concentration you see across all the elements, and in which region is it found?
 
 :::
 
@@ -268,7 +313,7 @@ soil.values.clean %>%
          xlab ='Concentration in mg/kg' )
 ```
 
-<img src="resources/images/09-soil_exploration_module_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+<img src="resources/images/09-soil_exploration_module_files/figure-html/unnamed-chunk-16-1.png" width="672" />
 
 We can see that almost all the soil samples had very low concentrations of arsenic (which is good news for the soil health!). In fact, many of them had arsenic concentrations close to 0, and only one sampling location appears to have high levels of arsenic. 
 
@@ -290,17 +335,17 @@ boxplot(As_EPA3051 ~ region, data = soil.values.clean,
         ylab = "Arsenic Concentration in mg/kg")
 ```
 
-<img src="resources/images/09-soil_exploration_module_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+<img src="resources/images/09-soil_exploration_module_files/figure-html/unnamed-chunk-17-1.png" width="672" />
 
 By using a boxplot, we can quickly see that, while one sampling site within Baltimore City has a very high concentration of arsenic in the soil, in general there isn't a difference in arsenic content between Baltimore City and Montgomery County.
 
 ::: {.reflection}
 QUESTIONS:
 
-5. Create a histogram for _iron_ concentration, as well as a boxplot comparing iron concentration by region. Is the iron concentration similar among regions? Are there any outlier sites with unusually high or low iron concentrations?
+7. Create a histogram for _iron_ concentration, as well as a boxplot comparing iron concentration by region. Is the iron concentration similar among regions? Are there any outlier sites with unusually high or low iron concentrations?
 
-6. Create a histogram for _lead_ concentration, as well as a boxplot comparing lead concentration by region. Is the lead concentration similar among regions? Are there any outlier sites with unusually high or low lead concentrations?
+8. Create a histogram for _lead_ concentration, as well as a boxplot comparing lead concentration by region. Is the lead concentration similar among regions? Are there any outlier sites with unusually high or low lead concentrations?
 
-7. Look at the maps for [iron](https://biodigs.org/#iron_map) and [lead](https://biodigs.org/#lead_map) on the BioDIGS website. Do the boxplots you created make sense, given what you see on these maps? Why or why not?
+9. Look at the maps for [iron](https://biodigs.org/#iron_map) and [lead](https://biodigs.org/#lead_map) on the BioDIGS website. Do the boxplots you created make sense, given what you see on these maps? Why or why not?
 
 :::

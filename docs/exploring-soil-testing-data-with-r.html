@@ -22,7 +22,7 @@
 
 
 
-<meta name="date" content="2024-08-05" />
+<meta name="date" content="2024-08-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -227,8 +227,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">13.2</span> Objectives<a href="exploring-soil-testing-data-with-r.html#objectives-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This activity will teach you how to use the AnVIL platform to:</p>
 <ol style="list-style-type: decimal">
-<li>Import data into RStudio</li>
-<li>Examine a csv file that contains the soil testing data from the BioDIGS project</li>
+<li>Open data from an R package</li>
+<li>Examine objects in R</li>
 <li>Calculate summary statistics for variables in the soil testing data</li>
 <li>Create and interpret histograms and boxplots for variables in the soil testing data</li>
 </ol>
@@ -243,6 +243,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb5-2"><a href="exploring-soil-testing-data-with-r.html#cb5-2" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="exploring-soil-testing-data-with-r.html#cb5-3" tabindex="-1"></a>soil.values <span class="ot">&lt;-</span> <span class="fu">BioDIGS_soil_data</span>()</span></code></pre></div>
 <p>It <em>seems</em> like the dataset loaded, but it’s always a good idea to verify. There are many ways to check, but the easiest approach (if you’re using RStudio) is to look at the Environment tab on the upper right-hand side of the screen. You should now have an object called <code>soil.values</code> that includes some number of observations for 28 variables. The <em>observations</em> refer to the number of rows in the dataset, while the <em>variables</em> tell you the number of columns. As long as neither the observations or variables are 0, you can be confident that your dataset loaded.</p>
+<p>If the <code>BioDIGSData</code> package won’t install, you can also retrieve the data from where it is stored on GitHub, using the following commands:</p>
 <p>Let’s take a quick look at the dataset. We can do this by clicking on soil.values object in the Environment tab. (Note: this is equivalent to typing <code>View(soil.values)</code> in the R console.)</p>
 <p><img src="resources/images/08-environment.png" title="If the dataset loaded, you will see an object with non-zero observations and variables in the Environment tab" alt="If the dataset loaded, you will see an object with non-zero observations and variables in the Environment tab" style="display: block; margin: auto;" /></p>
 <p>This will open a new window for us to scroll through the dataset.</p>
@@ -284,7 +285,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>P_Sat_ratio</strong> Phosphorus saturation ratio. This is the ratio between the amount of phosphorus present in the soil and the total capacity of that soil to retain phosphorus. The ability of phosphorus to be bound in the soil is primary a function of iron (Fe) and aluminum (Al) content in that soil.</li>
 </ul>
 </div>
-<p>Using the data dictionary, we find that the values in column <code>As_EPA3051</code> give us the arsenic concentration in mg/kg of each soil sample, as determined by EPA Method 3051A. While arsenic can occur naturally in soils, higher levels suggest the soil may have been contaminated by mining, hazardous waste, or pesticide application. Arsenic is toxic to humans.</p>
+<p>Using the data dictionary, we find that the values in column <code>As_EPA3051</code> give us the arsenic concentration in mg/kg of each soil sample, as determined by <a href="https://www.epa.gov/sites/default/files/2015-12/documents/3051a.pdf">EPA Method 3051A</a>. This method uses a combination of heat and acid to extract specific elements (like arsenic, cadmium, chromium, copper, nickel, lead, and zinc) from soil samples.</p>
+<p>While arsenic can occur naturally in soils, higher levels suggest the soil may have been contaminated by mining, hazardous waste, or pesticide application. Arsenic is toxic to humans.</p>
 <p>We can also look at just the names of all the columns using the R console using the <code>colnames()</code> command.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="exploring-soil-testing-data-with-r.html#cb7-1" tabindex="-1"></a><span class="fu">colnames</span>(soil.values)</span></code></pre></div>
 <pre><code>##  [1] &quot;site_id&quot;       &quot;site_name&quot;     &quot;type&quot;          &quot;As_EPA3051&quot;   
@@ -318,7 +320,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="exploring-soil-testing-data-with-r.html#cb10-1" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
 <span id="cb10-2"><a href="exploring-soil-testing-data-with-r.html#cb10-2" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="exploring-soil-testing-data-with-r.html#cb10-3" tabindex="-1"></a>soil.values.clean <span class="ot">&lt;-</span> soil.values <span class="sc">%&gt;%</span> <span class="fu">drop_na</span>(As_EPA3051)</span></code></pre></div>
-<p>Great! Now let’s calculate some basic statistics. For example, we might want to know what the mean (average) lead concentration is for each soil sample. According to the data dictionary, the values for lead concentration are in the column labeled “Pb_EPA3051”. We can use a combination of two functions: <code>pull()</code> and <code>mean()</code>.<code>pull()</code> lets you extract a column from your table for statistical analysis, while <code>mean()</code> calculates the average value for the extracted column.</p>
+<p>Great! Now let’s calculate some basic statistics. For example, we might want to know what the mean (average) arsenic concentration is for each soil sample. According to the data dictionary, the values for arsenic concentration are in the column labeled “As_EPA3051”. We can use a combination of two functions: <code>pull()</code> and <code>mean()</code>.<code>pull()</code> lets you extract a column from your table for statistical analysis, while <code>mean()</code> calculates the average value for the extracted column.</p>
 <p>This command follows the code structure:</p>
 <p>OBJECT %&gt;% pull(column_name) %&gt;% mean()</p>
 <p><code>pull()</code> is a command from the <code>tidyverse</code> package, so we’ll need to load that library before our command.</p>
@@ -340,7 +342,7 @@ group_by(column_name) %&gt;%
 dplyr::summarize(Mean = mean(column_name))</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="exploring-soil-testing-data-with-r.html#cb19-1" tabindex="-1"></a>soil.values.clean <span class="sc">%&gt;%</span></span>
 <span id="cb19-2"><a href="exploring-soil-testing-data-with-r.html#cb19-2" tabindex="-1"></a>    <span class="fu">group_by</span>(region) <span class="sc">%&gt;%</span></span>
-<span id="cb19-3"><a href="exploring-soil-testing-data-with-r.html#cb19-3" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">summarize</span>(<span class="at">Mean =</span> <span class="fu">mean</span>(As_EPA3051))</span></code></pre></div>
+<span id="cb19-3"><a href="exploring-soil-testing-data-with-r.html#cb19-3" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">Mean =</span> <span class="fu">mean</span>(As_EPA3051))</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 2
 ##   region             Mean
 ##   &lt;chr&gt;             &lt;dbl&gt;
@@ -354,6 +356,29 @@ dplyr::summarize(Mean = mean(column_name))</p>
 <li><p>Calculate the mean iron concentration by region. Which region has the highest mean iron concentration? What about the lowest?</p></li>
 </ol>
 </div>
+<p>Given that there are 25 different soil composition measures in the <code>soil.values</code> dataset, it would be time consuming to run our code from above for each individual measure. We can add an <code>sapply</code> command to tell R to calculate statistics for all the measures at once.</p>
+<p>First, let’s make a vector that contains the names of all the columns we want to calculate summary statistics for.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="exploring-soil-testing-data-with-r.html#cb21-1" tabindex="-1"></a>columns_to_include <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;As_EPA3051&quot;</span>, <span class="st">&quot;Cd_EPA3051&quot;</span>, <span class="st">&quot;Cr_EPA3051&quot;</span>, <span class="st">&quot;Cu_EPA3051&quot;</span>, <span class="st">&quot;Ni_EPA3051&quot;</span>, <span class="st">&quot;Pb_EPA3051&quot;</span>, <span class="st">&quot;Zn_EPA3051&quot;</span>, <span class="st">&quot;water_pH&quot;</span>, <span class="st">&quot;OM_by_LOI_pct&quot;</span>, <span class="st">&quot;P_Mehlich3&quot;</span>, <span class="st">&quot;K_Mehlich3&quot;</span>, <span class="st">&quot;Ca_Mehlich3&quot;</span>, <span class="st">&quot;Mg_Mehlich3&quot;</span>, <span class="st">&quot;Mn_Mehlich3&quot;</span>, <span class="st">&quot;Zn_Mehlich3&quot;</span>, <span class="st">&quot;Cu_Mehlich3&quot;</span>, <span class="st">&quot;Fe_Mehlich3&quot;</span>, <span class="st">&quot;B_Mehlich3&quot;</span>, <span class="st">&quot;S_Mehlich3&quot;</span>, <span class="st">&quot;Na_Mehlich3&quot;</span>, <span class="st">&quot;Al_Mehlich3&quot;</span>, <span class="st">&quot;Est_CEC&quot;</span>, <span class="st">&quot;Base_Sat_pct&quot;</span>, <span class="st">&quot;P_Sat_ratio&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="exploring-soil-testing-data-with-r.html#cb22-1" tabindex="-1"></a>soil.values.clean <span class="sc">%&gt;%</span></span>
+<span id="cb22-2"><a href="exploring-soil-testing-data-with-r.html#cb22-2" tabindex="-1"></a>    <span class="fu">group_by</span>(region) <span class="sc">%&gt;%</span></span>
+<span id="cb22-3"><a href="exploring-soil-testing-data-with-r.html#cb22-3" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="fu">all_of</span>(columns_to_include), mean))</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 25
+##   region       As_EPA3051 Cd_EPA3051 Cr_EPA3051 Cu_EPA3051 Ni_EPA3051 Pb_EPA3051
+##   &lt;chr&gt;             &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;
+## 1 Baltimore C…       5.56      0.359       34.5       35.0       17.4       67.2
+## 2 Montgomery …       4.66      0.402       29.9       24.3       23.4       38.7
+## # ℹ 18 more variables: Zn_EPA3051 &lt;dbl&gt;, water_pH &lt;dbl&gt;, OM_by_LOI_pct &lt;dbl&gt;,
+## #   P_Mehlich3 &lt;dbl&gt;, K_Mehlich3 &lt;dbl&gt;, Ca_Mehlich3 &lt;dbl&gt;, Mg_Mehlich3 &lt;dbl&gt;,
+## #   Mn_Mehlich3 &lt;dbl&gt;, Zn_Mehlich3 &lt;dbl&gt;, Cu_Mehlich3 &lt;dbl&gt;, Fe_Mehlich3 &lt;dbl&gt;,
+## #   B_Mehlich3 &lt;dbl&gt;, S_Mehlich3 &lt;dbl&gt;, Na_Mehlich3 &lt;dbl&gt;, Al_Mehlich3 &lt;dbl&gt;,
+## #   Est_CEC &lt;dbl&gt;, Base_Sat_pct &lt;dbl&gt;, P_Sat_ratio &lt;dbl&gt;</code></pre>
+<div class="reflection">
+<p>QUESTIONS:</p>
+<ol start="5" style="list-style-type: decimal">
+<li><p>Which elements have a higher average value in Baltimore City compared to Montgomery County? Which elements have a higher average value in Montgomery County?</p></li>
+<li><p>Calculate the maximum values for all the elements. (HINT: change the function you call in the <code>summarize</code> statement.) What is the maximum concentration you see across all the elements, and in which region is it found?</p></li>
+</ol>
+</div>
 </div>
 <div id="part-3.-data-visualization" class="section level2 hasAnchor" number="13.5">
 <h2><span class="header-section-number">13.5</span> Part 3. Data Visualization<a href="exploring-soil-testing-data-with-r.html#part-3.-data-visualization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -363,11 +388,11 @@ dplyr::summarize(Mean = mean(column_name))</p>
 pull(column_name) %&gt;%
 hist(main = chart_title, xlab = x_axis_title)</p>
 <p>In this case, we do <em>not</em> have to use the <code>dplyr::summarize</code> command before <code>hist()</code> because there’s only one function called <code>hist()</code> in the packages we’re using.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="exploring-soil-testing-data-with-r.html#cb21-1" tabindex="-1"></a>soil.values.clean <span class="sc">%&gt;%</span> </span>
-<span id="cb21-2"><a href="exploring-soil-testing-data-with-r.html#cb21-2" tabindex="-1"></a>    <span class="fu">pull</span>(As_EPA3051) <span class="sc">%&gt;%</span> </span>
-<span id="cb21-3"><a href="exploring-soil-testing-data-with-r.html#cb21-3" tabindex="-1"></a>    <span class="fu">hist</span>(<span class="at">main =</span> <span class="st">&#39;Histogram of Arsenic Concentration&#39;</span>, </span>
-<span id="cb21-4"><a href="exploring-soil-testing-data-with-r.html#cb21-4" tabindex="-1"></a>         <span class="at">xlab =</span><span class="st">&#39;Concentration in mg/kg&#39;</span> )</span></code></pre></div>
-<p><img src="resources/images/09-soil_exploration_module_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="exploring-soil-testing-data-with-r.html#cb24-1" tabindex="-1"></a>soil.values.clean <span class="sc">%&gt;%</span> </span>
+<span id="cb24-2"><a href="exploring-soil-testing-data-with-r.html#cb24-2" tabindex="-1"></a>    <span class="fu">pull</span>(As_EPA3051) <span class="sc">%&gt;%</span> </span>
+<span id="cb24-3"><a href="exploring-soil-testing-data-with-r.html#cb24-3" tabindex="-1"></a>    <span class="fu">hist</span>(<span class="at">main =</span> <span class="st">&#39;Histogram of Arsenic Concentration&#39;</span>, </span>
+<span id="cb24-4"><a href="exploring-soil-testing-data-with-r.html#cb24-4" tabindex="-1"></a>         <span class="at">xlab =</span><span class="st">&#39;Concentration in mg/kg&#39;</span> )</span></code></pre></div>
+<p><img src="resources/images/09-soil_exploration_module_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <p>We can see that almost all the soil samples had very low concentrations of arsenic (which is good news for the soil health!). In fact, many of them had arsenic concentrations close to 0, and only one sampling location appears to have high levels of arsenic.</p>
 <p>We might also want to graphically compare arsenic concentrations among the geographic regions in our dataset. We can do this by creating boxplots. Boxplots are particularly useful when comparing the mean, variation, and distributions among multiple groups. In R, one way to create a boxplot is using the <code>boxplot()</code> function. We don’t need to use pipes for this command, but instead will specify what columns we want to use from the dataset inside the <code>boxplot()</code> function itself.</p>
 <p>This command follows the code structure:</p>
@@ -376,15 +401,15 @@ data = dataset,
 main = “Title of Graph”,
 xlab = “x_axis_title”,
 ylab = “y_axis_title”)</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="exploring-soil-testing-data-with-r.html#cb22-1" tabindex="-1"></a><span class="fu">boxplot</span>(As_EPA3051 <span class="sc">~</span> region, <span class="at">data =</span> soil.values.clean,</span>
-<span id="cb22-2"><a href="exploring-soil-testing-data-with-r.html#cb22-2" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Arsenic Concentration by Geographic Region&quot;</span>,</span>
-<span id="cb22-3"><a href="exploring-soil-testing-data-with-r.html#cb22-3" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;Region&quot;</span>,</span>
-<span id="cb22-4"><a href="exploring-soil-testing-data-with-r.html#cb22-4" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">&quot;Arsenic Concentration in mg/kg&quot;</span>)</span></code></pre></div>
-<p><img src="resources/images/09-soil_exploration_module_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="exploring-soil-testing-data-with-r.html#cb25-1" tabindex="-1"></a><span class="fu">boxplot</span>(As_EPA3051 <span class="sc">~</span> region, <span class="at">data =</span> soil.values.clean,</span>
+<span id="cb25-2"><a href="exploring-soil-testing-data-with-r.html#cb25-2" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Arsenic Concentration by Geographic Region&quot;</span>,</span>
+<span id="cb25-3"><a href="exploring-soil-testing-data-with-r.html#cb25-3" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;Region&quot;</span>,</span>
+<span id="cb25-4"><a href="exploring-soil-testing-data-with-r.html#cb25-4" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">&quot;Arsenic Concentration in mg/kg&quot;</span>)</span></code></pre></div>
+<p><img src="resources/images/09-soil_exploration_module_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <p>By using a boxplot, we can quickly see that, while one sampling site within Baltimore City has a very high concentration of arsenic in the soil, in general there isn’t a difference in arsenic content between Baltimore City and Montgomery County.</p>
 <div class="reflection">
 <p>QUESTIONS:</p>
-<ol start="5" style="list-style-type: decimal">
+<ol start="7" style="list-style-type: decimal">
 <li><p>Create a histogram for <em>iron</em> concentration, as well as a boxplot comparing iron concentration by region. Is the iron concentration similar among regions? Are there any outlier sites with unusually high or low iron concentrations?</p></li>
 <li><p>Create a histogram for <em>lead</em> concentration, as well as a boxplot comparing lead concentration by region. Is the lead concentration similar among regions? Are there any outlier sites with unusually high or low lead concentrations?</p></li>
 <li><p>Look at the maps for <a href="https://biodigs.org/#iron_map">iron</a> and <a href="https://biodigs.org/#lead_map">lead</a> on the BioDIGS website. Do the boxplots you created make sense, given what you see on these maps? Why or why not?</p></li>
