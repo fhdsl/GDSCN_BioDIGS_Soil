@@ -1,5 +1,6 @@
 abiotic
 AGBT
+ahoffma
 al
 Annandale
 AnVIL
@@ -42,6 +43,7 @@ DISCOVERABLE
 doi
 dplyr
 dropdown
+ehumphri
 El
 enforceability
 et
@@ -52,6 +54,7 @@ faq
 FHDaSL
 Firstname
 FirstName
+fredhutch
 Funder
 GDSCN
 Generis
