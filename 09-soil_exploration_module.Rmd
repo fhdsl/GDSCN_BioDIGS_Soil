@@ -57,19 +57,10 @@ soil.values <- BioDIGS_soil_data()
 
 It _seems_ like the dataset loaded, but it's always a good idea to verify. There are many ways to check, but the easiest approach (if you're using RStudio) is to look at the Environment tab on the upper right-hand side of the screen. You should now have an object called `soil.values` that includes some number of observations for 28 variables. The _observations_ refer to the number of rows in the dataset, while the _variables_ tell you the number of columns. As long as neither the observations or variables are 0, you can be confident that your dataset loaded.
 
-If the `BioDIGSData` package won't install, you can also retrieve the data from where it is stored on GitHub, using the following commands:
-
-```{r, message = FALSE, eval=FALSE, warning = FALSE, echo = FALSE}
-
-library(readr)
-soil.values <- read_csv(file = "soil_testing_data.csv")
-```
-
-
-Let's take a quick look at the dataset. We can do this by clicking on soil.values object in the Environment tab. (Note: this is equivalent to typing `View(soil.values)` in the R console.)
 
 <img src="resources/images/08-environment.png" title="If the dataset loaded, you will see an object with non-zero observations and variables in the Environment tab" alt="If the dataset loaded, you will see an object with non-zero observations and variables in the Environment tab" style="display: block; margin: auto;" />
 
+Let's take a quick look at the dataset. We can do this by clicking on soil.values object in the Environment tab. (Note: this is equivalent to typing `View(soil.values)` in the R console.)
 
 This will open a new window for us to scroll through the dataset.
 
@@ -126,6 +117,15 @@ Using the data dictionary, we find that the values in column `As_EPA3051` give u
 
 While arsenic can occur naturally in soils, higher levels suggest the soil may have been contaminated by mining, hazardous waste, or pesticide application. Arsenic is toxic to humans.
 
+::: {.reflection}
+QUESTIONS:
+
+1. What data is found in the column labeled "Fe_Mehlich3"? Why would we be interested how much of this is in the soil? (You may have to search the internet for this answer.)
+
+2. What data is found in the column labeled "Base_Sat_pct"? What does this variable tell us about the soil?
+
+:::
+
 We can also look at just the names of all the columns using the R console using the `colnames()` command.
 
 ```{r, message = FALSE, warning = FALSE}
@@ -143,7 +143,7 @@ View(soil.values)
 <img src="resources/images/08-soil_values_object.png" title="Switch to the soil.values tab to look at what values are in the region column" alt="Switch to the soil.values tab to look at what values are in the region column" style="display: block; margin: auto;" />
 
 
-If you scroll to the end of the table, we can see that "region" seems to refer to the city or area where the samples were collected. For example, the first 24 samples all come from Baltimore City.
+If you scroll to the end of the table, we can see that "region" seems to refer to the city or area where the samples were collected. For example, the first 6 samples all come from Baltimore City.
 
 <img src="resources/images/08-region.png" title="We can see the first samples in the dataset were collected in Baltimore City" alt="We can see the first samples in the dataset were collected in Baltimore City" style="display: block; margin: auto;" />
 
@@ -153,9 +153,9 @@ You may notice that some cells in the `soil.values` table contain _NA_. This jus
 ::: {.reflection}
 QUESTIONS:
 
-1. How many observations are in the soil testing values dataset that you loaded? What do each of these observations refer to?
+3. How many observations are in the soil testing values dataset that you loaded? What do each of these observations refer to?
 
-2. What data is found in the column labeled "Fe_Mehlich3"? Why would we be interested how much of this is in the soil? (You may have to search the internet for this answer.)
+4. How many different regions are represented in the soil testing dataset? How many of them have soil testing data available?
 
 :::
 
@@ -178,7 +178,7 @@ library(tidyr)
 soil.values.clean <- soil.values %>% drop_na(As_EPA3051)
 ```
 
-Great! Now let's calculate some basic statistics. For example, we might want to know what the mean (average) arsenic concentration is for each soil sample. According to the data dictionary, the values for arsenic concentration are in the column labeled "As_EPA3051". We can use a combination of two functions: `pull()` and `mean()`.`pull()` lets you extract a column from your table for statistical analysis, while `mean()` calculates the average value for the extracted column.
+Great! Now let's calculate some basic statistics. For example, we might want to know what the mean (average) arsenic concentration is for all the soil samples. We can use a combination of two functions: `pull()` and `mean()`. `pull()` lets you extract a column from your table for statistical analysis, while `mean()` calculates the average value for the extracted column.
 
 This command follows the code structure:
 
@@ -193,7 +193,7 @@ library(tidyverse)
 soil.values.clean %>% pull(As_EPA3051) %>% mean()
 ```
 
-We can run similar commands to calculate the standard deviation, minimum, and maximum for the soil arsenic values.
+We can run similar commands to calculate the standard deviation (`sd`), minimum (`min`), and maximum (`max`) for the soil arsenic values.
 
 ```{r, message = FALSE, warning = FALSE}
 
@@ -201,38 +201,45 @@ soil.values.clean %>% pull(As_EPA3051) %>% sd()
 soil.values.clean %>% pull(As_EPA3051) %>% min()
 soil.values.clean %>% pull(As_EPA3051) %>% max()
 ```
-As you can see, the standard deviation of the arsenic concentrations is listed first, then the minimum concentration, and finally the maximum concentration.
 
-The soil testing dataset contains samples from multiple geographic regions, so maybe it's more meaningful to find out what the average arsenic values are for each region. We have to do a little bit of clever coding trickery for this using the `group_by` and `summarize` functions. First, we tell R to split our dataset up by a particular column (in this case, region) using the `group_by` function, then we tell R to summarize the mean arsenic concentration for each group. Because there are several different functions with the name `summarize` in R, we have to specify that we want to use `summarize` from the `dplyr` package. This command follows the code structure:
+The soil testing dataset contains samples from multiple geographic regions, so maybe it's more meaningful to find out what the average arsenic values are for each region. We have to do a little bit of clever coding trickery for this using the `group_by` and `summarize` functions. First, we tell R to split our dataset up by a particular column (in this case, region) using the `group_by` function, then we tell R to summarize the mean arsenic concentration for each group. 
+
+When using the `summarize` function, we tell R to make a new table (technically, a tibble in R) that contains two columns: the column used to group the data and the statistical measure we calculated for each group.
+
+This command follows the code structure:
 
 dataset %>%
     group_by(column_name) %>%
-    dplyr::summarize(Mean = mean(column_name))
+    summarize(new_statistical_measure = mean(column_name))
     
 ```{r, message = FALSE, warning = FALSE}
 
 soil.values.clean %>%
     group_by(region) %>%
-    summarize(Mean = mean(As_EPA3051))
+    summarize(Regional_mean = mean(As_EPA3051))
 ```
 
-Now we know that the mean arsenic concentration might be different for each region, and appears higher for the Baltimore City samples than the Montgomery County samples.
+Now we know that the mean arsenic concentration might be different for each region. If we compare the samples from Baltimore City and Montgomery County, the Baltimore City samples appear to have a higher mean arsenic concentration than the Montgomery County samples.
 
 ::: {.reflection}
 QUESTIONS:
 
-3. What is the mean iron concentration for samples in this dataset? What about the standard deviation, minimum value, and maximum value?
+5. All the samples from Baltimore City and Montgomery County were collected from public park land. The parks sampled from Montgomery County were located in suburban and rural areas, compared to the urban parks sampled in Baltimore City. Why might the Montgomery County samples have a lower average arsenic concentration than the samples from Baltimore City?
 
-4. Calculate the mean iron concentration by region. Which region has the highest mean iron concentration? What about the lowest?
+6. What is the mean iron concentration for samples in this dataset? What about the standard deviation, minimum value, and maximum value?
+
+7. Calculate the mean iron concentration by region. Which region has the highest mean iron concentration? What about the lowest?
 
 :::
 
 Given that there are 25 different soil composition measures in the `soil.values` dataset, it would be time consuming to run our code from above for each individual measure. We can add an `sapply` command to tell R to calculate statistics for all the measures at once.
 
-First, let's make a vector that contains the names of all the columns we want to calculate summary statistics for.
+This command follows the code structure:
+
+vector_name <- c("column_name1", "column_name2")
 
 ```{r}
-columns_to_include <- c("As_EPA3051", "Cd_EPA3051", "Cr_EPA3051", "Cu_EPA3051", "Ni_EPA3051", "Pb_EPA3051", "Zn_EPA3051", "water_pH", "OM_by_LOI_pct", "P_Mehlich3", "K_Mehlich3", "Ca_Mehlich3", "Mg_Mehlich3", "Mn_Mehlich3", "Zn_Mehlich3", "Cu_Mehlich3", "Fe_Mehlich3", "B_Mehlich3", "S_Mehlich3", "Na_Mehlich3", "Al_Mehlich3", "Est_CEC", "Base_Sat_pct", "P_Sat_ratio")
+columns_to_include <- c("As_EPA3051", "Cd_EPA3051", "Cr_EPA3051", "Cu_EPA3051", "Ni_EPA3051", "Pb_EPA3051", "Zn_EPA3051")
 ```
 
 ```{r}
@@ -246,9 +253,9 @@ soil.values.clean %>%
 ::: {.reflection}
 QUESTIONS:
 
-5. Which elements have a higher average value in Baltimore City compared to Montgomery County? Which elements have a higher average value in Montgomery County?
+8. Calculate the maximum values for concentrations that were determined using EPA Method 3051. (HINT: change the function you call in the `summarize` statement.) Which of these metals has the maximum concentration you see, and in which region is it found?
 
-6. Calculate the maximum values for all the elements. (HINT: change the function you call in the `summarize` statement.) What is the maximum concentration you see across all the elements, and in which region is it found?
+9. Calculate both the mean and maximum values for concentrations that were determined using the Mehlich3 test. (HINT: change the )
 
 :::
 
@@ -261,8 +268,6 @@ One way to make histograms in R is to use the `hist()` function. We can again us
 dataset %>%
     pull(column_name) %>%
     hist(main = chart_title, xlab = x_axis_title)
-
-In this case, we do _not_ have to use the `dplyr::summarize` command before `hist()` because there's only one function called `hist()` in the packages we're using.
 
 ```{r, message = FALSE, warning = FALSE}
 
