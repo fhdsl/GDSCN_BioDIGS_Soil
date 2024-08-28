@@ -1,6 +1,7 @@
 :::: {.borrowed_chunk}
 
-# Data
+# BioDIGS Data
+
 
 There are currently three major kinds of data available from BioDIGS: sample metadata, soil testing data, and genomics and metagenomics data. All of these are available for use in your classroom.
 

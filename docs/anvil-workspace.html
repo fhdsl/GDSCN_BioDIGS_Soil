@@ -4,25 +4,25 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 11 AnVIL Workspace | BioDIGS in the Classroom: Exploring Soil Data</title>
+  <title>Chapter 11 AnVIL Workspace | BioDIGS: Exploring Soil Data</title>
   <meta name="description" content="This activity guides students through exploration of the BioDIGS soil data using the tidyverse in R." />
   <meta name="generator" content="bookdown 0.39.1 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 11 AnVIL Workspace | BioDIGS in the Classroom: Exploring Soil Data" />
+  <meta property="og:title" content="Chapter 11 AnVIL Workspace | BioDIGS: Exploring Soil Data" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This activity guides students through exploration of the BioDIGS soil data using the tidyverse in R." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 11 AnVIL Workspace | BioDIGS in the Classroom: Exploring Soil Data" />
+  <meta name="twitter:title" content="Chapter 11 AnVIL Workspace | BioDIGS: Exploring Soil Data" />
   
   <meta name="twitter:description" content="This activity guides students through exploration of the BioDIGS soil data using the tidyverse in R." />
   
 
 
 
-<meta name="date" content="2024-08-05" />
+<meta name="date" content="2024-08-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -145,11 +145,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#platform"><i class="fa fa-check"></i><b>0.2</b> Platform</a></li>
 <li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#data"><i class="fa fa-check"></i><b>0.3</b> Data</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="data-1.html"><a href="data-1.html"><i class="fa fa-check"></i><b>4</b> Data</a>
+<li class="chapter" data-level="4" data-path="biodigs-data.html"><a href="biodigs-data.html"><i class="fa fa-check"></i><b>4</b> BioDIGS Data</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="data-1.html"><a href="data-1.html#sample-metadata"><i class="fa fa-check"></i><b>4.1</b> Sample Metadata</a></li>
-<li class="chapter" data-level="4.2" data-path="data-1.html"><a href="data-1.html#soil-testing-data"><i class="fa fa-check"></i><b>4.2</b> Soil Testing Data</a></li>
-<li class="chapter" data-level="4.3" data-path="data-1.html"><a href="data-1.html#genomics-and-metagenomics-data"><i class="fa fa-check"></i><b>4.3</b> Genomics and Metagenomics Data</a></li>
+<li class="chapter" data-level="4.1" data-path="biodigs-data.html"><a href="biodigs-data.html#sample-metadata"><i class="fa fa-check"></i><b>4.1</b> Sample Metadata</a></li>
+<li class="chapter" data-level="4.2" data-path="biodigs-data.html"><a href="biodigs-data.html#soil-testing-data"><i class="fa fa-check"></i><b>4.2</b> Soil Testing Data</a></li>
+<li class="chapter" data-level="4.3" data-path="biodigs-data.html"><a href="biodigs-data.html#genomics-and-metagenomics-data"><i class="fa fa-check"></i><b>4.3</b> Genomics and Metagenomics Data</a></li>
 </ul></li>
 <li class="part"><span><b>Instructor Checklist for AnVIL</b></span></li>
 <li class="part"><span><b>Student Guide to AnVIL</b></span></li>
@@ -185,7 +185,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p style="text-align:center;"> <a href="https://hutchdatascience.org/"> The Fred Hutch Data Science Lab </a></p>
 <a href="https://hutchdatascience.org/" target="_blank"><img src="https://raw.githubusercontent.com/jhudsl/OTTR_Template/main/style-sets/fhdasl/copy_to_assets/big-dasl-stacked.png" style="width: 80%; padding-left: 34px; padding-top: 8px;"</a>
 <p style="text-align:center; font-size: 12px;"> <a href="https://github.com/rstudio4edu/rstudio4edu-book/"> Style adapted from: rstudio4edu-book </a> <a href ="https://creativecommons.org/licenses/by/2.0/"> (CC-BY 2.0) </a></p>
-<p style="padding-left: 40px;"><div class="trapezoid" style = "padding-left: 40px;"><span><a href="https://docs.google.com/forms/d/e/1FAIpQLScrDVb_utm55pmb_SHx-RgELTEbCCWdLea0T3IzS0Oj00GE4w/viewform?usp=pp_url&entry.1565230805=BioDIGS+in+the+Classroom:+Exploring+Soil+Data"> Click here to provide feedback</a> <img src="assets/itcr_arrow.png" style=" width: 10%" ></span></div></p>
+<p style="padding-left: 40px;"><div class="trapezoid" style = "padding-left: 40px;"><span><a href="https://docs.google.com/forms/d/e/1FAIpQLScrDVb_utm55pmb_SHx-RgELTEbCCWdLea0T3IzS0Oj00GE4w/viewform?usp=pp_url&entry.1565230805=BioDIGS:+Exploring+Soil+Data"> Click here to provide feedback</a> <img src="assets/itcr_arrow.png" style=" width: 10%" ></span></div></p>
 
 </ul>
 
@@ -196,7 +196,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">BioDIGS in the Classroom: Exploring Soil Data</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">BioDIGS: Exploring Soil Data</a>
           </h1>
         </div>
 
@@ -228,20 +228,20 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ol style="list-style-type: decimal">
 <li><p><a href="https://anvil.terra.bio/#workspaces">Launch Terra</a></p></li>
 <li><p>Locate the Workspace you want to clone. If a Workspace has been shared with you ahead of time, it will appear in “MY WORKSPACES”. You can clone a Workspace that was shared with you to perform your own analyses. In the screenshot below, no Workspaces have been shared.</p>
-<p><img src="resources/images/05-anvil_onboarding_files/figure-html//1JvfOluHe543cUCyyH3zz0ew-1J1QjhdYGZufW9NrC_M_g117abafa453_0_0.png" title="Screenshot of Terra &quot;MY WORKSPACES&quot; menu. The &quot;MY WORKSPACES&quot; tab is highlighted. No Workspaces are visible because none have been shared with the user. There is an option to create a new Workspace." alt="Screenshot of Terra &quot;MY WORKSPACES&quot; menu. The &quot;MY WORKSPACES&quot; tab is highlighted. No Workspaces are visible because none have been shared with the user. There is an option to create a new Workspace." width="480" /></p></li>
+<p><img src="resources/images/05-anvil_onboarding_files/figure-html//1JvfOluHe543cUCyyH3zz0ew-1J1QjhdYGZufW9NrC_M_g117abafa453_0_0.png" alt="Screenshot of Terra &quot;MY WORKSPACES&quot; menu. The &quot;MY WORKSPACES&quot; tab is highlighted. No Workspaces are visible because none have been shared with the user. There is an option to create a new Workspace." width="480" /></p></li>
 <li><p>If a Workspace hasn’t been shared with you, navigate to the “FEATURED” or “PUBLIC” Workspace tabs.</p>
-<p><img src="resources/images/05-anvil_onboarding_files/figure-html//1JvfOluHe543cUCyyH3zz0ew-1J1QjhdYGZufW9NrC_M_g117abafa453_0_144.png" title="Screenshot of Terra &quot;My Workspaces&quot; menu. The &quot;FEATURED&quot; tab is highlighted." alt="Screenshot of Terra &quot;My Workspaces&quot; menu. The &quot;FEATURED&quot; tab is highlighted." width="480" /></p></li>
+<p><img src="resources/images/05-anvil_onboarding_files/figure-html//1JvfOluHe543cUCyyH3zz0ew-1J1QjhdYGZufW9NrC_M_g117abafa453_0_144.png" alt="Screenshot of Terra &quot;My Workspaces&quot; menu. The &quot;FEATURED&quot; tab is highlighted." width="480" /></p></li>
 <li><p>Use the search box to find the Workspace you want to clone.</p>
-<p><img src="resources/images/05-anvil_onboarding_files/figure-html//1JvfOluHe543cUCyyH3zz0ew-1J1QjhdYGZufW9NrC_M_g117abafa453_0_288.png" title="Screenshot of Terra &quot;My Workspaces&quot; menu. The search bar is highlighted and the user has typed in the term &quot;COVID-19&quot;. A Workspace related to COVID-19 appears in the results." alt="Screenshot of Terra &quot;My Workspaces&quot; menu. The search bar is highlighted and the user has typed in the term &quot;COVID-19&quot;. A Workspace related to COVID-19 appears in the results." width="480" /></p></li>
+<p><img src="resources/images/05-anvil_onboarding_files/figure-html//1JvfOluHe543cUCyyH3zz0ew-1J1QjhdYGZufW9NrC_M_g117abafa453_0_288.png" alt="Screenshot of Terra &quot;My Workspaces&quot; menu. The search bar is highlighted and the user has typed in the term &quot;COVID-19&quot;. A Workspace related to COVID-19 appears in the results." width="480" /></p></li>
 <li><p>Click the teardrop button on the far right next to the Workspace you want to clone. Click “Clone”. You can also clone the Workspace from the Workspace Dashboard instead of the search results.</p>
-<p><img src="resources/images/05-anvil_onboarding_files/figure-html//1JvfOluHe543cUCyyH3zz0ew-1J1QjhdYGZufW9NrC_M_g117abafa453_0_432.png" title="Screenshot of Terra &quot;My Workspaces&quot; menu with the Workspace that we want to clone. The teardrop button has been clicked to bring up the options. The &quot;Clone&quot; option from the list is highlighted." alt="Screenshot of Terra &quot;My Workspaces&quot; menu with the Workspace that we want to clone. The teardrop button has been clicked to bring up the options. The &quot;Clone&quot; option from the list is highlighted." width="480" />
-<img src="resources/images/05-anvil_onboarding_files/figure-html//1JvfOluHe543cUCyyH3zz0ew-1J1QjhdYGZufW9NrC_M_g117abafa453_0_577.png" title="Screenshot of the Dashboard for the Workspace that we want to clone. The teardrop button has been clicked to bring up the options. The &quot;Clone&quot; option from the list is highlighted." alt="Screenshot of the Dashboard for the Workspace that we want to clone. The teardrop button has been clicked to bring up the options. The &quot;Clone&quot; option from the list is highlighted." width="480" /></p></li>
+<p><img src="resources/images/05-anvil_onboarding_files/figure-html//1JvfOluHe543cUCyyH3zz0ew-1J1QjhdYGZufW9NrC_M_g117abafa453_0_432.png" alt="Screenshot of Terra &quot;My Workspaces&quot; menu with the Workspace that we want to clone. The teardrop button has been clicked to bring up the options. The &quot;Clone&quot; option from the list is highlighted." width="480" />
+<img src="resources/images/05-anvil_onboarding_files/figure-html//1JvfOluHe543cUCyyH3zz0ew-1J1QjhdYGZufW9NrC_M_g117abafa453_0_577.png" alt="Screenshot of the Dashboard for the Workspace that we want to clone. The teardrop button has been clicked to bring up the options. The &quot;Clone&quot; option from the list is highlighted." width="480" /></p></li>
 <li><p>You will see a popup box appear. Name your Workspace and select the appropriate Terra Billing Project. <strong>All activity in the Workspace will be charged to this Billing Project</strong> (regardless of who conducted it). Remember that each Workspace should have its own Billing Project.</p>
-<p><img src="resources/images/05-anvil_onboarding_files/figure-html//1JvfOluHe543cUCyyH3zz0ew-1J1QjhdYGZufW9NrC_M_g117abafa453_0_722.png" title="Screenshot of the &quot;clone workspace&quot; Terra popup dialog box. The Workspace name and Billing Project dropdown are highlighted. Text has been filled in for the Workspace name as &quot;Lab-member-1-workspace-2&quot;." alt="Screenshot of the &quot;clone workspace&quot; Terra popup dialog box. The Workspace name and Billing Project dropdown are highlighted. Text has been filled in for the Workspace name as &quot;Lab-member-1-workspace-2&quot;." width="480" /></p></li>
+<p><img src="resources/images/05-anvil_onboarding_files/figure-html//1JvfOluHe543cUCyyH3zz0ew-1J1QjhdYGZufW9NrC_M_g117abafa453_0_722.png" alt="Screenshot of the &quot;clone workspace&quot; Terra popup dialog box. The Workspace name and Billing Project dropdown are highlighted. Text has been filled in for the Workspace name as &quot;Lab-member-1-workspace-2&quot;." width="480" /></p></li>
 <li><p>If you are working with protected data, you can set the <strong>Authorization Domain</strong> to limit who can be added to your Workspace. Note that the Authorization Domain cannot be changed after the Workspace is created (i.e. there is no way to make this Workspace shareable with a larger audience in the future). Workspaces by default are only visible to people you specifically share them with. Authorization domains add an extra layer of enforcement over privacy, but by nature make sharing more complicated. We recommend using Authorization Domains in cases where it is extremely important and/or legally required that the data be kept private (e.g. protected patient data, industry data). For data you would merely prefer not be shared with the world, we recommend relying on standard Workspace sharing permissions rather than Authorization Domains, as Authorization Domains can make future collaborations, publications, or other sharing complicated.</p>
-<p><img src="resources/images/05-anvil_onboarding_files/figure-html//1JvfOluHe543cUCyyH3zz0ew-1J1QjhdYGZufW9NrC_M_g117abafa453_0_867.png" title="Screenshot of Terra popup dialog box for creating a new Workspace. The drop-down menu labeled &quot;Authorization domain&quot; is highlighted." alt="Screenshot of Terra popup dialog box for creating a new Workspace. The drop-down menu labeled &quot;Authorization domain&quot; is highlighted." width="480" /></p></li>
+<p><img src="resources/images/05-anvil_onboarding_files/figure-html//1JvfOluHe543cUCyyH3zz0ew-1J1QjhdYGZufW9NrC_M_g117abafa453_0_867.png" alt="Screenshot of Terra popup dialog box for creating a new Workspace. The drop-down menu labeled &quot;Authorization domain&quot; is highlighted." width="480" /></p></li>
 <li><p>Click “CLONE WORKSPACE”. The new Workspace should now show up under your Workspaces.</p>
-<p><img src="resources/images/05-anvil_onboarding_files/figure-html//1JvfOluHe543cUCyyH3zz0ew-1J1QjhdYGZufW9NrC_M_g117abafa453_0_1012.png" title="Screenshot of Terra popup dialog box for creating a new Workspace. The &quot;Clone Workspace&quot; button is highlighted." alt="Screenshot of Terra popup dialog box for creating a new Workspace. The &quot;Clone Workspace&quot; button is highlighted." width="480" /></p></li>
+<p><img src="resources/images/05-anvil_onboarding_files/figure-html//1JvfOluHe543cUCyyH3zz0ew-1J1QjhdYGZufW9NrC_M_g117abafa453_0_1012.png" alt="Screenshot of Terra popup dialog box for creating a new Workspace. The &quot;Clone Workspace&quot; button is highlighted." width="480" /></p></li>
 </ol>
 </div>
 </div>

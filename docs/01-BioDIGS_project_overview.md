@@ -4,10 +4,10 @@
 
 # Background
 
+
 One critical aspect of an undergraduate STEM education is hands-on research. Undergraduate research experiences enhance what students learn in the classroom as well as increase a student's interest in pursuing STEM careers [@Russell2007]. It can also lead to improved scientific reasoning and increased academic performance overall [@Buffalari2020]. However, many students at underresourced institutions like community colleges, Historically Black Colleges and Universities (HBCUs), tribal colleges and universities, and Hispanic-serving institutions have limited access to research opportunities compared to their cohorts at larger four-year colleges and R1 institutions. These students are also more likely to belong to groups that are already under-represented in STEM disciplines, particularly genomics and data science [@Canner2017; @GDSCN2022].
 
 The BioDIGS Project aims to be at the intersection of genomics, data science, cloud computing, and education.
-
 
 ## What is genomics?
 

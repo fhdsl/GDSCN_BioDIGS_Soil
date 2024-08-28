@@ -4,25 +4,25 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 14 References | BioDIGS in the Classroom: Exploring Soil Data</title>
+  <title>Chapter 14 References | BioDIGS: Exploring Soil Data</title>
   <meta name="description" content="This activity guides students through exploration of the BioDIGS soil data using the tidyverse in R." />
   <meta name="generator" content="bookdown 0.39.1 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 14 References | BioDIGS in the Classroom: Exploring Soil Data" />
+  <meta property="og:title" content="Chapter 14 References | BioDIGS: Exploring Soil Data" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This activity guides students through exploration of the BioDIGS soil data using the tidyverse in R." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 14 References | BioDIGS in the Classroom: Exploring Soil Data" />
+  <meta name="twitter:title" content="Chapter 14 References | BioDIGS: Exploring Soil Data" />
   
   <meta name="twitter:description" content="This activity guides students through exploration of the BioDIGS soil data using the tidyverse in R." />
   
 
 
 
-<meta name="date" content="2024-08-05" />
+<meta name="date" content="2024-08-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -145,11 +145,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#platform"><i class="fa fa-check"></i><b>0.2</b> Platform</a></li>
 <li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#data"><i class="fa fa-check"></i><b>0.3</b> Data</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="data-1.html"><a href="data-1.html"><i class="fa fa-check"></i><b>4</b> Data</a>
+<li class="chapter" data-level="4" data-path="biodigs-data.html"><a href="biodigs-data.html"><i class="fa fa-check"></i><b>4</b> BioDIGS Data</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="data-1.html"><a href="data-1.html#sample-metadata"><i class="fa fa-check"></i><b>4.1</b> Sample Metadata</a></li>
-<li class="chapter" data-level="4.2" data-path="data-1.html"><a href="data-1.html#soil-testing-data"><i class="fa fa-check"></i><b>4.2</b> Soil Testing Data</a></li>
-<li class="chapter" data-level="4.3" data-path="data-1.html"><a href="data-1.html#genomics-and-metagenomics-data"><i class="fa fa-check"></i><b>4.3</b> Genomics and Metagenomics Data</a></li>
+<li class="chapter" data-level="4.1" data-path="biodigs-data.html"><a href="biodigs-data.html#sample-metadata"><i class="fa fa-check"></i><b>4.1</b> Sample Metadata</a></li>
+<li class="chapter" data-level="4.2" data-path="biodigs-data.html"><a href="biodigs-data.html#soil-testing-data"><i class="fa fa-check"></i><b>4.2</b> Soil Testing Data</a></li>
+<li class="chapter" data-level="4.3" data-path="biodigs-data.html"><a href="biodigs-data.html#genomics-and-metagenomics-data"><i class="fa fa-check"></i><b>4.3</b> Genomics and Metagenomics Data</a></li>
 </ul></li>
 <li class="part"><span><b>Instructor Checklist for AnVIL</b></span></li>
 <li class="part"><span><b>Student Guide to AnVIL</b></span></li>
@@ -185,7 +185,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p style="text-align:center;"> <a href="https://hutchdatascience.org/"> The Fred Hutch Data Science Lab </a></p>
 <a href="https://hutchdatascience.org/" target="_blank"><img src="https://raw.githubusercontent.com/jhudsl/OTTR_Template/main/style-sets/fhdasl/copy_to_assets/big-dasl-stacked.png" style="width: 80%; padding-left: 34px; padding-top: 8px;"</a>
 <p style="text-align:center; font-size: 12px;"> <a href="https://github.com/rstudio4edu/rstudio4edu-book/"> Style adapted from: rstudio4edu-book </a> <a href ="https://creativecommons.org/licenses/by/2.0/"> (CC-BY 2.0) </a></p>
-<p style="padding-left: 40px;"><div class="trapezoid" style = "padding-left: 40px;"><span><a href="https://docs.google.com/forms/d/e/1FAIpQLScrDVb_utm55pmb_SHx-RgELTEbCCWdLea0T3IzS0Oj00GE4w/viewform?usp=pp_url&entry.1565230805=BioDIGS+in+the+Classroom:+Exploring+Soil+Data"> Click here to provide feedback</a> <img src="assets/itcr_arrow.png" style=" width: 10%" ></span></div></p>
+<p style="padding-left: 40px;"><div class="trapezoid" style = "padding-left: 40px;"><span><a href="https://docs.google.com/forms/d/e/1FAIpQLScrDVb_utm55pmb_SHx-RgELTEbCCWdLea0T3IzS0Oj00GE4w/viewform?usp=pp_url&entry.1565230805=BioDIGS:+Exploring+Soil+Data"> Click here to provide feedback</a> <img src="assets/itcr_arrow.png" style=" width: 10%" ></span></div></p>
 
 </ul>
 
@@ -196,7 +196,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">BioDIGS in the Classroom: Exploring Soil Data</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">BioDIGS: Exploring Soil Data</a>
           </h1>
         </div>
 
