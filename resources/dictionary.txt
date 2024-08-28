@@ -138,6 +138,7 @@ summarization
 Summarization
 synched
 textbox
+tibble
 tidyverse
 timeframe
 Towson
