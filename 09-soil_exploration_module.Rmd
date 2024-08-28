@@ -28,7 +28,7 @@ This activity will teach you how to use the AnVIL platform to:
 1. Create and interpret histograms and boxplots for variables in the soil testing data
 
 
-## Part 1. Data Import
+## Part 1. Examining the Data
 
 We will use the `BioDIGS` package to retrieve the data. We first need to install the package from where it is stored on GitHub.
 
@@ -159,7 +159,7 @@ QUESTIONS:
 
 :::
 
-## Part 2. Data Summarization
+## Part 2. Summarizing the Data with Statistics
 
 Now that we have the dataset loaded, let's explore the data in more depth.
 
@@ -263,7 +263,7 @@ QUESTIONS:
 
 :::
 
-## Part 3. Data Visualization
+## Part 3. Visualizing the Data
 
 Often, it can be easier to immediately interpret data displayed as a plot than as a list of values. For example, we can more easily understand how the arsenic concentration of the soil samples are distributed if we create histograms compared to looking at point values like mean, standard deviation, minimum, and maximum.
 
