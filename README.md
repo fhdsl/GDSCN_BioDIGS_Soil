@@ -1,4 +1,7 @@
 # BioDIGS in the Classroom: Exploring Soil Data
+
+[![Render Bookdown](https://github.com/fhdsl/GDSCN_BioDIGS_Soil//actions/workflows/render-all.yml/badge.svg)](https://github.com/fhdsl/GDSCN_BioDIGS_Soil//actions/workflows/render-all.yml)
+
 This course was created from [the AnVIL Template](https://github.com/jhudsl/AnVIL_bookdown_style), which is based on [the OTTR Template](https://github.com/jhudsl/OTTR_Template)
 
 You can see the rendered course material [here](https://hutchdatascience.org/GDSCN_BioDIGS_Book/)
