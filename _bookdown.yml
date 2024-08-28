@@ -1,6 +1,6 @@
-book_filename: "BioDIGS in the Classroom: Exploring Soil Data"
+book_filename: "BioDIGS: Exploring Soil Data"
 chapter_name: "Chapter "
-repo: https://github.com/jhudsl/AnVIL_BioDIGS_Book/
+repo: https://github.com/jhudsl/AnVIL_BioDIGS_Soil/
 rmd_files: ["index.Rmd",
             "01-BioDIGS_project_overview.Rmd",
             "02-research_team.Rmd",

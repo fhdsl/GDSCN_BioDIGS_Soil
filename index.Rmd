@@ -1,5 +1,5 @@
 ---
-title: "BioDIGS in the Classroom: Exploring Soil Data"
+title: "BioDIGS: Exploring Soil Data"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 site: bookdown::bookdown_site
 documentclass: book
