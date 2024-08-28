@@ -210,13 +210,13 @@ This command follows the code structure:
 
 dataset %>%
     group_by(column_name) %>%
-    summarize(new_statistical_measure = mean(column_name))
+    summarize(mean(column_name))
     
 ```{r, message = FALSE, warning = FALSE}
 
 soil.values.clean %>%
     group_by(region) %>%
-    summarize(Regional_mean = mean(As_EPA3051))
+    summarize(mean(As_EPA3051))
 ```
 
 Now we know that the mean arsenic concentration might be different for each region. If we compare the samples from Baltimore City and Montgomery County, the Baltimore City samples appear to have a higher mean arsenic concentration than the Montgomery County samples.
@@ -232,30 +232,34 @@ QUESTIONS:
 
 :::
 
-Given that there are 25 different soil composition measures in the `soil.values` dataset, it would be time consuming to run our code from above for each individual measure. We can add an `sapply` command to tell R to calculate statistics for all the measures at once.
+Let's say we're interested in looking at mean concentrations that were determined using EPA Method 3051. Given that there are 8 of these measures in the `soil.values` dataset, it would be time consuming to run our code from above for each individual measure.
+
+We can add two arguments to our `summarize` statement to calculate statistical measures for multiple columns at once: the `across` argument, which tells R to apply the `summarize` command to multiple columns; and the `ends_with` parameter, which tells R which columns should be included in the statistical calculation.
+
+We are using `ends_with` because for this question, all the columns that we're interested in end with the string 'EPA3051'. 
 
 This command follows the code structure:
 
-vector_name <- c("column_name1", "column_name2")
-
-```{r}
-columns_to_include <- c("As_EPA3051", "Cd_EPA3051", "Cr_EPA3051", "Cu_EPA3051", "Ni_EPA3051", "Pb_EPA3051", "Zn_EPA3051")
-```
+dataset %>%
+    group_by(column_name) %>%
+    summarize(across(ends_with(common_column_name_ending), mean))
 
 ```{r}
 soil.values.clean %>%
     group_by(region) %>%
-    summarize(across(all_of(columns_to_include), mean))
+    summarize(across(ends_with('EPA3051'), mean))
 
 
 ```
+
+This is a _much_ more efficient way to calculate statistics.
 
 ::: {.reflection}
 QUESTIONS:
 
 8. Calculate the maximum values for concentrations that were determined using EPA Method 3051. (HINT: change the function you call in the `summarize` statement.) Which of these metals has the maximum concentration you see, and in which region is it found?
 
-9. Calculate both the mean and maximum values for concentrations that were determined using the Mehlich3 test. (HINT: change the )
+9. Calculate both the mean and maximum values for concentrations that were determined using the Mehlich3 test. (HINT: change the terms in the `columns_to_include` vector, as well as the function you call in the `summarize` statement.) Which of these metals has the highest average and maximum concentrations, and in which region are they found?
 
 :::
 
@@ -263,7 +267,11 @@ QUESTIONS:
 
 Often, it can be easier to immediately interpret data displayed as a plot than as a list of values. For example, we can more easily understand how the arsenic concentration of the soil samples are distributed if we create histograms compared to looking at point values like mean, standard deviation, minimum, and maximum.
 
-One way to make histograms in R is to use the `hist()` function. We can again use the `pull()` command and pipes (`%>%`) to choose the column we want from the `soil.values.clean` dataset and make a histogram of them. Remember, this command follows the code structure:
+One way to make histograms in R is with the `hist()` function. This function only requires that we tell R which column of the dataset that we want to plot. (However, we also have the option to tell R a histogram name and a x-axis label.) 
+
+We can again use the `pull()` command and pipes (`%>%`) to choose the column we want from the `soil.values.clean` dataset and make a histogram of them. 
+
+This combination of commands follows the code structure:
 
 dataset %>%
     pull(column_name) %>%
@@ -279,18 +287,21 @@ soil.values.clean %>%
 
 We can see that almost all the soil samples had very low concentrations of arsenic (which is good news for the soil health!). In fact, many of them had arsenic concentrations close to 0, and only one sampling location appears to have high levels of arsenic. 
 
-We might also want to graphically compare arsenic concentrations among the geographic regions in our dataset. We can do this by creating boxplots. Boxplots are particularly useful when comparing the mean, variation, and distributions among multiple groups. In R, one way to create a boxplot is using the `boxplot()` function. We don't need to use pipes for this command, but instead will specify what columns we want to use from the dataset inside the `boxplot()` function itself.
+We might also want to graphically compare arsenic concentrations among the geographic regions in our dataset. We can do this by creating boxplots. Boxplots are particularly useful when comparing the mean, variation, and distributions among multiple groups. 
+
+In R, one way to create a boxplot is using the `boxplot()` function. We don't need to use pipes for this command, but instead will specify what columns we want to use from the dataset inside the `boxplot()` function itself.
 
 This command follows the code structure:
 
-boxplot(arsenic_concentration ~ grouping_variable, 
+boxplot(column_we're_plotting ~ grouping_variable, 
     data = dataset,
     main = "Title of Graph",
     xlab = "x_axis_title",
     ylab = "y_axis_title")
 
 ```{r, message = FALSE, warning = FALSE}
-boxplot(As_EPA3051 ~ region, data = soil.values.clean,
+boxplot(As_EPA3051 ~ region, 
+        data = soil.values.clean,
         main = "Arsenic Concentration by Geographic Region",
         xlab = "Region",
         ylab = "Arsenic Concentration in mg/kg")
@@ -308,3 +319,5 @@ QUESTIONS:
 9. Look at the maps for [iron](https://biodigs.org/#iron_map) and [lead](https://biodigs.org/#lead_map) on the BioDIGS website. Do the boxplots you created make sense, given what you see on these maps? Why or why not?
 
 :::
+
+
