@@ -16,7 +16,7 @@ The GDSCN (Genomics Data Science Community Network) is a consortium of educators
 
 ## Target Audience
 
-The activities in this guide are written for undergraduate students and beginning graduate students. Some sections require basic understanding of the R programming language, which is indicated at the beginning of the chapter.
+The activity in this guide are written for undergraduate students and beginning graduate students. It requires basic understanding of the R programming language.
 
 ## Platform
 
