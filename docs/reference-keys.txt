@@ -56,7 +56,11 @@ pausing-rstudio
 exploring-soil-testing-data-with-r
 before-you-start
 objectives-1
-part-1.-data-import
-part-2.-data-summarization
-part-3.-data-visualization
+part-1.-examining-the-data
+part-2.-summarizing-the-data-with-statistics
+part-3.-visualizing-the-data
+activity-questions
+part-1.-examining-the-data-1
+part-2.-summarizing-the-data-with-statistics-1
+part-3.-visualizing-the-data-1
 references
