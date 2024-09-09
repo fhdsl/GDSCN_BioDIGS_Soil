@@ -1,6 +1,6 @@
 ---
 title: "BioDIGS: Exploring Soil Data"
-date: "August 28, 2024"
+date: "September 09, 2024"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: book.bib
