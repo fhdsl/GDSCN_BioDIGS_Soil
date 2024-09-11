@@ -1,11 +1,11 @@
-# (PART\*) Data Exploration {-}
+# (PART\*) Student Activity {-}
 
 
 ```{r, include = FALSE}
 ottrpal::set_knitr_image_path()
 ```
 
-# Exploring Soil Testing Data With R
+# Introduction
 
 In this activity, you'll have a chance to become familiar with the BioDIGS soil testing data. This dataset includes information on the inorganic components of each soil sample, particularly metal concentrations. Human activity can increase the concentration of inorganic compounds in the soil. When cars drive on roads, compounds from the exhaust, oil, and other fluids might settle onto the roads and be washed into the soil. When we put salt on roads, parking lots, and sidewalks, the salts themselves will eventually be washed away and enter the ecosystem through both water and soil. Chemicals from factories and other businesses also leech into our environment. All of this means the concentration of heavy metals and other chemicals will vary among the soil samples collected for the BioDIGS project. 
 
@@ -28,7 +28,7 @@ This activity will teach you how to use the AnVIL platform to:
 1. Create and interpret histograms and boxplots for variables in the soil testing data
 
 
-## Part 1. Examining the Data
+# Part 1. Examining the Data
 
 We will use the `BioDIGS` package to retrieve the data. We first need to install the package from where it is stored on GitHub.
 
@@ -159,7 +159,7 @@ QUESTIONS:
 
 :::
 
-## Part 2. Summarizing the Data with Statistics
+# Part 2. Summarizing the Data with Statistics
 
 Now that we have the dataset loaded, let's explore the data in more depth.
 
@@ -263,7 +263,7 @@ QUESTIONS:
 
 :::
 
-## Part 3. Visualizing the Data
+# Part 3. Visualizing the Data
 
 Often, it can be easier to immediately interpret data displayed as a plot than as a list of values. For example, we can more easily understand how the arsenic concentration of the soil samples are distributed if we create histograms compared to looking at point values like mean, standard deviation, minimum, and maximum.
 
