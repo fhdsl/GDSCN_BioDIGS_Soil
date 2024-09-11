@@ -53,7 +53,7 @@ slides
 launching-rstudio
 touring-rstudio
 pausing-rstudio
-exploring-soil-testing-data-with-r
+introduction
 before-you-start
 objectives-1
 part-1.-examining-the-data
