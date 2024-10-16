@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>BioDIGS: Exploring Soil Data</title>
+  <title>Chapter 13 Introduction | BioDIGS: Exploring Soil Data</title>
   <meta name="description" content="This activity guides students through exploration of the BioDIGS soil data using the tidyverse in R." />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="BioDIGS: Exploring Soil Data" />
+  <meta property="og:title" content="Chapter 13 Introduction | BioDIGS: Exploring Soil Data" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This activity guides students through exploration of the BioDIGS soil data using the tidyverse in R." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="BioDIGS: Exploring Soil Data" />
+  <meta name="twitter:title" content="Chapter 13 Introduction | BioDIGS: Exploring Soil Data" />
   
   <meta name="twitter:description" content="This activity guides students through exploration of the BioDIGS soil data using the tidyverse in R." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="assets/GDSCN_style/gdscn_favicon.ico" type="image/x-icon" />
-
-<link rel="next" href="background.html"/>
+<link rel="prev" href="using-rstudio-on-anvil.html"/>
+<link rel="next" href="part-1.-examining-the-data.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -221,37 +221,25 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="hero-image-container">
   <img class= "hero-image" src="assets/GDSCN_style/dasl_thin_main_image.png">
 </div>
-<div id="header">
-<h1 class="title">BioDIGS: Exploring Soil Data</h1>
-<p class="date"><em>October 16, 2024</em></p>
+<div id="introduction" class="section level1 hasAnchor" number="13">
+<h1><span class="header-section-number">Chapter 13</span> Introduction<a href="introduction.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In this activity, you’ll have a chance to become familiar with the BioDIGS soil testing data. This dataset includes information on the inorganic components of each soil sample, particularly metal concentrations. Human activity can increase the concentration of inorganic compounds in the soil. When cars drive on roads, compounds from the exhaust, oil, and other fluids might settle onto the roads and be washed into the soil. When we put salt on roads, parking lots, and sidewalks, the salts themselves will eventually be washed away and enter the ecosystem through both water and soil. Chemicals from factories and other businesses also leech into our environment. All of this means the concentration of heavy metals and other chemicals will vary among the soil samples collected for the BioDIGS project.</p>
+<div id="before-you-start" class="section level2 hasAnchor" number="13.1">
+<h2><span class="header-section-number">13.1</span> Before You Start<a href="introduction.html#before-you-start" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>If you do not already have a Google account that you would like to use for accessing Terra, <a href="https://accounts.google.com/SignUp">create one now</a>.</p>
+<p>If you would like to create a Google account that is associated with your non-Gmail, institutional email address, follow <a href="https://support.terra.bio/hc/en-us/articles/360029186611">these instructions</a>.</p>
 </div>
-<div id="about-this-book" class="section level1 unnumbered hasAnchor">
-<h1>About this Book<a href="index.html#about-this-book" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This is a companion training guide for BioDIGS, a GDSCN project that brings a research experience into the classroom. This activity guides students through exploration of the BioDIGS soil data using the tidyverse in R. Students will learn basic data summarization, visualization, and mapping skills. Visit the BioDIGS (BioDiversity and Informatics for Genomics Scholars) website <a href="https://biodigs.org/">here</a> for more information about this collaborative, distributed research project, including how you can get involved!</p>
-<p>The GDSCN (Genomics Data Science Community Network) is a consortium of educators who aim to create a world where researchers, educators, and students from diverse backgrounds are able to fully participate in genomic data science research. You can find more information about its mission and initiatives <a href="https://www.gdscn.org/home">here</a>.</p>
-<div class="float">
-<img src="https://raw.githubusercontent.com/fhdsl/AnVIL_BioDIGS_Book/main/assets/GDSCN_style/logo_BioDIGS_final.png" width="300" alt="BioDIGS logo" />
-<div class="figcaption">BioDIGS logo</div>
-</div>
-<div id="target-audience" class="section level2 hasAnchor" number="0.1">
-<h2><span class="header-section-number">0.1</span> Target Audience<a href="index.html#target-audience" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The activities in this guide are written for undergraduate students and beginning graduate students. Some sections require basic understanding of the R programming language, which is indicated at the beginning of the chapter.</p>
-</div>
-<div id="platform" class="section level2 hasAnchor" number="0.2">
-<h2><span class="header-section-number">0.2</span> Platform<a href="index.html#platform" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The activities in this guide are demonstrated on NHGRI’s <a href="https://anvilproject.org/">AnVIL</a> cloud computing platform. AnVIL is the preferred computing platform for the GDSCN. However, all of these activities can be done using your personal installation of R or using the online <a href="usegalaxy.org">Galaxy</a> portal.</p>
-</div>
-<div id="data" class="section level2 hasAnchor" number="0.3">
-<h2><span class="header-section-number">0.3</span> Data<a href="index.html#data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The data generated by the BioDIGS project is available through the <a href="biodigs.org">BioDIGS website</a>, as well as through an <a href="https://anvilproject.org">AnVIL workspace</a>.</p>
-<p>Data about the soil itself as well as soil metal content was generated by the <a href="https://www.udel.edu/canr/cooperative-extension/environmental-stewardship/soil-testing/">Delaware Soil Testing Program</a> at the University of Delaware. Sequences were generated by the <a href="https://grcf.jhmi.edu/">Johns Hopkins University Genetic Resources Core Facility</a> and by <a href="https://www.pacb.com/">PacBio</a>.</p>
-
+<div id="objectives-1" class="section level2 hasAnchor" number="13.2">
+<h2><span class="header-section-number">13.2</span> Objectives<a href="introduction.html#objectives-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This activity will teach you how to use the AnVIL platform to:</p>
+<ol style="list-style-type: decimal">
+<li>Open data from an R package</li>
+<li>Examine objects in R</li>
+<li>Calculate summary statistics for variables in the soil testing data</li>
+<li>Create and interpret histograms and boxplots for variables in the soil testing data</li>
+</ol>
 </div>
 </div>
-<div class="borrowed_chunk">
-
-
-
 <hr>
 <center> 
   <div class="footer">
@@ -265,8 +253,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-
-<a href="background.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="using-rstudio-on-anvil.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="part-1.-examining-the-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

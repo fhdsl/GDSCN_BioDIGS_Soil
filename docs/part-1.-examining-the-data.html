@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>BioDIGS: Exploring Soil Data</title>
+  <title>Chapter 14 Part 1. Examining the Data | BioDIGS: Exploring Soil Data</title>
   <meta name="description" content="This activity guides students through exploration of the BioDIGS soil data using the tidyverse in R." />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="BioDIGS: Exploring Soil Data" />
+  <meta property="og:title" content="Chapter 14 Part 1. Examining the Data | BioDIGS: Exploring Soil Data" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This activity guides students through exploration of the BioDIGS soil data using the tidyverse in R." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="BioDIGS: Exploring Soil Data" />
+  <meta name="twitter:title" content="Chapter 14 Part 1. Examining the Data | BioDIGS: Exploring Soil Data" />
   
   <meta name="twitter:description" content="This activity guides students through exploration of the BioDIGS soil data using the tidyverse in R." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="assets/GDSCN_style/gdscn_favicon.ico" type="image/x-icon" />
-
-<link rel="next" href="background.html"/>
+<link rel="prev" href="introduction.html"/>
+<link rel="next" href="part-2.-summarizing-the-data-with-statistics.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -221,37 +221,89 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="hero-image-container">
   <img class= "hero-image" src="assets/GDSCN_style/dasl_thin_main_image.png">
 </div>
-<div id="header">
-<h1 class="title">BioDIGS: Exploring Soil Data</h1>
-<p class="date"><em>October 16, 2024</em></p>
+<div id="part-1.-examining-the-data" class="section level1 hasAnchor" number="14">
+<h1><span class="header-section-number">Chapter 14</span> Part 1. Examining the Data<a href="part-1.-examining-the-data.html#part-1.-examining-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>We will use the <code>BioDIGS</code> package to retrieve the data. We first need to install the package from where it is stored on GitHub.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="part-1.-examining-the-data.html#cb4-1" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;fhdsl/BioDIGSData&quot;</span>)</span></code></pre></div>
+<p>Once you’ve installed the package, we can load the library and assign the soil testing data to an <em>object</em>. This command follows the code structure:</p>
+<p>dataset_object_name &lt;- stored_BioDIGS_dataset</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="part-1.-examining-the-data.html#cb5-1" tabindex="-1"></a><span class="fu">library</span>(BioDIGSData)</span>
+<span id="cb5-2"><a href="part-1.-examining-the-data.html#cb5-2" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="part-1.-examining-the-data.html#cb5-3" tabindex="-1"></a>soil.values <span class="ot">&lt;-</span> <span class="fu">BioDIGS_soil_data</span>()</span></code></pre></div>
+<p>It <em>seems</em> like the dataset loaded, but it’s always a good idea to verify. There are many ways to check, but the easiest approach (if you’re using RStudio) is to look at the Environment tab on the upper right-hand side of the screen. You should now have an object called <code>soil.values</code> that includes some number of observations for 28 variables. The <em>observations</em> refer to the number of rows in the dataset, while the <em>variables</em> tell you the number of columns. As long as neither the observations or variables are 0, you can be confident that your dataset loaded.</p>
+<p><img src="resources/images/08-environment.png" title="If the dataset loaded, you will see an object with non-zero observations and variables in the Environment tab" alt="If the dataset loaded, you will see an object with non-zero observations and variables in the Environment tab" style="display: block; margin: auto;" /></p>
+<p>Let’s take a quick look at the dataset. We can do this by clicking on soil.values object in the Environment tab. (Note: this is equivalent to typing <code>View(soil.values)</code> in the R console.)</p>
+<p>This will open a new window for us to scroll through the dataset.</p>
+<p><img src="resources/images/08-scrolling_through_dataset.png" title="You can click on the object in the Environment tab to open a new window that allows you to scroll through the loaded dataset" alt="You can click on the object in the Environment tab to open a new window that allows you to scroll through the loaded dataset" style="display: block; margin: auto;" /></p>
+<p>Well, the data definitely loaded, but those column names aren’t immediately understandable. What could <strong>As_EPA3051</strong> possibly mean? In addition to the dataset, we need to load the <em>data dictionary</em> as well.</p>
+<div class="dictionary">
+<p><strong>Data dictionary:</strong> a file containing the names, definitions, and attributes about data in a database or dataset.</p>
 </div>
-<div id="about-this-book" class="section level1 unnumbered hasAnchor">
-<h1>About this Book<a href="index.html#about-this-book" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This is a companion training guide for BioDIGS, a GDSCN project that brings a research experience into the classroom. This activity guides students through exploration of the BioDIGS soil data using the tidyverse in R. Students will learn basic data summarization, visualization, and mapping skills. Visit the BioDIGS (BioDiversity and Informatics for Genomics Scholars) website <a href="https://biodigs.org/">here</a> for more information about this collaborative, distributed research project, including how you can get involved!</p>
-<p>The GDSCN (Genomics Data Science Community Network) is a consortium of educators who aim to create a world where researchers, educators, and students from diverse backgrounds are able to fully participate in genomic data science research. You can find more information about its mission and initiatives <a href="https://www.gdscn.org/home">here</a>.</p>
-<div class="float">
-<img src="https://raw.githubusercontent.com/fhdsl/AnVIL_BioDIGS_Book/main/assets/GDSCN_style/logo_BioDIGS_final.png" width="300" alt="BioDIGS logo" />
-<div class="figcaption">BioDIGS logo</div>
+<p>In this case, the data dictionary can help us make sense of what sort of values each column represents. The data dictionary for the BioDIGS soil testing data is available in the R package (see code below), but we have also reproduced it here.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="part-1.-examining-the-data.html#cb6-1" tabindex="-1"></a>?<span class="fu">BioDIGS_soil_data</span>()</span></code></pre></div>
+<div class="dictionary">
+<ul>
+<li><strong>site_id</strong> Unique letter and number site name</li>
+<li><strong>full_name</strong> Full site name</li>
+<li><strong>As_EPA3051</strong> Arsenic (mg/kg), EPA Method 3051A. Quantities &lt; 3.0 are not detectable.</li>
+<li><strong>Cd_EPA3051</strong> Cadmium (mg/kg), EPA Method 3051A. Quantities &lt; 0.2 are not detectable.</li>
+<li><strong>Cr_EPA3051</strong> Chromium (mg/kg), EPA Method 3051A</li>
+<li><strong>Cu_EPA3051</strong> Copper (mg/kg), EPA Method 3051A</li>
+<li><strong>Ni_EPA3051</strong> Nickel (mg/kg), EPA Method 3051A</li>
+<li><strong>Pb_EPA3051</strong> Lead (mg/kg), EPA Method 3051A</li>
+<li><strong>Zn_EPA3051</strong> Zinc (mg/kg), EPA Method 3051A</li>
+<li><strong>water_pH</strong></li>
+<li><strong>A-E_Buffer_pH</strong></li>
+<li><strong>OM_by_LOI_pct</strong> Organic Matter by Loss on Ignition</li>
+<li><strong>P_Mehlich3</strong> Phosphorus (mg/kg), using the Mehlich 3 soil test extractant</li>
+<li><strong>K_Mehlich3 Potassium</strong> (mg/kg), using the Mehlich 3 soil test extractant</li>
+<li><strong>Ca_Mehlich3</strong> Calcium (mg/kg), using the Mehlich 3 soil test extractant</li>
+<li><strong>Mg_Mehlich3</strong> Magnesium (mg/kg), using the Mehlich 3 soil test extractant</li>
+<li><strong>Mn_Mehlich3</strong> Manganese (mg/kg), using the Mehlich 3 soil test extractant</li>
+<li><strong>Zn_Mehlich3</strong> Zinc (mg/kg), using the Mehlich 3 soil test extractant</li>
+<li><strong>Cu_Mehlich3</strong> Copper (mg/kg), using the Mehlich 3 soil test extractant</li>
+<li><strong>Fe_Mehlich3</strong> Iron (mg/kg), using the Mehlich 3 soil test extractant</li>
+<li><strong>B_Mehlich3</strong> Boron (mg/kg), using the Mehlich 3 soil test extractant</li>
+<li><strong>S_Mehlich3</strong> Sulfur (mg/kg), using the Mehlich 3 soil test extractant</li>
+<li><strong>Na_Mehlich3</strong> Sodium (mg/kg), using the Mehlich 3 soil test extractant</li>
+<li><strong>Al_Mehlich3</strong> Aluminum (mg/kg), using the Mehlich 3 soil test extractant</li>
+<li><strong>Est_CEC</strong> Cation Exchange Capacity (meq/100g) at pH 7.0 (CEC)</li>
+<li><strong>Base_Sat_pct</strong> Base saturation (BS). This represents the percentage of CEC occupied by bases (Ca2+, Mg2+, K+, and Na+). The %BS increases with increasing soil pH. The availability of Ca2+, Mg2+, and K+ increases with increasing %BS.</li>
+<li><strong>P_Sat_ratio</strong> Phosphorus saturation ratio. This is the ratio between the amount of phosphorus present in the soil and the total capacity of that soil to retain phosphorus. The ability of phosphorus to be bound in the soil is primary a function of iron (Fe) and aluminum (Al) content in that soil.</li>
+</ul>
 </div>
-<div id="target-audience" class="section level2 hasAnchor" number="0.1">
-<h2><span class="header-section-number">0.1</span> Target Audience<a href="index.html#target-audience" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The activities in this guide are written for undergraduate students and beginning graduate students. Some sections require basic understanding of the R programming language, which is indicated at the beginning of the chapter.</p>
+<p>Using the data dictionary, we find that the values in column <code>As_EPA3051</code> give us the arsenic concentration in mg/kg of each soil sample, as determined by <a href="https://www.epa.gov/sites/default/files/2015-12/documents/3051a.pdf">EPA Method 3051A</a>. This method uses a combination of heat and acid to extract specific elements (like arsenic, cadmium, chromium, copper, nickel, lead, and zinc) from soil samples.</p>
+<p>While arsenic can occur naturally in soils, higher levels suggest the soil may have been contaminated by mining, hazardous waste, or pesticide application. Arsenic is toxic to humans.</p>
+<div class="reflection">
+<p>QUESTIONS:</p>
+<ol style="list-style-type: decimal">
+<li><p>What data is found in the column labeled “Fe_Mehlich3”? Why would we be interested how much of this is in the soil? (You may have to search the internet for this answer.)</p></li>
+<li><p>What data is found in the column labeled “Base_Sat_pct”? What does this variable tell us about the soil?</p></li>
+</ol>
 </div>
-<div id="platform" class="section level2 hasAnchor" number="0.2">
-<h2><span class="header-section-number">0.2</span> Platform<a href="index.html#platform" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The activities in this guide are demonstrated on NHGRI’s <a href="https://anvilproject.org/">AnVIL</a> cloud computing platform. AnVIL is the preferred computing platform for the GDSCN. However, all of these activities can be done using your personal installation of R or using the online <a href="usegalaxy.org">Galaxy</a> portal.</p>
+<p>We can also look at just the names of all the columns using the R console using the <code>colnames()</code> command.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="part-1.-examining-the-data.html#cb7-1" tabindex="-1"></a><span class="fu">colnames</span>(soil.values)</span></code></pre></div>
+<pre><code>##  [1] &quot;site_id&quot;       &quot;site_name&quot;     &quot;type&quot;          &quot;As_EPA3051&quot;   
+##  [5] &quot;Cd_EPA3051&quot;    &quot;Cr_EPA3051&quot;    &quot;Cu_EPA3051&quot;    &quot;Ni_EPA3051&quot;   
+##  [9] &quot;Pb_EPA3051&quot;    &quot;Zn_EPA3051&quot;    &quot;water_pH&quot;      &quot;OM_by_LOI_pct&quot;
+## [13] &quot;P_Mehlich3&quot;    &quot;K_Mehlich3&quot;    &quot;Ca_Mehlich3&quot;   &quot;Mg_Mehlich3&quot;  
+## [17] &quot;Mn_Mehlich3&quot;   &quot;Zn_Mehlich3&quot;   &quot;Cu_Mehlich3&quot;   &quot;Fe_Mehlich3&quot;  
+## [21] &quot;B_Mehlich3&quot;    &quot;S_Mehlich3&quot;    &quot;Na_Mehlich3&quot;   &quot;Al_Mehlich3&quot;  
+## [25] &quot;Est_CEC&quot;       &quot;Base_Sat_pct&quot;  &quot;P_Sat_ratio&quot;   &quot;region&quot;</code></pre>
+<p>Most of the column names are found in the data dictionary, but the very last column (“region”) isn’t. How peculiar! Let’s look at what sort of values this particular column contains. The tab with the table of the <code>soil.views</code> object should still be open in the upper left pane of the RStudio window. If not, you can open it again by clicking on <code>soils.view</code> in the Environment pane, or by using the <code>View()</code> command.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="part-1.-examining-the-data.html#cb9-1" tabindex="-1"></a><span class="fu">View</span>(soil.values)</span></code></pre></div>
+<p><img src="resources/images/08-soil_values_object.png" title="Switch to the soil.values tab to look at what values are in the region column" alt="Switch to the soil.values tab to look at what values are in the region column" style="display: block; margin: auto;" /></p>
+<p>If you scroll to the end of the table, we can see that “region” seems to refer to the city or area where the samples were collected. For example, the first 6 samples all come from Baltimore City.</p>
+<p><img src="resources/images/08-region.png" title="We can see the first samples in the dataset were collected in Baltimore City" alt="We can see the first samples in the dataset were collected in Baltimore City" style="display: block; margin: auto;" /></p>
+<p>You may notice that some cells in the <code>soil.values</code> table contain <em>NA</em>. This just means that the soil testing data for that sample isn’t available yet. We’ll take care of those values in the next part.</p>
+<div class="reflection">
+<p>QUESTIONS:</p>
+<ol start="3" style="list-style-type: decimal">
+<li><p>How many observations are in the soil testing values dataset that you loaded? What do each of these observations refer to?</p></li>
+<li><p>How many different regions are represented in the soil testing dataset? How many of them have soil testing data available?</p></li>
+</ol>
 </div>
-<div id="data" class="section level2 hasAnchor" number="0.3">
-<h2><span class="header-section-number">0.3</span> Data<a href="index.html#data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The data generated by the BioDIGS project is available through the <a href="biodigs.org">BioDIGS website</a>, as well as through an <a href="https://anvilproject.org">AnVIL workspace</a>.</p>
-<p>Data about the soil itself as well as soil metal content was generated by the <a href="https://www.udel.edu/canr/cooperative-extension/environmental-stewardship/soil-testing/">Delaware Soil Testing Program</a> at the University of Delaware. Sequences were generated by the <a href="https://grcf.jhmi.edu/">Johns Hopkins University Genetic Resources Core Facility</a> and by <a href="https://www.pacb.com/">PacBio</a>.</p>
-
 </div>
-</div>
-<div class="borrowed_chunk">
-
-
-
 <hr>
 <center> 
   <div class="footer">
@@ -265,8 +317,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-
-<a href="background.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="introduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="part-2.-summarizing-the-data-with-statistics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
