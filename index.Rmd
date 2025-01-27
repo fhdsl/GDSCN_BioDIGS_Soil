@@ -17,7 +17,7 @@ This is a companion training guide for BioDIGS, a GDSCN project that brings a re
 
 The GDSCN (Genomics Data Science Community Network) is a consortium of educators who aim to create a world where researchers, educators, and students from diverse backgrounds are able to fully participate in genomic data science research. You can find more information about its mission and initiatives [here](https://www.gdscn.org/home).
 
-![BioDIGS logo](https://raw.githubusercontent.com/fhdsl/AnVIL_BioDIGS_Book/main/assets/GDSCN_style/logo_BioDIGS_final.png){width=300px}
+![BioDIGS logo](https://raw.githubusercontent.com/fhdsl/GDSCN_BioDIGS_Book/main/assets/GDSCN_style/logo_BioDIGS_final.png){width=300px}
 
 ## Target Audience
 
@@ -26,6 +26,10 @@ The activities in this guide are written for undergraduate students and beginnin
 ## Platform
 
 The activities in this guide are demonstrated on NHGRI's [AnVIL](https://anvilproject.org/) cloud computing platform. AnVIL is the preferred computing platform for the GDSCN. However, all of these activities can be done using your personal installation of R or using the online [Galaxy](usegalaxy.org) portal.
+
+```{r echo=FALSE, fig.alt="BioDIGS logo powered by the AnVIL logo", out.width='500px', fig.align='center'}
+knitr::include_graphics("https://raw.githubusercontent.com/fhdsl/GDSCN_BioDIGS_Book/main/assets/GDSCN_style/powered-by-anvil.png")
+```
 
 ## Data
 
