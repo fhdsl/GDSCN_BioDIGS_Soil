@@ -1,4 +1,14 @@
-# (PART\*) Instructor Checklist for AnVIL {-}
+# (PART\*) Instructor Guide {-}
+
+# Notes about the Activity
+
+Coming soon!
+
+# Additional Lecture Material
+
+Coming soon!
+
+# Checklist for Using AnVIL
 
 :::: {.borrowed_chunk}
 ```{r, echo = FALSE, results='asis'}
