@@ -1,3 +1,5 @@
+# BioDIGS Data
+
 :::: {.borrowed_chunk}
 ```{r, echo = FALSE, results='asis'}
 cow::borrow_chapter(
