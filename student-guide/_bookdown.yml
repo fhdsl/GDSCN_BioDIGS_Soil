@@ -2,8 +2,7 @@ book_filename: "Student_Guide"
 chapter_name: "Chapter "
 repo: https://github.com/fhdsl/GDSCN_BioDIGS_Soil/
 rmd_files: ["index.Rmd",
-            "09-student_guide.Rmd",
-            "References.Rmd"]
+            "09-student_guide.Rmd"]
 new_session: yes
 bibliography: [book.bib]
 delete_merged_file: true
