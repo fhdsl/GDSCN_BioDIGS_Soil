@@ -1,8 +1,9 @@
-:::: {.borrowed_chunk}
+# Research Team
+
 ```{r, echo = FALSE, results='asis'}
 cow::borrow_chapter(
-  doc_path = "docs/02-research_team.md",
+  doc_path = "child/_child_research_team.Rmd",
+  branch = "main",
   repo_name = "fhdsl/GDSCN_BioDIGS_Book"
 )
 ```
-::::
