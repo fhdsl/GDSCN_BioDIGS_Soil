@@ -22,7 +22,7 @@ cow::borrow_chapter(
 cow::borrow_chapter(
   doc_path = "09-soil_exploration_module.Rmd",
   repo_name = "fhdsl/GDSCN_BioDIGS_Soil",
-  branch = "screenshots"
+  branch = "main"
 )
 ```
 ::::
@@ -32,7 +32,7 @@ cow::borrow_chapter(
 cow::borrow_chapter(
   doc_path = "10-module_questions.Rmd",
   repo_name = "fhdsl/GDSCN_BioDIGS_Soil",
-  branch = "screenshots"
+  branch = "main"
 )
 ```
 ::::
