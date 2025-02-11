@@ -146,21 +146,24 @@ QUESTIONS:
 4.  How many different soil characteristics are in the dataset? How can you tell?
 :::
 
-# Part 2. Summarizing the Data with Statistics
+# Part 2. Summarizing with Statistics
 
 Now that we have the dataset loaded, let's explore the data in more depth.
 
 First, we should remove those samples that don't have soil testing data yet. We *could* keep them in the dataset, but removing them at this stage will make the analysis a little cleaner. In this case, as we know the reason the data are missing (and that reason will not skew our analysis), we can safely remove these samples. This will _not_ be the case for every data analysis.
 
-We can remove the unanalyzed samples using the `drop_na()` function from the `tidyr` package. This function removes any rows from a table that contains *NA* for a particular column. This command follows the code structure:
+We can remove the unanalyzed samples using the `drop_na()` function from the `tidyverse` package. The `tidyverse` package is a collection of code that makes organizing datatables (also known as data wrangling) easy in R. The `drop_na` function removes any rows from a table that contains *NA* for a particular column. This command follows the code structure:
 
-dataset_new_name <- dataset %>% drop_na(column_name)
+dataset_new_name <- dataset_object_name %>% drop_na(column_name)
 
 The `%>%` is called a pipe and it tells R that the commands after it should all be applied to the object in front of it. (In this case, we can filter out all samples missing a value for "As_EPA3051" as a proxy for samples without soil testing data.)
 
-```{r, message = FALSE, warning = FALSE}
+The following code block opens the `tidyverse` package, then tells R to filter out all samples missing a value for "As_EPA3051" (as a proxy for samples without soil testing data) from the `soil.values` object, and finally to save the new, filtered dataset as an object called `soil.values.clean`.
 
-library(tidyr)
+```{r, message = FALSE, warning = FALSE}
+#install.packages('tidyverse') if you haven't already installed the tidyverse!
+
+library(tidyverse)
 
 soil.values.clean <- soil.values %>% drop_na(As_EPA3051)
 ```
@@ -171,12 +174,9 @@ This command follows the code structure:
 
 object_name %>% pull(column_name) %>% mean()
 
-`pull()` is a command from the `tidyverse` package, so we'll need to
-load that library before our command.
+For this chunk of code, R will calculate the mean for the AS_EPA3051 values in the `soil.values.clean` dataset. Because we have not used the `<-` to save the mean in a new object, R will simply display the mean.
 
 ```{r, message = FALSE, warning = FALSE}
-
-library(tidyverse)
 
 soil.values.clean %>% pull(As_EPA3051) %>% mean()
 ```
@@ -191,22 +191,15 @@ soil.values.clean %>% pull(As_EPA3051) %>% min()
 soil.values.clean %>% pull(As_EPA3051) %>% max()
 ```
 
-The soil testing dataset contains samples from multiple geographic
-regions, so maybe it's more meaningful to find out what the average
-arsenic values are for each region. We have to do a little bit of clever
-coding trickery for this using the `group_by` and `summarize` functions.
-First, we tell R to split our dataset up by a particular column (in this
-case, region) using the `group_by` function, then we tell R to summarize
-the mean arsenic concentration for each group.
+The soil testing dataset contains samples from multiple geographic regions, so maybe it's more meaningful to find out what the average arsenic values are for each region. We have to do a little bit of clevercoding trickery for this using the `group_by` and `summarize` functions. 
 
-When using the `summarize` function, we tell R to make a new table
-(technically, a tibble in R) that contains two columns: the column used
-to group the data and the statistical measure we calculated for each
-group.
+First, we tell R to split our dataset up by a particular column (in this case, region) using the `group_by` function, then we tell R to summarize the mean arsenic concentration for each group.
+
+When using the `summarize` function, we tell R to make a new table (technically, a tibble in R) that contains two columns: the column used to group the data and the statistical measure we calculated for each group.
 
 This command follows the code structure:
 
-dataset %\>% group_by(column_name) %\>% summarize(mean(column_name))
+dataset %>% group_by(column_name) %>% summarize(mean(column_name))
 
 ```{r, message = FALSE, warning = FALSE}
 
