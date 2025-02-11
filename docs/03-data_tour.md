@@ -1,5 +1,3 @@
-:::: {.borrowed_chunk}
-
 # BioDIGS Data
 
 
@@ -24,4 +22,3 @@ You can access this data in both raw and processed forms.
 The Illumina and Nanopore sequences were generated at the [Johns Hopkins University Genetic Resources Core Facility](https://grcf.jhmi.edu/). PacBio sequencing was done by [PacBio](https://www.pacb.com/) directly.
 
 More information coming soon!
-::::

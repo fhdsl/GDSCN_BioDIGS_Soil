@@ -1,4 +1,3 @@
-:::: {.borrowed_chunk}
 
 # (PART\*) BioDIGS Overview {-}
 
@@ -36,4 +35,3 @@ It can be challenging to include undergraduates in human genomic and health rese
 Human activities that change the landscape can also change what sorts of inorganic and abiotic compounds we find in the soil, particularly increasing the amount of heavy metals [@Yan2020]. When cars drive on roads, compounds from the exhaust, oil, and other fluids might settle onto the roads and be washed into the soil. When we put salt on roads, parking lots, and sidewalks, the salts themselves will eventually be washed away and enter the ecosystem through both water and soil. Chemicals from factories and other businesses also leech into our environment. Previous research has demonstrated that in areas with more human activity, like cities, soils include greater concentrations of heavy metals than found in rural areas with limited human populations [@Khan2023; @Wang2022]. Increased heavy metal concentrations also disproportionately affect lower-income and predominantly minority areas [@Jones2022].
 
 Research suggests that increased heavy metal concentration in soils has major impacts on the soil microbial community. In particular, increased heavy metal concentration is associated with an increase in soil bacteria that have antibiotic resistance markers [@Gorovtsov2018; @Nguyen2019; @Sun2021].
-::::
