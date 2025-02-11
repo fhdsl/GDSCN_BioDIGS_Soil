@@ -36,84 +36,25 @@ This activity will teach you how to use the AnVIL platform to:
 
 We will use the `BioDIGS` package to retrieve the data. We first need to install the package from where it is stored on GitHub.
 
-```{r, message = FALSE, warning = FALSE, echo = FALSE}
+You may first need to install the `devtools` package to your RStudio environment. `devtools` is a package (or chunk of prewritten code) that allows you to download code that has been stored on GitHub into RStudio.
 
-library(readr)
-soil.values <- read_csv(file = "soil_testing_data.csv")
-```
+```{r, message = FALSE, warning = FALSE}
 
-```{r, message = FALSE, warning = FALSE, eval=F}
+install.packages("devtools")
+library(devtools)
 
 devtools::install_github("fhdsl/BioDIGSData")
 ```
 
 Once you've installed the package, we can load the library (which just means we have access to all the data stored in the BioDIGSData package). Then we assign the soil testing data to an *object*. This command follows the code structure:
 
-dataset_object_name 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<- stored_BioDIGS_dataset
+dataset_object_name <- stored_BioDIGS_dataset
 
 The "dataset_object_name" is what RStudio will call the dataset after you open it. The "stored_BioDIGS_dataset" is what the dataset is called within the BioDIGSData package. Finally, the arrow ("\<-") tells R to open the "stored_BioDIGS_dataset" and save it in your environment as "dataset_object_name".
 
 The order of these commands might be odd to our eyes, but it makes perfect sense to RStudio!
 
-The soil testing data is called `BioDIGS_soil_data` in the BioDIGSData package.
+The soil testing data is called `BioDIGS_soil_data` in the BioDIGSData package. When we save this dataset into our environment, we're calling is `soil.values`.
 
 ```{r, message = FALSE, warning = FALSE, eval=F}
 
@@ -202,7 +143,7 @@ QUESTIONS:
 
 3.  How many observations are in the soil testing values dataset that you loaded? What do each of these observations refer to?
 
-4.  How many different regions are represented in the soil testing dataset? How many of them have soil testing data available?
+4.  How many different soil characteristics are in the dataset? How can you tell?
 :::
 
 # Part 2. Summarizing the Data with Statistics

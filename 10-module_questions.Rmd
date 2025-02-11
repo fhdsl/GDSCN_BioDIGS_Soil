@@ -8,7 +8,7 @@
 
 3. How many observations are in the soil testing values dataset that you loaded? What do each of these observations refer to?
 
-4. How many different regions are represented in the soil testing dataset? How many of them have soil testing data available?
+4. How many different soil characteristics are in the dataset? How can you tell?
 
 ## Part 2. Summarizing the Data with Statistics
 
