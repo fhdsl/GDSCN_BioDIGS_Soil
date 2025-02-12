@@ -1,0 +1,38 @@
+
+:::: {.borrowed_chunk}
+```{r, echo = FALSE, results='asis'}
+cow::borrow_chapter(
+  doc_path = "05-anvil_onboarding.Rmd",
+  repo_name = "fhdsl/GDSCN_BioDIGS_Book"
+)
+```
+::::
+
+:::: {.borrowed_chunk}
+```{r, echo = FALSE, results='asis'}
+cow::borrow_chapter(
+  doc_path = "08-student_using_rstudio.Rmd",
+  repo_name = "fhdsl/GDSCN_BioDIGS_Book"
+)
+```
+::::
+
+:::: {.borrowed_chunk}
+```{r, echo = FALSE, results='asis'}
+cow::borrow_chapter(
+  doc_path = "09-soil_exploration_module.Rmd",
+  repo_name = "fhdsl/GDSCN_BioDIGS_Soil",
+  branch = "main"
+)
+```
+::::
+
+:::: {.borrowed_chunk}
+```{r, echo = FALSE, results='asis'}
+cow::borrow_chapter(
+  doc_path = "10-module_questions.Rmd",
+  repo_name = "fhdsl/GDSCN_BioDIGS_Soil",
+  branch = "main"
+)
+```
+::::

@@ -4,25 +4,25 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 18 References | BioDIGS: Exploring Soil Data</title>
+  <title>References | BioDIGS: Exploring Soil Data</title>
   <meta name="description" content="This activity guides students through exploration of the BioDIGS soil data using the tidyverse in R." />
   <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 18 References | BioDIGS: Exploring Soil Data" />
+  <meta property="og:title" content="References | BioDIGS: Exploring Soil Data" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This activity guides students through exploration of the BioDIGS soil data using the tidyverse in R." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 18 References | BioDIGS: Exploring Soil Data" />
+  <meta name="twitter:title" content="References | BioDIGS: Exploring Soil Data" />
   
   <meta name="twitter:description" content="This activity guides students through exploration of the BioDIGS soil data using the tidyverse in R." />
   
 
 
 
-<meta name="date" content="2025-01-27" />
+<meta name="date" content="2025-02-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -121,6 +121,28 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="assets/style.css" type="text/css" />
 <link rel="stylesheet" href="assets/GDSCN_style/gdscn.css" type="text/css" />
@@ -145,47 +167,78 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#platform"><i class="fa fa-check"></i><b>0.2</b> Platform</a></li>
 <li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#data"><i class="fa fa-check"></i><b>0.3</b> Data</a></li>
 </ul></li>
+<li class="part"><span><b>BioDIGS Overview</b></span></li>
+<li class="chapter" data-level="1" data-path="background.html"><a href="background.html"><i class="fa fa-check"></i><b>1</b> Background</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="background.html"><a href="background.html#what-is-genomics"><i class="fa fa-check"></i><b>1.1</b> What is genomics?</a></li>
+<li class="chapter" data-level="1.2" data-path="background.html"><a href="background.html#what-is-data-science"><i class="fa fa-check"></i><b>1.2</b> What is data science?</a></li>
+<li class="chapter" data-level="1.3" data-path="background.html"><a href="background.html#what-is-cloud-computing"><i class="fa fa-check"></i><b>1.3</b> What is cloud computing?</a></li>
+<li class="chapter" data-level="1.4" data-path="background.html"><a href="background.html#why-soil-microbes"><i class="fa fa-check"></i><b>1.4</b> Why soil microbes?</a></li>
+<li class="chapter" data-level="1.5" data-path="background.html"><a href="background.html#heavy-metals-and-human-health"><i class="fa fa-check"></i><b>1.5</b> Heavy metals and human health</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="research-team.html"><a href="research-team.html"><i class="fa fa-check"></i><b>2</b> Research Team</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="research-team.html"><a href="research-team.html#soil-sampling"><i class="fa fa-check"></i><b>2.1</b> Soil sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="support.html"><a href="support.html"><i class="fa fa-check"></i><b>3</b> Support</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="support.html"><a href="support.html#funding"><i class="fa fa-check"></i><b>3.1</b> Funding</a></li>
+<li class="chapter" data-level="3.2" data-path="support.html"><a href="support.html#sponsors"><i class="fa fa-check"></i><b>3.2</b> Sponsors</a></li>
+<li class="chapter" data-level="3.3" data-path="support.html"><a href="support.html#analytical-and-computational-support"><i class="fa fa-check"></i><b>3.3</b> Analytical and Computational Support</a></li>
+</ul></li>
 <li class="chapter" data-level="4" data-path="biodigs-data.html"><a href="biodigs-data.html"><i class="fa fa-check"></i><b>4</b> BioDIGS Data</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="biodigs-data.html"><a href="biodigs-data.html#sample-metadata"><i class="fa fa-check"></i><b>4.1</b> Sample Metadata</a></li>
 <li class="chapter" data-level="4.2" data-path="biodigs-data.html"><a href="biodigs-data.html#soil-testing-data"><i class="fa fa-check"></i><b>4.2</b> Soil Testing Data</a></li>
 <li class="chapter" data-level="4.3" data-path="biodigs-data.html"><a href="biodigs-data.html#genomics-and-metagenomics-data"><i class="fa fa-check"></i><b>4.3</b> Genomics and Metagenomics Data</a></li>
 </ul></li>
-<li class="part"><span><b>Instructor Checklist for AnVIL</b></span></li>
-<li class="part"><span><b>Student Guide to AnVIL</b></span></li>
-<li class="chapter" data-level="11" data-path="anvil-workspace.html"><a href="anvil-workspace.html"><i class="fa fa-check"></i><b>11</b> AnVIL Workspace</a>
+<li class="part"><span><b>AnVIL Overview</b></span></li>
+<li class="chapter" data-level="5" data-path="billing.html"><a href="billing.html"><i class="fa fa-check"></i><b>5</b> Billing</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="anvil-workspace.html"><a href="anvil-workspace.html#create-google-account"><i class="fa fa-check"></i><b>11.1</b> Create Google Account</a></li>
-<li class="chapter" data-level="11.2" data-path="anvil-workspace.html"><a href="anvil-workspace.html#clone-the-workspace"><i class="fa fa-check"></i><b>11.2</b> Clone the Workspace</a></li>
+<li class="chapter" data-level="5.1" data-path="billing.html"><a href="billing.html#create-google-billing-account"><i class="fa fa-check"></i><b>5.1</b> Create Google Billing Account</a></li>
+<li class="chapter" data-level="5.2" data-path="billing.html"><a href="billing.html#add-terra-to-google-billing-account"><i class="fa fa-check"></i><b>5.2</b> Add Terra to Google Billing Account</a></li>
+<li class="chapter" data-level="5.3" data-path="billing.html"><a href="billing.html#add-members-to-google-billing-account"><i class="fa fa-check"></i><b>5.3</b> Add Members to Google Billing Account</a></li>
+<li class="chapter" data-level="5.4" data-path="billing.html"><a href="billing.html#set-alerts-for-google-billing"><i class="fa fa-check"></i><b>5.4</b> Set Alerts for Google Billing</a></li>
+<li class="chapter" data-level="5.5" data-path="billing.html"><a href="billing.html#view-spend-for-google-billing"><i class="fa fa-check"></i><b>5.5</b> View Spend for Google Billing</a></li>
+<li class="chapter" data-level="5.6" data-path="billing.html"><a href="billing.html#create-terra-billing-project"><i class="fa fa-check"></i><b>5.6</b> Create Terra Billing Project</a></li>
+<li class="chapter" data-level="5.7" data-path="billing.html"><a href="billing.html#add-member-to-terra-billing-project"><i class="fa fa-check"></i><b>5.7</b> Add Member to Terra Billing Project</a></li>
+<li class="chapter" data-level="5.8" data-path="billing.html"><a href="billing.html#disable-terra-billing-project"><i class="fa fa-check"></i><b>5.8</b> Disable Terra Billing Project</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="using-rstudio-on-anvil.html"><a href="using-rstudio-on-anvil.html"><i class="fa fa-check"></i><b>12</b> Using RStudio on AnVIL</a>
+<li class="chapter" data-level="6" data-path="anvil-workspace.html"><a href="anvil-workspace.html"><i class="fa fa-check"></i><b>6</b> AnVIL Workspace</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="using-rstudio-on-anvil.html"><a href="using-rstudio-on-anvil.html#video-overview-of-rstudio-on-anvil"><i class="fa fa-check"></i><b>12.1</b> Video overview of RStudio on AnVIL</a>
-<ul>
-<li class="chapter" data-level="12.1.1" data-path="using-rstudio-on-anvil.html"><a href="using-rstudio-on-anvil.html#objectives"><i class="fa fa-check"></i><b>12.1.1</b> Objectives</a></li>
-<li class="chapter" data-level="12.1.2" data-path="using-rstudio-on-anvil.html"><a href="using-rstudio-on-anvil.html#slides"><i class="fa fa-check"></i><b>12.1.2</b> Slides</a></li>
+<li class="chapter" data-level="6.1" data-path="anvil-workspace.html"><a href="anvil-workspace.html#create-google-account"><i class="fa fa-check"></i><b>6.1</b> Create Google Account</a></li>
+<li class="chapter" data-level="6.2" data-path="anvil-workspace.html"><a href="anvil-workspace.html#create-workspace"><i class="fa fa-check"></i><b>6.2</b> Create Workspace</a></li>
 </ul></li>
-<li class="chapter" data-level="12.2" data-path="using-rstudio-on-anvil.html"><a href="using-rstudio-on-anvil.html#launching-rstudio"><i class="fa fa-check"></i><b>12.2</b> Launching RStudio</a></li>
-<li class="chapter" data-level="12.3" data-path="using-rstudio-on-anvil.html"><a href="using-rstudio-on-anvil.html#touring-rstudio"><i class="fa fa-check"></i><b>12.3</b> Touring RStudio</a></li>
-<li class="chapter" data-level="12.4" data-path="using-rstudio-on-anvil.html"><a href="using-rstudio-on-anvil.html#pausing-rstudio"><i class="fa fa-check"></i><b>12.4</b> Pausing RStudio</a></li>
+<li class="chapter" data-level="7" data-path="programming-platforms.html"><a href="programming-platforms.html"><i class="fa fa-check"></i><b>7</b> Programming Platforms</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="programming-platforms.html"><a href="programming-platforms.html#video-overview-on-using-rstudio"><i class="fa fa-check"></i><b>7.1</b> Video overview on using RStudio</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="programming-platforms.html"><a href="programming-platforms.html#objectives"><i class="fa fa-check"></i><b>7.1.1</b> Objectives</a></li>
+<li class="chapter" data-level="7.1.2" data-path="programming-platforms.html"><a href="programming-platforms.html#slides"><i class="fa fa-check"></i><b>7.1.2</b> Slides</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="programming-platforms.html"><a href="programming-platforms.html#launching-rstudio"><i class="fa fa-check"></i><b>7.2</b> Launching RStudio</a></li>
+<li class="chapter" data-level="7.3" data-path="programming-platforms.html"><a href="programming-platforms.html#touring-rstudio"><i class="fa fa-check"></i><b>7.3</b> Touring RStudio</a></li>
+<li class="chapter" data-level="7.4" data-path="programming-platforms.html"><a href="programming-platforms.html#pausing-rstudio"><i class="fa fa-check"></i><b>7.4</b> Pausing RStudio</a></li>
+<li class="chapter" data-level="7.5" data-path="programming-platforms.html"><a href="programming-platforms.html#deleting-rstudio"><i class="fa fa-check"></i><b>7.5</b> Deleting RStudio</a></li>
 </ul></li>
 <li class="part"><span><b>Student Activity</b></span></li>
-<li class="chapter" data-level="13" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>13</b> Introduction</a>
+<li class="chapter" data-level="8" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>8</b> Introduction</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="introduction.html"><a href="introduction.html#before-you-start"><i class="fa fa-check"></i><b>13.1</b> Before You Start</a></li>
-<li class="chapter" data-level="13.2" data-path="introduction.html"><a href="introduction.html#objectives-1"><i class="fa fa-check"></i><b>13.2</b> Objectives</a></li>
+<li class="chapter" data-level="8.1" data-path="introduction.html"><a href="introduction.html#before-you-start"><i class="fa fa-check"></i><b>8.1</b> Before You Start</a></li>
+<li class="chapter" data-level="8.2" data-path="introduction.html"><a href="introduction.html#objectives-1"><i class="fa fa-check"></i><b>8.2</b> Objectives</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="part-1.-examining-the-data.html"><a href="part-1.-examining-the-data.html"><i class="fa fa-check"></i><b>14</b> Part 1. Examining the Data</a></li>
-<li class="chapter" data-level="15" data-path="part-2.-summarizing-the-data-with-statistics.html"><a href="part-2.-summarizing-the-data-with-statistics.html"><i class="fa fa-check"></i><b>15</b> Part 2. Summarizing the Data with Statistics</a></li>
-<li class="chapter" data-level="16" data-path="part-3.-visualizing-the-data.html"><a href="part-3.-visualizing-the-data.html"><i class="fa fa-check"></i><b>16</b> Part 3. Visualizing the Data</a></li>
-<li class="chapter" data-level="17" data-path="activity-questions.html"><a href="activity-questions.html"><i class="fa fa-check"></i><b>17</b> Activity Questions</a>
+<li class="chapter" data-level="9" data-path="part-1.-examining-the-data.html"><a href="part-1.-examining-the-data.html"><i class="fa fa-check"></i><b>9</b> Part 1. Examining the Data</a></li>
+<li class="chapter" data-level="10" data-path="part-2.-summarizing-the-data-with-statistics.html"><a href="part-2.-summarizing-the-data-with-statistics.html"><i class="fa fa-check"></i><b>10</b> Part 2. Summarizing the Data with Statistics</a></li>
+<li class="chapter" data-level="11" data-path="part-3.-visualizing-the-data.html"><a href="part-3.-visualizing-the-data.html"><i class="fa fa-check"></i><b>11</b> Part 3. Visualizing the Data</a></li>
+<li class="chapter" data-level="12" data-path="activity-questions.html"><a href="activity-questions.html"><i class="fa fa-check"></i><b>12</b> Activity Questions</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="activity-questions.html"><a href="activity-questions.html#part-1.-examining-the-data-1"><i class="fa fa-check"></i><b>17.1</b> Part 1. Examining the Data</a></li>
-<li class="chapter" data-level="17.2" data-path="activity-questions.html"><a href="activity-questions.html#part-2.-summarizing-the-data-with-statistics-1"><i class="fa fa-check"></i><b>17.2</b> Part 2. Summarizing the Data with Statistics</a></li>
-<li class="chapter" data-level="17.3" data-path="activity-questions.html"><a href="activity-questions.html#part-3.-visualizing-the-data-1"><i class="fa fa-check"></i><b>17.3</b> Part 3. Visualizing the Data</a></li>
+<li class="chapter" data-level="12.1" data-path="activity-questions.html"><a href="activity-questions.html#part-1.-examining-the-data-1"><i class="fa fa-check"></i><b>12.1</b> Part 1. Examining the Data</a></li>
+<li class="chapter" data-level="12.2" data-path="activity-questions.html"><a href="activity-questions.html#part-2.-summarizing-the-data-with-statistics-1"><i class="fa fa-check"></i><b>12.2</b> Part 2. Summarizing the Data with Statistics</a></li>
+<li class="chapter" data-level="12.3" data-path="activity-questions.html"><a href="activity-questions.html#part-3.-visualizing-the-data-1"><i class="fa fa-check"></i><b>12.3</b> Part 3. Visualizing the Data</a></li>
 </ul></li>
+<li class="part"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
-<li class="chapter" data-level="18" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>18</b> References</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <p style="text-align:center;"> <a href="https://github.com/jhudsl/OTTR_Template" target="blank" > This content was published with</a> <a href="https://bookdown.org/" target="blank"> bookdown by: </a> </p>
 <p style="text-align:center;"> <a href="https://hutchdatascience.org/"> The Fred Hutch Data Science Lab </a></p>
@@ -221,9 +274,50 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="hero-image-container">
   <img class= "hero-image" src="assets/GDSCN_style/dasl_thin_main_image.png">
 </div>
-<div id="references" class="section level1 hasAnchor" number="18">
-<h1><span class="header-section-number">Chapter 18</span> References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="references" class="section level1 unnumbered hasAnchor">
+<h1>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div class="csl-entry">
+Brevik, Eric C, and Lynn C Burgess. 2014. <span>“The Influence of Soils on Human Health.”</span> <em>Nature Education Knowledge</em>. <a href="https://www.nature.com/scitable/knowledge/library/the-influence-of-soils-on-human-health-127878980/">https://www.nature.com/scitable/knowledge/library/the-influence-of-soils-on-human-health-127878980/</a>.
+</div>
+<div class="csl-entry">
+Buffalari, Deanne, Joyce J Fernandes, Leah Chase, Barbara Lom, Matthew S McMurray, Mary E Morrison, and Amy Jo Stavnezer. 2020. <span>“Integrating Research into the Undergraduate Curriculum: 1. Early Research Experiences and Training.”</span> <em>Journal of Undergraduate Neuroscience Education</em>. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8040836/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8040836/</a>.
+</div>
+<div class="csl-entry">
+Canner, Judith E, Archana J McEligot, María-Eglée Pérez, Lei Qian, and Xinzhi Zhang. 2017. <span>“Enhancing Diversity in Biomedical Data Science.”</span> <em>Ethnicity &amp; Disease</em>. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5398168/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5398168/</a>.
+</div>
+<div class="csl-entry">
+GDSCN. 2022. <span>“Diversifying the Genomic Data Science Research Community.”</span> <em>Genome Research</em>. <a href="https://doi.org/10.1101/gr.276496.121">https://doi.org/10.1101/gr.276496.121</a>.
+</div>
+<div class="csl-entry">
+Gorovtsov, Andrey Vladimirovich, Ivan Sergeevich Sazykin, and Marina Alexandrovna Sazykina. 2018. <span>“The Influence of Heavy Metals, Polyaromatic Hydrocarbons, and Polychlorinated Biphenyls Pollution on the Development of Antibiotic Resistance in Soils.”</span> <em>Environmental Science and Pollution Research</em>. <a href="https://doi.org/10.1007/s11356-018-1465-9">https://doi.org/10.1007/s11356-018-1465-9</a>.
+</div>
+<div class="csl-entry">
+Jones, Daleniece Higgins, Xinhua Yu, Qian Guo, Xiaoli Duan, and Chunrong Jia. 2022. <span>“Racial Disparities in the Heavy Metal Contamination of Urban Soil in the Southeastern United States.”</span> <em>International Journal of Environmental Research and Public Health</em>. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8834334/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8834334/</a>.
+</div>
+<div class="csl-entry">
+Jurkowski, Anne, Ann H Reid, and Jay B Labov. 2017. <span>“Metagenomics: A Call for Bringing a New Science into the Classroom (While It’s Still New).”</span> <em>CBE - Life Sciences Education</em>. <a href="https://doi.org/10.1187/cbe.07-09-0075">https://doi.org/10.1187/cbe.07-09-0075</a>.
+</div>
+<div class="csl-entry">
+Khan, Muhammad Amjad, Javed Nawab, Anwarzeb Khan, Mark L Brusseau, Shah Nawaz Khan, Neelum Ali, Saraj Bahadur, Sardar Khan, and Qing Huang. 2023. <span>“Human Health and Ecological Risks Associated with Total and Bioaccessible Concentrations of Cadmium and Lead in Urban Park Soils.”</span> <em>Bulletin of Environmental Contamination and Toxicology</em>. <a href="https://pubmed.ncbi.nlm.nih.gov/36907936/">https://pubmed.ncbi.nlm.nih.gov/36907936/</a>.
+</div>
+<div class="csl-entry">
+Nguyen, Christine C, Cody N Hugie, Molly L Kile, and Tala Navab-Daneshmand. 2019. <span>“Association Between Heavy Metals and Antibiotic-Resistant Human Pathogens in Environmental Reservoirs: A Review.”</span> <em>Frontiers of Environmental Science &amp; Engineering</em>. <a href="https://doi.org/10.1007/s11783-019-1129-0">https://doi.org/10.1007/s11783-019-1129-0</a>.
+</div>
+<div class="csl-entry">
+Russell, Susan H, Mary P Hancock, and James McCullough. 2007. <span>“Benefits of Undergraduate Research Experiences.”</span> <em>Science</em>. <a href="https://doi.org/10.1126/science.1140384">https://doi.org/10.1126/science.1140384</a>.
+</div>
+<div class="csl-entry">
+Sun, Fulin, Zhantang Xu, and Leilei Fan. 2021. <span>“Response of Heavy Metal and Antibiotic Resistance Genes and Related Microorganisms to Different Heavy Metals in Activated Sludge.”</span> <em>Journal of Environmental Management</em>. <a href="https://doi.org/10.1016/j.jenvman.2021.113754">https://doi.org/10.1016/j.jenvman.2021.113754</a>.
+</div>
+<div class="csl-entry">
+Wang, Xiaoyu, Gavin F Birch, and Enfeng Liu. 2022. <span>“Traffic Emission Dominates the Spatial Variations of Metal Contamination and Ecological-Health Risks in Urban Park Soil.”</span> <em>Chemosphere</em>. <a href="https://pubmed.ncbi.nlm.nih.gov/35240153/">https://pubmed.ncbi.nlm.nih.gov/35240153/</a>.
+</div>
+<div class="csl-entry">
+Yan, Changchun, Fei Wang, Huanhuan Geng, Haijun Liu, Shengyan Pu, Zhijun Tian, Huilun Chen, Beihai Zhou, Rongfang Yuan, and Jun Yao. 2020. <span>“Integrating High-Throughput Sequencing and Metagenome Analysis to Reveal the Characteristic and Resistance Mechanism of Microbial Community in Metal Contaminated Sediments.”</span> <em>Science of the Total Environment</em>. <a href="https://doi.org/10.1016/j.scitotenv.2019.136116">https://doi.org/10.1016/j.scitotenv.2019.136116</a>.
+</div>
+</div>
 </div>
 <hr>
 <center> 
