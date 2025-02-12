@@ -36,6 +36,17 @@ This activity will teach you how to use the AnVIL platform to:
 
 We will use the `BioDIGS` package to retrieve the data. We first need to install the package from where it is stored on GitHub.
 
+:::dictionary
+**Packages and libraries**
+
+You might see or hear the term "package" or "library" when working with the R programming language. 
+
+Packages are collections of R functions, data, and documentation that extend the base functionality of R. They are the fundamental units of shareable code in R. Packages are developed by the R community and made available through repositories like CRAN (Comprehensive R Archive Network), Bioconductor, and GitHub. When you install a package, you gain access to all the functions, data, and documentation provided by that package.
+
+Libraries, on the other hand, are the R environment's way of loading and attaching packages. When you load a library, you make the functions and objects from a package available for use in your current R session.
+
+:::
+
 You may first need to install the `remotes`` package to your RStudio environment. `remotes` is a package (or chunk of pre-written code) that allows you to download code that has been stored on GitHub into RStudio.
 
 ```{r, eval = FALSE}
@@ -284,7 +295,7 @@ QUESTIONS:
 
 8.  Calculate the maximum values for concentrations that were determined using EPA Method 3051. (HINT: change the function you call in the `summarize` statement.) Which of these metals has the maximum concentration you see, and in which region is it found?
 
-9.  Calculate both the mean and maximum values for concentrations that were determined using the Mehlich3 test. (HINT: change the terms in the `columns_to_include` vector, as well as the function you call in the `summarize` statement.) Which of these metals has the highest average and maximum concentrations, and in which region are they found?
+9.  Calculate both the mean and maximum values for concentrations that were determined using the Mehlich3 test. (HINT: change the terms in the the part of the code that uses `ends_with`, as well as the function you call in the `summarize` statement.) Which of these metals has the highest average and maximum concentrations, and in which region are they found?
 :::
 
 # Part 3. Visualizing the Data
