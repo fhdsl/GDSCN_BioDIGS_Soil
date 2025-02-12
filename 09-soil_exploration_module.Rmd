@@ -218,7 +218,12 @@ combined_dataset_name <- first_dataset %>% inner_join(second_dataset, by = colum
 
 The `inner_join` command tells R to combine the first_dataset and the second_dataset based on matching information in the column_name_in_column. It also only keeps those rows that are found in both datasets. Finally, the `<-` tells R to save this combined dataset as a new object.
 
-```{r, message = FALSE, warning = FALSE}
+```{r, message = FALSE, warning = FALSE, echo = FALSE}
+
+soil.combined <- soil.values.clean %>% inner_join(soil.meta, by = "site_id")
+```
+
+```{r, message = FALSE, warning = FALSE, eval = FALSE}
 
 soil.combined <- soil.values.clean %>% inner_join(soil.meta, by = "site_id")
 
