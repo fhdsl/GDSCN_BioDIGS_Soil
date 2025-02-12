@@ -50,7 +50,7 @@ install.packages("remotes")
 remotes::install_url('https://github.com/fhdsl/BioDIGSData/archive/refs/tags/v1.0.0.0.tar.gz')
 ```
 
-Once you've installed the package, we can load the library (which just means we have access to all the data stored in the BioDIGSData package). Then we assign the soil testing data to an *object*. This command follows the code structure:
+Once you've installed the package, we can load the package (which just means we have access to all the data stored in the BioDIGSData package). Then we assign the soil testing data to an *object*. This command follows the code structure:
 
 dataset_object_name <- stored_BioDIGS_dataset
 
