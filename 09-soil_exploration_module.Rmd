@@ -60,7 +60,7 @@ The order of these commands might be odd to our eyes, but it makes perfect sense
 
 The soil testing data is called `BioDIGS_soil_data` in the BioDIGSData package. When we save this dataset into our environment, we're calling is `soil.values`.
 
-```{r, message = FALSE, warning = FALSE, eval=F}
+```{r, message = FALSE, warning = FALSE}
 
 library(BioDIGSData)
 
