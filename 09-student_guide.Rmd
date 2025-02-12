@@ -2,8 +2,8 @@
 :::: {.borrowed_chunk}
 ```{r, echo = FALSE, results='asis'}
 cow::borrow_chapter(
-  doc_path = "05-anvil_onboarding.Rmd",
-  repo_name = "fhdsl/GDSCN_BioDIGS_Book"
+  doc_path = "child/_child_student_create_account.Rmd",
+  repo_name = "jhudsl/AnVIL_Template"
 )
 ```
 ::::
@@ -11,8 +11,44 @@ cow::borrow_chapter(
 :::: {.borrowed_chunk}
 ```{r, echo = FALSE, results='asis'}
 cow::borrow_chapter(
-  doc_path = "08-student_using_rstudio.Rmd",
-  repo_name = "fhdsl/GDSCN_BioDIGS_Book"
+  doc_path = "child/_child_student_workspace_clone_direct.Rmd",
+  repo_name = "jhudsl/AnVIL_Template"
+)
+```
+::::
+
+:::: {.borrowed_chunk}
+```{r, echo = FALSE, results='asis'}
+cow::borrow_chapter(
+  doc_path = "child/_child_rstudio_tour.Rmd",
+  repo_name = "jhudsl/AnVIL_Template"
+)
+```
+::::
+
+:::: {.borrowed_chunk}
+```{r, echo = FALSE, results='asis'}
+cow::borrow_chapter(
+  doc_path = "child/_child_rstudio_launch.Rmd",
+  repo_name = "jhudsl/AnVIL_Template"
+)
+```
+::::
+
+:::: {.borrowed_chunk}
+```{r, echo = FALSE, results='asis'}
+  cow::borrow_chapter(
+  doc_path = "child/_child_rstudio_pause.Rmd",
+  repo_name = "jhudsl/AnVIL_Template"
+)
+```
+::::
+
+:::: {.borrowed_chunk}
+```{r, echo = FALSE, results='asis'}
+  cow::borrow_chapter(
+  doc_path = "child/_child_rstudio_delete.Rmd",
+  repo_name = "jhudsl/AnVIL_Template"
 )
 ```
 ::::
