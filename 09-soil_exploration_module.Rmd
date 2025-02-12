@@ -34,7 +34,7 @@ This activity will teach you how to use the AnVIL platform to:
 
 # Part 1. Examining the Data
 
-We will use the `BioDIGS` package to retrieve the data. We first need to install the package from where it is stored on GitHub.
+We will use the `BioDIGSData` package to retrieve the data. We first need to install the package from where it is stored on GitHub.
 
 You may first need to install the `remotes` package to your RStudio environment. `remotes` is a package (or chunk of pre-written code) that allows you to download code that has been stored on GitHub into RStudio.
 
