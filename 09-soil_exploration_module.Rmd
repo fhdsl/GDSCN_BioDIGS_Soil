@@ -39,13 +39,13 @@ We will use the `BioDIGS` package to retrieve the data. We first need to install
 You may first need to install the `remotes`` package to your RStudio environment. `remotes` is a package (or chunk of prewritten code) that allows you to download code that has been stored on GitHub into RStudio.
 
 ```{r, echo = FALSE}
-Sys.unsetenv("GH_PAT")
+#Sys.unsetenv("GH_PAT")
 ```
 
 ```{r, message = FALSE, warning = FALSE}
 
-install.packages("remotes")
-remotes::install_github("fhdsl/BioDIGSData", upgrade = "never")
+# install.packages("remotes")
+# remotes::install_github("fhdsl/BioDIGSData", upgrade = "never")
 ```
 
 Once you've installed the package, we can load the library (which just means we have access to all the data stored in the BioDIGSData package). Then we assign the soil testing data to an *object*. This command follows the code structure:

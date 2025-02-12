@@ -175,6 +175,10 @@ jobs:
           git add _output.yml
           git commit -m 'Set up feedback link' || echo "No changes to commit"
 
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: github::fhdsl/BioDIGSData
+
       # Run bookdown rendering
       - name: Run bookdown render
         id: bookdown
