@@ -198,7 +198,12 @@ The soil testing dataset contains samples from multiple geographic regions, so m
 
 Let's open `BioDIGS_metadata`, save it as `soil.meta`, and look at it.
 
-```{r, message = FALSE, warning = FALSE}
+```{r, message = FALSE, warning = FALSE, echo = FALSE}
+
+soil.meta <- BioDIGS_metadata()
+```
+
+```{r, message = FALSE, warning = FALSE, eval = FALSE}
 
 soil.meta <- BioDIGS_metadata()
 
