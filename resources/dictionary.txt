@@ -17,6 +17,7 @@ BIPOC
 Bloomberg
 bookdown
 Bookdown
+Boyds
 bmr
 Brevik
 Buffalari
@@ -36,6 +37,7 @@ Cruces
 culturable
 CUNY
 customizations
+Derwood
 dex
 dexamethasone
 Dine
@@ -59,6 +61,7 @@ Funder
 GCP
 GDSCN
 Generis
+Germantown
 github
 Glimma
 glimmaMDS

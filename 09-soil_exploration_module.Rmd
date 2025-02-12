@@ -36,7 +36,7 @@ This activity will teach you how to use the AnVIL platform to:
 
 We will use the `BioDIGS` package to retrieve the data. We first need to install the package from where it is stored on GitHub.
 
-You may first need to install the `remotes`` package to your RStudio environment. `remotes` is a package (or chunk of prewritten code) that allows you to download code that has been stored on GitHub into RStudio.
+You may first need to install the `remotes`` package to your RStudio environment. `remotes` is a package (or chunk of pre-written code) that allows you to download code that has been stored on GitHub into RStudio.
 
 ```{r, eval = FALSE}
 install.packages("remotes")
@@ -156,7 +156,7 @@ Now that we have the dataset loaded, let's explore the data in more depth.
 
 First, we should remove those samples that don't have soil testing data yet. We *could* keep them in the dataset, but removing them at this stage will make the analysis a little cleaner. In this case, as we know the reason the data are missing (and that reason will not skew our analysis), we can safely remove these samples. This will _not_ be the case for every data analysis.
 
-We can remove the unanalyzed samples using the `drop_na()` function from the `tidyverse` package. The `tidyverse` package is a collection of code that makes organizing datatables (also known as data wrangling) easy in R. The `drop_na` function removes any rows from a table that contains *NA* for a particular column. This command follows the code structure:
+We can remove the unanalyzed samples using the `drop_na()` function from the `tidyverse` package. The `tidyverse` package is a collection of code that makes organizing data tables (also known as data wrangling) easy in R. The `drop_na` function removes any rows from a table that contains *NA* for a particular column. This command follows the code structure:
 
 dataset_new_name <- dataset_object_name %>% drop_na(column_name)
 
@@ -293,7 +293,7 @@ Often, it can be easier to immediately interpret data displayed as a plot than a
 
 One way to make histograms in R is with the `hist()` function. This function only requires that we tell R which column of the dataset that we want to plot. (However, we also have the option to tell R a histogram name and a x-axis label.)
 
-We can again use the `pull()` command and pipes (`%>%`) to choose thecolumn we want from the `soil.values.clean` dataset and make a histogramof them.
+We can again use the `pull()` command and pipes (`%>%`) to choose the column we want from the `soil.values.clean` dataset and make a histogram of them.
 
 This combination of commands follows the code structure:
 
