@@ -86,13 +86,17 @@ soil.values <- BioDIGS_soil_data()
 
 It *seems* like the dataset loaded, but it's always a good idea to verify. There are many ways to check, but the easiest approach (if you're using RStudio) is to look at the Environment tab on the upper right-hand side of the screen. You should now have an object called `soil.values` that includes some number of observations for 28 variables. The *observations* refer to the number of rows in the dataset, while the *variables* tell you the number of columns. As long as neither the observations or variables are 0, you can be confident that your dataset loaded.
 
-<img src="resources/images/08-environment.png" title="If the dataset loaded, you will see an object with non-zero observations and variables in the Environment tab" alt="If the dataset loaded, you will see an object with non-zero observations and variables in the Environment tab" style="display: block; margin: auto;"/>
+```{r, fig.align='center', echo = FALSE, fig.alt= "If the dataset loaded, you will see an object with non-zero observations and variables in the Environment tab.", out.width = '100%'}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1u2CIcN2AxprMbWLzAldr_V-njdvjCS8HLYjvuy6jmfs/edit#slide=id.g33497bd5a49_0_9")
+```
 
 Let's take a quick look at the dataset. We can do this by clicking on soil.values object in the Environment tab. (Note: this is equivalent to typing `View(soil.values)` in the R console.)
 
 This will open a new window for us to scroll through the dataset.
 
-<img src="resources/images/08-scrolling_through_dataset.png" title="You can click on the object in the Environment tab to open a new window that allows you to scroll through the loaded dataset" alt="You can click on the object in the Environment tab to open a new window that allows you to scroll through the loaded dataset" style="display: block; margin: auto;"/>
+```{r, fig.align='center', echo = FALSE, fig.alt= "You can click on the object in the Environment tab to open a new window that allows you to scroll through the loaded dataset.", out.width = '100%'}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1u2CIcN2AxprMbWLzAldr_V-njdvjCS8HLYjvuy6jmfs/edit#slide=id.g33497bd5a49_0_12")
+```
 
 Well, the data definitely loaded, but those column names aren't immediately understandable. What could **As_EPA3051** possibly mean? In addition to the dataset, we need to load the *data dictionary* as well.
 
@@ -105,6 +109,10 @@ In this case, the data dictionary can help us make sense of what sort of values 
 ```{r, message = FALSE, warning = FALSE, eval=FALSE}
 
 ?BioDIGS_soil_data()
+```
+
+```{r, fig.align='center', echo = FALSE, fig.alt= "The data dictionary shows up under the Help tab.", out.width = '100%'}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1u2CIcN2AxprMbWLzAldr_V-njdvjCS8HLYjvuy6jmfs/edit#slide=id.g33497bd5a49_0_15")
 ```
 
 ::: dictionary
@@ -149,13 +157,6 @@ QUESTIONS:
 
 2.  What data is found in the column labeled "Base_Sat_pct"? What does this variable tell us about the soil?
 :::
-
-We can also look at just the names of all the columns using the R console using the `colnames()` command.
-
-```{r, message = FALSE, warning = FALSE}
-
-colnames(soil.values)
-```
 
 You may notice that some cells in the `soil.values` table contain *NA*. This just means that the soil testing data for that sample isn't available yet. We'll take care of those values in the next part.
 
@@ -227,6 +228,10 @@ soil.meta <- BioDIGS_metadata()
 View(soil.meta)
 ```
 
+```{r, fig.align='center', echo = FALSE, fig.alt= "The metadata, or data about the data, opens when you view the soil.meta object.", out.width = '100%'}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1u2CIcN2AxprMbWLzAldr_V-njdvjCS8HLYjvuy6jmfs/edit#slide=id.g33497bd5a49_0_21")
+```
+
 The metadata (or, data about the samples) contains information stored as 7 different variables. We can see that this dataset contains a variable called `site_id` that matches a column in the `soil.values` and `soil.values.clean` datasets. This is important! Using this variable, we can combine the `soil.values.clean` and `soil.meta` into a single dataset.
 
 The command for combining the datasets follows the code structure:
@@ -245,6 +250,10 @@ soil.combined <- soil.values.clean %>% inner_join(soil.meta, by = "site_id")
 soil.combined <- soil.values.clean %>% inner_join(soil.meta, by = "site_id")
 
 View(soil.combined)
+```
+
+```{r, fig.align='center', echo = FALSE, fig.alt= "The soil characteristics and metadata have been combined in the soil.combined dataset, which you see if you scroll to the end of the table.", out.width = '100%'}
+ottrpal::include_slide("https://docs.google.com/presentation/d/1u2CIcN2AxprMbWLzAldr_V-njdvjCS8HLYjvuy6jmfs/edit#slide=id.g33497bd5a49_0_21")
 ```
 
 When you scroll through the `soil.combined` dataset, you now see the metadata columns after all the soil characteristics. In particular, there's a column called `origin` which gives the town or city location for each sample. Many of the samples from the pilot study came from 5 places in Maryland: Baltimore, Derwood, Boyds, Germantown, and Bethesda.
