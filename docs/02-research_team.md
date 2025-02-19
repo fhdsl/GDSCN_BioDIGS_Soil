@@ -1,5 +1,3 @@
-:::: {.borrowed_chunk}
-
 # Research Team
 
 
@@ -48,4 +46,3 @@ Funding for this project has been provided by the [National Human Genome Researc
 ## Analytical and Computational Support
 
 Computational support has been provided by NHGRI's [AnVIL](https://anvilproject.org/) cloud computing platform and [Galaxy](usegalaxy.org).
-::::

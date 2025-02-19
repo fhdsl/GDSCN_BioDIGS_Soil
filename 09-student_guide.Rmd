@@ -1,10 +1,38 @@
 
-# Student Guide
+:::: {.borrowed_chunk}
+```{r, echo = FALSE, results='asis'}
+cow::borrow_chapter(
+  doc_path = "05-anvil_onboarding.Rmd",
+  repo_name = "fhdsl/GDSCN_BioDIGS_Book"
+)
+```
+::::
 
-## Activity One
+:::: {.borrowed_chunk}
+```{r, echo = FALSE, results='asis'}
+cow::borrow_chapter(
+  doc_path = "08-student_using_rstudio.Rmd",
+  repo_name = "fhdsl/GDSCN_BioDIGS_Book"
+)
+```
+::::
 
-You might want to create a student guide that contains a different subset of Rmd files from your book, or renders to a different output format (e.g. word document). You can specify the output and Rmd files that will be used for the student guide using the `_output.yml` and `_bookdown.yml` files in the student-guide directory.
+:::: {.borrowed_chunk}
+```{r, echo = FALSE, results='asis'}
+cow::borrow_chapter(
+  doc_path = "09-soil_exploration_module.Rmd",
+  repo_name = "fhdsl/GDSCN_BioDIGS_Soil",
+  branch = "main"
+)
+```
+::::
 
-## Activity Two
-
-Steps of the guide _could_ go here.
+:::: {.borrowed_chunk}
+```{r, echo = FALSE, results='asis'}
+cow::borrow_chapter(
+  doc_path = "10-module_questions.Rmd",
+  repo_name = "fhdsl/GDSCN_BioDIGS_Soil",
+  branch = "main"
+)
+```
+::::

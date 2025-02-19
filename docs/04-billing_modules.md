@@ -1,4 +1,5 @@
-:::: {.borrowed_chunk}
+
+
 
 # (PART\*) AnVIL Overview {-}
 
@@ -333,5 +334,4 @@ To disable a Terra Billing Project (i.e. remove the Google Billing Account that 
 If necessary, you can restore funding to the Billing Project and associated Workspaces by clicking the teardrop icon and selecting "Change Billing Account".  However, Google makes no promises about how long the Workspace contents will remain available after you disable funding, so it is best not to rely on them.
 
 <img src="04-billing_modules_files/figure-html//1ib--pXZdu-n-c3b28n73SILA0SrIF5WhdMMaae3DTEI_g21148e49334_0_38.png" alt="Screenshot of a Terra Billing Project management page.  The teardrop button next to the Billing Account information is highlighted." width="100%" />
-::::
 ::::

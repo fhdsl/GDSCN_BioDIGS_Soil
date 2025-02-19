@@ -1,8 +1,9 @@
-:::: {.borrowed_chunk}
+# BioDIGS Data
+
 ```{r, echo = FALSE, results='asis'}
 cow::borrow_chapter(
-  doc_path = "docs/03-data_tour.md",
+  doc_path = "child/_child_data_tour.Rmd",
+  branch = "main",
   repo_name = "fhdsl/GDSCN_BioDIGS_Book"
 )
 ```
-::::

@@ -4,25 +4,25 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 17 Activity Questions | BioDIGS: Exploring Soil Data</title>
+  <title>Chapter 12 Activity Questions | BioDIGS: Exploring Soil Data</title>
   <meta name="description" content="This activity guides students through exploration of the BioDIGS soil data using the tidyverse in R." />
   <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 17 Activity Questions | BioDIGS: Exploring Soil Data" />
+  <meta property="og:title" content="Chapter 12 Activity Questions | BioDIGS: Exploring Soil Data" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This activity guides students through exploration of the BioDIGS soil data using the tidyverse in R." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 17 Activity Questions | BioDIGS: Exploring Soil Data" />
+  <meta name="twitter:title" content="Chapter 12 Activity Questions | BioDIGS: Exploring Soil Data" />
   
   <meta name="twitter:description" content="This activity guides students through exploration of the BioDIGS soil data using the tidyverse in R." />
   
 
 
 
-<meta name="date" content="2025-01-27" />
+<meta name="date" content="2025-02-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -121,6 +121,28 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="assets/style.css" type="text/css" />
 <link rel="stylesheet" href="assets/GDSCN_style/gdscn.css" type="text/css" />
@@ -145,47 +167,78 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#platform"><i class="fa fa-check"></i><b>0.2</b> Platform</a></li>
 <li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#data"><i class="fa fa-check"></i><b>0.3</b> Data</a></li>
 </ul></li>
+<li class="part"><span><b>BioDIGS Overview</b></span></li>
+<li class="chapter" data-level="1" data-path="background.html"><a href="background.html"><i class="fa fa-check"></i><b>1</b> Background</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="background.html"><a href="background.html#what-is-genomics"><i class="fa fa-check"></i><b>1.1</b> What is genomics?</a></li>
+<li class="chapter" data-level="1.2" data-path="background.html"><a href="background.html#what-is-data-science"><i class="fa fa-check"></i><b>1.2</b> What is data science?</a></li>
+<li class="chapter" data-level="1.3" data-path="background.html"><a href="background.html#what-is-cloud-computing"><i class="fa fa-check"></i><b>1.3</b> What is cloud computing?</a></li>
+<li class="chapter" data-level="1.4" data-path="background.html"><a href="background.html#why-soil-microbes"><i class="fa fa-check"></i><b>1.4</b> Why soil microbes?</a></li>
+<li class="chapter" data-level="1.5" data-path="background.html"><a href="background.html#heavy-metals-and-human-health"><i class="fa fa-check"></i><b>1.5</b> Heavy metals and human health</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="research-team.html"><a href="research-team.html"><i class="fa fa-check"></i><b>2</b> Research Team</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="research-team.html"><a href="research-team.html#soil-sampling"><i class="fa fa-check"></i><b>2.1</b> Soil sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="support.html"><a href="support.html"><i class="fa fa-check"></i><b>3</b> Support</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="support.html"><a href="support.html#funding"><i class="fa fa-check"></i><b>3.1</b> Funding</a></li>
+<li class="chapter" data-level="3.2" data-path="support.html"><a href="support.html#sponsors"><i class="fa fa-check"></i><b>3.2</b> Sponsors</a></li>
+<li class="chapter" data-level="3.3" data-path="support.html"><a href="support.html#analytical-and-computational-support"><i class="fa fa-check"></i><b>3.3</b> Analytical and Computational Support</a></li>
+</ul></li>
 <li class="chapter" data-level="4" data-path="biodigs-data.html"><a href="biodigs-data.html"><i class="fa fa-check"></i><b>4</b> BioDIGS Data</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="biodigs-data.html"><a href="biodigs-data.html#sample-metadata"><i class="fa fa-check"></i><b>4.1</b> Sample Metadata</a></li>
 <li class="chapter" data-level="4.2" data-path="biodigs-data.html"><a href="biodigs-data.html#soil-testing-data"><i class="fa fa-check"></i><b>4.2</b> Soil Testing Data</a></li>
 <li class="chapter" data-level="4.3" data-path="biodigs-data.html"><a href="biodigs-data.html#genomics-and-metagenomics-data"><i class="fa fa-check"></i><b>4.3</b> Genomics and Metagenomics Data</a></li>
 </ul></li>
-<li class="part"><span><b>Instructor Checklist for AnVIL</b></span></li>
-<li class="part"><span><b>Student Guide to AnVIL</b></span></li>
-<li class="chapter" data-level="11" data-path="anvil-workspace.html"><a href="anvil-workspace.html"><i class="fa fa-check"></i><b>11</b> AnVIL Workspace</a>
+<li class="part"><span><b>AnVIL Overview</b></span></li>
+<li class="chapter" data-level="5" data-path="billing.html"><a href="billing.html"><i class="fa fa-check"></i><b>5</b> Billing</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="anvil-workspace.html"><a href="anvil-workspace.html#create-google-account"><i class="fa fa-check"></i><b>11.1</b> Create Google Account</a></li>
-<li class="chapter" data-level="11.2" data-path="anvil-workspace.html"><a href="anvil-workspace.html#clone-the-workspace"><i class="fa fa-check"></i><b>11.2</b> Clone the Workspace</a></li>
+<li class="chapter" data-level="5.1" data-path="billing.html"><a href="billing.html#create-google-billing-account"><i class="fa fa-check"></i><b>5.1</b> Create Google Billing Account</a></li>
+<li class="chapter" data-level="5.2" data-path="billing.html"><a href="billing.html#add-terra-to-google-billing-account"><i class="fa fa-check"></i><b>5.2</b> Add Terra to Google Billing Account</a></li>
+<li class="chapter" data-level="5.3" data-path="billing.html"><a href="billing.html#add-members-to-google-billing-account"><i class="fa fa-check"></i><b>5.3</b> Add Members to Google Billing Account</a></li>
+<li class="chapter" data-level="5.4" data-path="billing.html"><a href="billing.html#set-alerts-for-google-billing"><i class="fa fa-check"></i><b>5.4</b> Set Alerts for Google Billing</a></li>
+<li class="chapter" data-level="5.5" data-path="billing.html"><a href="billing.html#view-spend-for-google-billing"><i class="fa fa-check"></i><b>5.5</b> View Spend for Google Billing</a></li>
+<li class="chapter" data-level="5.6" data-path="billing.html"><a href="billing.html#create-terra-billing-project"><i class="fa fa-check"></i><b>5.6</b> Create Terra Billing Project</a></li>
+<li class="chapter" data-level="5.7" data-path="billing.html"><a href="billing.html#add-member-to-terra-billing-project"><i class="fa fa-check"></i><b>5.7</b> Add Member to Terra Billing Project</a></li>
+<li class="chapter" data-level="5.8" data-path="billing.html"><a href="billing.html#disable-terra-billing-project"><i class="fa fa-check"></i><b>5.8</b> Disable Terra Billing Project</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="using-rstudio-on-anvil.html"><a href="using-rstudio-on-anvil.html"><i class="fa fa-check"></i><b>12</b> Using RStudio on AnVIL</a>
+<li class="chapter" data-level="6" data-path="anvil-workspace.html"><a href="anvil-workspace.html"><i class="fa fa-check"></i><b>6</b> AnVIL Workspace</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="using-rstudio-on-anvil.html"><a href="using-rstudio-on-anvil.html#video-overview-of-rstudio-on-anvil"><i class="fa fa-check"></i><b>12.1</b> Video overview of RStudio on AnVIL</a>
-<ul>
-<li class="chapter" data-level="12.1.1" data-path="using-rstudio-on-anvil.html"><a href="using-rstudio-on-anvil.html#objectives"><i class="fa fa-check"></i><b>12.1.1</b> Objectives</a></li>
-<li class="chapter" data-level="12.1.2" data-path="using-rstudio-on-anvil.html"><a href="using-rstudio-on-anvil.html#slides"><i class="fa fa-check"></i><b>12.1.2</b> Slides</a></li>
+<li class="chapter" data-level="6.1" data-path="anvil-workspace.html"><a href="anvil-workspace.html#create-google-account"><i class="fa fa-check"></i><b>6.1</b> Create Google Account</a></li>
+<li class="chapter" data-level="6.2" data-path="anvil-workspace.html"><a href="anvil-workspace.html#create-workspace"><i class="fa fa-check"></i><b>6.2</b> Create Workspace</a></li>
 </ul></li>
-<li class="chapter" data-level="12.2" data-path="using-rstudio-on-anvil.html"><a href="using-rstudio-on-anvil.html#launching-rstudio"><i class="fa fa-check"></i><b>12.2</b> Launching RStudio</a></li>
-<li class="chapter" data-level="12.3" data-path="using-rstudio-on-anvil.html"><a href="using-rstudio-on-anvil.html#touring-rstudio"><i class="fa fa-check"></i><b>12.3</b> Touring RStudio</a></li>
-<li class="chapter" data-level="12.4" data-path="using-rstudio-on-anvil.html"><a href="using-rstudio-on-anvil.html#pausing-rstudio"><i class="fa fa-check"></i><b>12.4</b> Pausing RStudio</a></li>
+<li class="chapter" data-level="7" data-path="programming-platforms.html"><a href="programming-platforms.html"><i class="fa fa-check"></i><b>7</b> Programming Platforms</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="programming-platforms.html"><a href="programming-platforms.html#video-overview-on-using-rstudio"><i class="fa fa-check"></i><b>7.1</b> Video overview on using RStudio</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="programming-platforms.html"><a href="programming-platforms.html#objectives"><i class="fa fa-check"></i><b>7.1.1</b> Objectives</a></li>
+<li class="chapter" data-level="7.1.2" data-path="programming-platforms.html"><a href="programming-platforms.html#slides"><i class="fa fa-check"></i><b>7.1.2</b> Slides</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="programming-platforms.html"><a href="programming-platforms.html#launching-rstudio"><i class="fa fa-check"></i><b>7.2</b> Launching RStudio</a></li>
+<li class="chapter" data-level="7.3" data-path="programming-platforms.html"><a href="programming-platforms.html#touring-rstudio"><i class="fa fa-check"></i><b>7.3</b> Touring RStudio</a></li>
+<li class="chapter" data-level="7.4" data-path="programming-platforms.html"><a href="programming-platforms.html#pausing-rstudio"><i class="fa fa-check"></i><b>7.4</b> Pausing RStudio</a></li>
+<li class="chapter" data-level="7.5" data-path="programming-platforms.html"><a href="programming-platforms.html#deleting-rstudio"><i class="fa fa-check"></i><b>7.5</b> Deleting RStudio</a></li>
 </ul></li>
 <li class="part"><span><b>Student Activity</b></span></li>
-<li class="chapter" data-level="13" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>13</b> Introduction</a>
+<li class="chapter" data-level="8" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>8</b> Introduction</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="introduction.html"><a href="introduction.html#before-you-start"><i class="fa fa-check"></i><b>13.1</b> Before You Start</a></li>
-<li class="chapter" data-level="13.2" data-path="introduction.html"><a href="introduction.html#objectives-1"><i class="fa fa-check"></i><b>13.2</b> Objectives</a></li>
+<li class="chapter" data-level="8.1" data-path="introduction.html"><a href="introduction.html#before-you-start"><i class="fa fa-check"></i><b>8.1</b> Before You Start</a></li>
+<li class="chapter" data-level="8.2" data-path="introduction.html"><a href="introduction.html#objectives-1"><i class="fa fa-check"></i><b>8.2</b> Objectives</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="part-1.-examining-the-data.html"><a href="part-1.-examining-the-data.html"><i class="fa fa-check"></i><b>14</b> Part 1. Examining the Data</a></li>
-<li class="chapter" data-level="15" data-path="part-2.-summarizing-the-data-with-statistics.html"><a href="part-2.-summarizing-the-data-with-statistics.html"><i class="fa fa-check"></i><b>15</b> Part 2. Summarizing the Data with Statistics</a></li>
-<li class="chapter" data-level="16" data-path="part-3.-visualizing-the-data.html"><a href="part-3.-visualizing-the-data.html"><i class="fa fa-check"></i><b>16</b> Part 3. Visualizing the Data</a></li>
-<li class="chapter" data-level="17" data-path="activity-questions.html"><a href="activity-questions.html"><i class="fa fa-check"></i><b>17</b> Activity Questions</a>
+<li class="chapter" data-level="9" data-path="part-1.-examining-the-data.html"><a href="part-1.-examining-the-data.html"><i class="fa fa-check"></i><b>9</b> Part 1. Examining the Data</a></li>
+<li class="chapter" data-level="10" data-path="part-2.-summarizing-the-data-with-statistics.html"><a href="part-2.-summarizing-the-data-with-statistics.html"><i class="fa fa-check"></i><b>10</b> Part 2. Summarizing the Data with Statistics</a></li>
+<li class="chapter" data-level="11" data-path="part-3.-visualizing-the-data.html"><a href="part-3.-visualizing-the-data.html"><i class="fa fa-check"></i><b>11</b> Part 3. Visualizing the Data</a></li>
+<li class="chapter" data-level="12" data-path="activity-questions.html"><a href="activity-questions.html"><i class="fa fa-check"></i><b>12</b> Activity Questions</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="activity-questions.html"><a href="activity-questions.html#part-1.-examining-the-data-1"><i class="fa fa-check"></i><b>17.1</b> Part 1. Examining the Data</a></li>
-<li class="chapter" data-level="17.2" data-path="activity-questions.html"><a href="activity-questions.html#part-2.-summarizing-the-data-with-statistics-1"><i class="fa fa-check"></i><b>17.2</b> Part 2. Summarizing the Data with Statistics</a></li>
-<li class="chapter" data-level="17.3" data-path="activity-questions.html"><a href="activity-questions.html#part-3.-visualizing-the-data-1"><i class="fa fa-check"></i><b>17.3</b> Part 3. Visualizing the Data</a></li>
+<li class="chapter" data-level="12.1" data-path="activity-questions.html"><a href="activity-questions.html#part-1.-examining-the-data-1"><i class="fa fa-check"></i><b>12.1</b> Part 1. Examining the Data</a></li>
+<li class="chapter" data-level="12.2" data-path="activity-questions.html"><a href="activity-questions.html#part-2.-summarizing-the-data-with-statistics-1"><i class="fa fa-check"></i><b>12.2</b> Part 2. Summarizing the Data with Statistics</a></li>
+<li class="chapter" data-level="12.3" data-path="activity-questions.html"><a href="activity-questions.html#part-3.-visualizing-the-data-1"><i class="fa fa-check"></i><b>12.3</b> Part 3. Visualizing the Data</a></li>
 </ul></li>
+<li class="part"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
-<li class="chapter" data-level="18" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>18</b> References</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <p style="text-align:center;"> <a href="https://github.com/jhudsl/OTTR_Template" target="blank" > This content was published with</a> <a href="https://bookdown.org/" target="blank"> bookdown by: </a> </p>
 <p style="text-align:center;"> <a href="https://hutchdatascience.org/"> The Fred Hutch Data Science Lab </a></p>
@@ -221,10 +274,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="hero-image-container">
   <img class= "hero-image" src="assets/GDSCN_style/dasl_thin_main_image.png">
 </div>
-<div id="activity-questions" class="section level1 hasAnchor" number="17">
-<h1><span class="header-section-number">Chapter 17</span> Activity Questions<a href="activity-questions.html#activity-questions" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="part-1.-examining-the-data-1" class="section level2 hasAnchor" number="17.1">
-<h2><span class="header-section-number">17.1</span> Part 1. Examining the Data<a href="activity-questions.html#part-1.-examining-the-data-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="activity-questions" class="section level1 hasAnchor" number="12">
+<h1><span class="header-section-number">Chapter 12</span> Activity Questions<a href="activity-questions.html#activity-questions" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="part-1.-examining-the-data-1" class="section level2 hasAnchor" number="12.1">
+<h2><span class="header-section-number">12.1</span> Part 1. Examining the Data<a href="activity-questions.html#part-1.-examining-the-data-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li><p>What data is found in the column labeled “Fe_Mehlich3”? Why would we be interested how much of this is in the soil? (You may have to search the internet for this answer.)</p></li>
 <li><p>What data is found in the column labeled “Base_Sat_pct”? What does this variable tell us about the soil?</p></li>
@@ -232,8 +285,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><p>How many different regions are represented in the soil testing dataset? How many of them have soil testing data available?</p></li>
 </ol>
 </div>
-<div id="part-2.-summarizing-the-data-with-statistics-1" class="section level2 hasAnchor" number="17.2">
-<h2><span class="header-section-number">17.2</span> Part 2. Summarizing the Data with Statistics<a href="activity-questions.html#part-2.-summarizing-the-data-with-statistics-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="part-2.-summarizing-the-data-with-statistics-1" class="section level2 hasAnchor" number="12.2">
+<h2><span class="header-section-number">12.2</span> Part 2. Summarizing the Data with Statistics<a href="activity-questions.html#part-2.-summarizing-the-data-with-statistics-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol start="5" style="list-style-type: decimal">
 <li><p>All the samples from Baltimore City and Montgomery County were collected from public park land. The parks sampled from Montgomery County were located in suburban and rural areas, compared to the urban parks sampled in Baltimore City. Why might the Montgomery County samples have a lower average arsenic concentration than the samples from Baltimore City?</p></li>
 <li><p>What is the mean iron concentration for samples in this dataset? What about the standard deviation, minimum value, and maximum value?</p></li>
@@ -242,8 +295,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Calculate both the mean and maximum values for concentrations that were determined using the Mehlich3 test. (HINT: change the terms in the <code>columns_to_include</code> vector, as well as the function you call in the <code>summarize</code> statement.) Which of these metals has the highest average and maximum concentrations, and in which region are they found?</p></li>
 </ol>
 </div>
-<div id="part-3.-visualizing-the-data-1" class="section level2 hasAnchor" number="17.3">
-<h2><span class="header-section-number">17.3</span> Part 3. Visualizing the Data<a href="activity-questions.html#part-3.-visualizing-the-data-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="part-3.-visualizing-the-data-1" class="section level2 hasAnchor" number="12.3">
+<h2><span class="header-section-number">12.3</span> Part 3. Visualizing the Data<a href="activity-questions.html#part-3.-visualizing-the-data-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol start="10" style="list-style-type: decimal">
 <li><p>Create a histogram for <em>iron</em> concentration, as well as a boxplot comparing iron concentration by region. Is the iron concentration similar among regions? Are there any outlier sites with unusually high or low iron concentrations?</p></li>
 <li><p>Create a histogram for <em>lead</em> concentration, as well as a boxplot comparing lead concentration by region. Is the lead concentration similar among regions? Are there any outlier sites with unusually high or low lead concentrations?</p></li>
@@ -252,6 +305,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 
 </div>
 </div>
+
+
+
 <hr>
 <center> 
   <div class="footer">
