@@ -47,7 +47,9 @@ You might see or hear the term "package" or "library" when working with the R pr
 
 Packages are collections of R functions, data, and documentation that extend the base functionality of R. They are the fundamental units of shareable code in R. Packages are developed by the R community and made available through repositories like CRAN (Comprehensive R Archive Network), Bioconductor, and GitHub. When you install a package, you gain access to all the functions, data, and documentation provided by that package.
 
-Libraries, on the other hand, are the R environment's way of loading and attaching packages. When you load a library, you make the functions and objects from a package available for use in your current R session.
+Libraries are the directories where packages are stored.
+
+We also use the `library` command to load and attach packages to the R environment. When you load a library, you make the functions and objects from a package available for use in your current R session.
 
 :::
 
