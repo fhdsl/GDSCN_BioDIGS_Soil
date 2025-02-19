@@ -20,12 +20,8 @@ In this activity, you'll have a chance to become familiar with the BioDIGS soil 
 
 ## Before You Start
 
-```{r, echo = FALSE, results='asis'}
-cow::borrow_chapter(
-  doc_path = "child/_child_google_create_account.Rmd",
-  repo_name = "jhudsl/AnVIL_Template"
-)
-```
+This activity requires RStudio. Make sure you have access to a working version of this software.
+
 
 ## Objectives
 
