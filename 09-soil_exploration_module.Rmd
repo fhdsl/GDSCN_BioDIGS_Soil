@@ -49,8 +49,7 @@ Packages are collections of R functions, data, and documentation that extend the
 
 Libraries are the directories where packages are stored.
 
-We also use the `library` command to load and attach packages to the R environment. When you load a library, you make the functions and objects from a package available for use in your current R session.
-
+We also use the `library` command to load and attach packages to the R environment. When you load a package using `library(package_name)`, you make the functions and objects from a package available for use in your current R session.
 :::
 
 
