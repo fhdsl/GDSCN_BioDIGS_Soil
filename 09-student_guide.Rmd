@@ -1,0 +1,74 @@
+
+:::: {.borrowed_chunk}
+```{r, echo = FALSE, results='asis'}
+cow::borrow_chapter(
+  doc_path = "child/_child_student_create_account.Rmd",
+  repo_name = "jhudsl/AnVIL_Template"
+)
+```
+::::
+
+:::: {.borrowed_chunk}
+```{r, echo = FALSE, results='asis'}
+cow::borrow_chapter(
+  doc_path = "child/_child_student_workspace_clone_direct.Rmd",
+  repo_name = "jhudsl/AnVIL_Template"
+)
+```
+::::
+
+:::: {.borrowed_chunk}
+```{r, echo = FALSE, results='asis'}
+cow::borrow_chapter(
+  doc_path = "child/_child_rstudio_tour.Rmd",
+  repo_name = "jhudsl/AnVIL_Template"
+)
+```
+::::
+
+:::: {.borrowed_chunk}
+```{r, echo = FALSE, results='asis'}
+cow::borrow_chapter(
+  doc_path = "child/_child_rstudio_launch.Rmd",
+  repo_name = "jhudsl/AnVIL_Template"
+)
+```
+::::
+
+:::: {.borrowed_chunk}
+```{r, echo = FALSE, results='asis'}
+  cow::borrow_chapter(
+  doc_path = "child/_child_rstudio_pause.Rmd",
+  repo_name = "jhudsl/AnVIL_Template"
+)
+```
+::::
+
+:::: {.borrowed_chunk}
+```{r, echo = FALSE, results='asis'}
+  cow::borrow_chapter(
+  doc_path = "child/_child_rstudio_delete.Rmd",
+  repo_name = "jhudsl/AnVIL_Template"
+)
+```
+::::
+
+:::: {.borrowed_chunk}
+```{r, echo = FALSE, results='asis'}
+cow::borrow_chapter(
+  doc_path = "09-soil_exploration_module.Rmd",
+  repo_name = "fhdsl/GDSCN_BioDIGS_Soil",
+  branch = "main"
+)
+```
+::::
+
+:::: {.borrowed_chunk}
+```{r, echo = FALSE, results='asis'}
+cow::borrow_chapter(
+  doc_path = "10-module_questions.Rmd",
+  repo_name = "fhdsl/GDSCN_BioDIGS_Soil",
+  branch = "main"
+)
+```
+::::
