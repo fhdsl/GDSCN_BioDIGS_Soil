@@ -1,8 +1,10 @@
 abiotic
+ABRicate
 AGBT
 ahoffma
 al
 Annandale
+antiSMASH
 AnVIL
 Audiographer
 Audiography
@@ -13,6 +15,8 @@ BioDIGS
 BioDIGSData
 BioDiversity
 bioinformatics
+biosynthetic
+Biosynthetic
 BIPOC
 Bloomberg
 bookdown
@@ -41,8 +45,11 @@ Derwood
 dex
 dexamethasone
 Dine
+Dine	
+Diné
 DISCOVERABLE
 doi
+Doña
 dplyr
 dropdown
 ehumphri
@@ -92,6 +99,7 @@ LICENSOR
 limma
 LOI
 Manoa
+Mānoa
 MDS
 MERCHANTABILITY
 Meharry
@@ -100,6 +108,7 @@ mentorship
 meq
 metagenomics
 Metagenomics
+microbiome
 Muschelli
 na
 Nanopore
