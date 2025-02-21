@@ -1,103 +1,159 @@
 
 :::: {.borrowed_chunk}
 
-# AnVIL Workspace
+In order to run your analyses, you will use the [AnVIL cloud computing platform](https://anvilproject.org/).  The AnVIL (Analysis Visualization and Informatics Lab-space) platform is specially designed for analyzing biological data, and is used by scientists doing all sorts of biological research.
 
+:::{.notice}
+**AnVIL in a nutshell**
 
+- Behind the scenes, AnVIL relies on Google Cloud Platform to provide computing infrastructure.  Basically, AnVIL lets you "rent" computers through the internet. The analysis is run on the rented computer. AnVIL lets you see the results in your browser.
+- AnVIL uses [Terra](https://anvil.terra.bio/) to provide many computational tools useful for biological data analysis, such as [RStudio](https://www.rstudio.com/products/rstudio/), [Galaxy](https://usegalaxy.org/), and [Jupyter Notebooks](https://jupyter.org/).  Terra takes care of installing these tools so you can use them right away.
+:::
 
-You can easily access the data on AnVIL by cloning the dedicated workspace. These sections guide you through creating an AnVIL account and accessing the workspace.
+### Create Google Account
 
+First, you will need to set up a (free) Google account.
 
-## Create Google Account
+A Google account usually looks like "`myname@gmail.com`". Alternatively, you can enable Google for an existing non-Gmail email address using [these instructions](https://support.terra.bio/hc/en-us/articles/360029186611).
 
+If you do not already have a Google account that you would like to use for accessing AnVIL, [create one now](https://accounts.google.com/SignUp).
 
-If you do not already have a Google account that you would like to use for accessing Terra, [create one now](https://accounts.google.com/SignUp).
+### Log In to Terra
 
-If you would like to create a Google account that is associated with your non-Gmail, institutional email address, follow [these instructions](https://support.terra.bio/hc/en-us/articles/360029186611).
+Next, make sure you can log in to Terra -- you will use Terra to perform computations on AnVIL. 
 
-## Clone the Workspace
+You can access Terra by going to [`anvil.terra.bio`](https://anvil.terra.bio/). Open Terra, and you should be prompted to sign in with your Google account.
 
-```
-## Warning: Chunk option fig.alt is not supported for docx output
-## Warning: Chunk option fig.alt is not supported for docx output
-## Warning: Chunk option fig.alt is not supported for docx output
-## Warning: Chunk option fig.alt is not supported for docx output
-## Warning: Chunk option fig.alt is not supported for docx output
-## Warning: Chunk option fig.alt is not supported for docx output
-## Warning: Chunk option fig.alt is not supported for docx output
-## Warning: Chunk option fig.alt is not supported for docx output
-```
+### Share Username
 
+Make sure your instructor has your Google account username (e.g. `myname@gmail.com`), so they can give you access to everything you need.
 
-1. [Launch Terra](https://anvil.terra.bio/#workspaces)
+- Make sure there are no typos!
+- If you have multiple Google accounts, make sure you give them the username that you will be using to log in to `anvil.terra.bio`.
 
-1. Locate the Workspace you want to clone. If a Workspace has been shared with you ahead of time, it will appear in "MY WORKSPACES". You can clone a Workspace that was shared with you to perform your own analyses. In the screenshot below, no Workspaces have been shared.
-
-    ![](resources/images/09-student_guide_files/figure-docx//1JvfOluHe543cUCyyH3zz0ew-1J1QjhdYGZufW9NrC_M_g117abafa453_0_0.png)
-
-1. If a Workspace hasn't been shared with you, navigate to the "FEATURED" or "PUBLIC" Workspace tabs.
-
-    ![](resources/images/09-student_guide_files/figure-docx//1JvfOluHe543cUCyyH3zz0ew-1J1QjhdYGZufW9NrC_M_g117abafa453_0_144.png)
-    
-1. Use the search box to find the Workspace you want to clone.
-
-    ![](resources/images/09-student_guide_files/figure-docx//1JvfOluHe543cUCyyH3zz0ew-1J1QjhdYGZufW9NrC_M_g117abafa453_0_288.png)
-    
-1. Click the teardrop button on the far right next to the Workspace you want to clone. Click "Clone". You can also clone the Workspace from the Workspace Dashboard instead of the search results.
-
-    ![](resources/images/09-student_guide_files/figure-docx//1JvfOluHe543cUCyyH3zz0ew-1J1QjhdYGZufW9NrC_M_g117abafa453_0_432.png)
-    ![](resources/images/09-student_guide_files/figure-docx//1JvfOluHe543cUCyyH3zz0ew-1J1QjhdYGZufW9NrC_M_g117abafa453_0_577.png)
-    
-1. You will see a popup box appear. Name your Workspace and select the appropriate Terra Billing Project.  **All activity in the Workspace will be charged to this Billing Project** (regardless of who conducted it). Remember that each Workspace should have its own Billing Project.
-
-    ![](resources/images/09-student_guide_files/figure-docx//1JvfOluHe543cUCyyH3zz0ew-1J1QjhdYGZufW9NrC_M_g117abafa453_0_722.png)
-
-1. If you are working with protected data, you can set the **Authorization Domain** to limit who can be added to your Workspace.  Note that the Authorization Domain cannot be changed after the Workspace is created (i.e. there is no way to make this Workspace shareable with a larger audience in the future).  Workspaces by default are only visible to people you specifically share them with.  Authorization domains add an extra layer of enforcement over privacy, but by nature make sharing more complicated.  We recommend using Authorization Domains in cases where it is extremely important and/or legally required that the data be kept private (e.g. protected patient data, industry data).  For data you would merely prefer not be shared with the world, we recommend relying on standard Workspace sharing permissions rather than Authorization Domains, as Authorization Domains can make future collaborations, publications, or other sharing complicated.
-
-    ![](resources/images/09-student_guide_files/figure-docx//1JvfOluHe543cUCyyH3zz0ew-1J1QjhdYGZufW9NrC_M_g117abafa453_0_867.png)
-    
-1. Click "CLONE WORKSPACE".  The new Workspace should now show up under your Workspaces.
-
-    ![](resources/images/09-student_guide_files/figure-docx//1JvfOluHe543cUCyyH3zz0ew-1J1QjhdYGZufW9NrC_M_g117abafa453_0_1012.png)
+:::{.warning}
+It is *very important* that you share the Google account you will be using to access AnVIL with with your instructor! Otherwise, the instructor cannot add you to Billing Projects or Workspaces, and you will be unable to proceed with your assignments.
+:::
 ::::
 
 :::: {.borrowed_chunk}
 
-# Using RStudio on AnVIL
-
-In the next few steps, you will walk through how to get set up to use RStudio on the AnVIL platform. AnVIL is centered around different “Workspaces”. Each Workspace functions almost like a mini code laboratory - it is a place where data can be examined, stored, and analyzed. The first thing we want to do is to copy or “clone” a Workspace to create a space for you to experiment.
-
-Use a web browser to go to the AnVIL website. In the browser type:
-
 ```
-anvil.terra.bio
+## Warning: Chunk option fig.alt is not supported for docx output
+## Warning: Chunk option fig.alt is not supported for docx output
 ```
+
+
+
+
+:::{.warning}
+This **will not work** until your instructor has given you permission to spend money to "rent" the computers that will power your analyses (by adding you to a "Billing Project").
+:::
+
+On AnVIL, you access files and computers through **Workspaces**.  Each Workspace functions almost like a mini code laboratory - it is a place where data can be examined, stored, and analyzed. The first thing we want to do is to copy or “clone” a Workspace to create a space for you to experiment.  This will give you access to
+
+- the files you will need (data, code)
+- the computing environment you will use
 
 :::{.notice}
 **Tip**
 At this point, it might make things easier to open up a new window in your browser and split your screen. That way, you can follow along with this guide on one side and execute the steps on the other.
 :::
 
-Your instructor will give you information on which workspace you should clone.
+To clone an AnVIL Workspace:
 
-## Video overview of RStudio on AnVIL
+1. Go to the Workspace by clicking this link: ask your instructor.
+    
+1. Clone the workspace by clicking the teardrop button (![teardrop button](https://raw.githubusercontent.com/jhudsl/AnVIL_Template/main/child/child_assets/teardrop_button.png){width=25px}). Select "Clone". See the screenshot below on a different Workspace:
+
+    ![](09-student_guide_files/figure-docx//1a5Da6qX9BG7Q_6XAz7MvlDyWTvssm2hWwuo1WFJXb_0_g117abafa453_0_577.png){width=100%}
+
+1. You will see a popup box appear, asking you to configure your Workspace
+    a. Give your Workspace clone a name by adding an underscore ("_") and your name. For example, \"ExampleWorkspace_Firstname_Lastname\".
+    a. Select the Billing Project provided by your instructor.
+    a. Leave the bottom two boxes as-is.
+    a. Click “CLONE WORKSPACE”.
+    
+    See the screenshot below on a different Workspace:
+    
+    ![](09-student_guide_files/figure-docx//1a5Da6qX9BG7Q_6XAz7MvlDyWTvssm2hWwuo1WFJXb_0_g17144dbacd0_0_352.png){width=100%}
+
+1. The new Workspace should now show up under https://anvil.terra.bio/#workspaces. This is your own copy of the Workspace to work in.
+::::
+
+:::: {.borrowed_chunk}
+
+```
+## Warning: Chunk option fig.alt is not supported for docx output
+## Warning: Chunk option fig.alt is not supported for docx output
+## Warning: Chunk option fig.alt is not supported for docx output
+## Warning: Chunk option fig.alt is not supported for docx output
+## Warning: Chunk option fig.alt is not supported for docx output
+## Warning: Chunk option fig.alt is not supported for docx output
+## Warning: Chunk option fig.alt is not supported for docx output
+## Warning: Chunk option fig.alt is not supported for docx output
+## Warning: Chunk option fig.alt is not supported for docx output
+## Warning: Chunk option fig.alt is not supported for docx output
+```
 
 
-Here is a video tutorial that describes the basics of using RStudio on AnVIL.
 
-<iframe src="https://drive.google.com/file/d/1v72ZG8JIRDUaewFQgGfcCO_qoM4eYmYX/preview" width="640" height="360" allow="autoplay"></iframe>
+Next, we will be using RStudio and the package `Glimma` to create interactive plots. See [this vignette](https://bioconductor.org/packages/release/bioc/vignettes/Glimma/inst/doc/limma_edger.html) for more information.
 
-### Objectives
+1. The Bioconductor team has created a very useful package to programmatically interact with Terra and Google Cloud. Install the `AnVIL` package. It will make some steps easier as we go along.
 
-- Start compute for your RStudio environment
-- Tour RStudio on AnVIL
-- Stop compute to minimize expenses
+    
 
-### Slides
+    ![](09-student_guide_files/figure-docx//1BLTCaogA04bbeSD1tR1Wt-mVceQA6FHXa8FmFzIARrg_g11f12bc99af_0_49.png)
 
-The slides for this tutorial are are located [here](https://docs.google.com/presentation/d/1eypYLLqD11-NwHLs4adGpcuSB07dYEJfAaALSMvgzqw).
+1. You can now quickly install precompiled binaries using the AnVIL package’s `install()` function. We will use it to install the `Glimma` package and the `airway` package. The `airway` package contains a `SummarizedExperiment` data class. This data describes an RNA-Seq experiment on four human airway smooth muscle cell lines treated with dexamethasone. 
 
-## Launching RStudio
+{Note: for some of the packages, you will have to install packaged from the CRAN repository, using the install.packages() function. The examples will show you which install method to use.}
+
+    
+
+    ![](09-student_guide_files/figure-docx//1BLTCaogA04bbeSD1tR1Wt-mVceQA6FHXa8FmFzIARrg_g11f12bc99af_0_56.png)
+
+1. Load the example data.
+
+    
+
+    ![](09-student_guide_files/figure-docx//1BLTCaogA04bbeSD1tR1Wt-mVceQA6FHXa8FmFzIARrg_g11f12bc99af_0_56.png)
+
+1. The multidimensional scaling (MDS) plot is frequently used to explore differences in samples. When this data is MDS transformed, the first two dimensions explain the greatest variance between samples, and the amount of variance decreases monotonically with increasing dimension. The following code will launch a new window where you can interact with the MDS plot.
+
+    
+
+    ![](09-student_guide_files/figure-docx//1BLTCaogA04bbeSD1tR1Wt-mVceQA6FHXa8FmFzIARrg_g11f12bc99af_0_70.png)
+
+1. Change the `colour_by` setting to "groups" so you can easily distinguish between groups. In this data, the "group" is the treatment.
+
+    ![](09-student_guide_files/figure-docx//1BLTCaogA04bbeSD1tR1Wt-mVceQA6FHXa8FmFzIARrg_g11f12bc99af_0_77.png)
+
+1. You can download the interactive html file by clicking on "Save As".
+
+    ![](09-student_guide_files/figure-docx//1BLTCaogA04bbeSD1tR1Wt-mVceQA6FHXa8FmFzIARrg_g1204ed6da7f_0_0.png)
+
+1. You can also download plots and other files created directly in RStudio. To download the following plot, click on "Export" and save in your preferred format to the default directory. This saves the file in your cloud environment.
+
+    
+
+    ![](09-student_guide_files/figure-docx//1BLTCaogA04bbeSD1tR1Wt-mVceQA6FHXa8FmFzIARrg_g1204ed6da7f_0_12.png)
+
+1. You should see the plot in the "Files" pane.
+
+    ![](09-student_guide_files/figure-docx//1BLTCaogA04bbeSD1tR1Wt-mVceQA6FHXa8FmFzIARrg_g1204ed6da7f_0_19.png)
+
+1. Select this file and click "More" > "Export"
+
+    ![](09-student_guide_files/figure-docx//1BLTCaogA04bbeSD1tR1Wt-mVceQA6FHXa8FmFzIARrg_g1204ed6db6a_0_0.png)
+
+1. Select "Download" to save the file to your local machine.
+
+    ![](09-student_guide_files/figure-docx//1BLTCaogA04bbeSD1tR1Wt-mVceQA6FHXa8FmFzIARrg_g1204ed6db6a_0_8.png)
+::::
+
+:::: {.borrowed_chunk}
 
 ```
 ## Warning: Chunk option fig.alt is not supported for docx output
@@ -126,27 +182,27 @@ Note that, in order to use RStudio, you must have access to a Terra Workspace wi
 
 1. In the drop-down menu on the left, navigate to "Workspaces". Click the triple bar in the top left corner to access the menu. Click "Workspaces".
 
-    ![](resources/images/resources/images/09-student_guide_files/figure-docx//1a35Mb8f0M-bQkBcHa1cyQc6YxXoBLtExCz96nv08vkA_g117989bd49c_0_150.png)
+    ![](09-student_guide_files/figure-docx//1a35Mb8f0M-bQkBcHa1cyQc6YxXoBLtExCz96nv08vkA_g117989bd49c_0_150.png)
 
 1. Click on the name of your Workspace. You should be routed to a link that looks like: `https://anvil.terra.bio/#workspaces/<billing-project>/<workspace-name>`.
 
 1. Click on the cloud icon on the far right to access your Cloud Environment options.  If you don’t see this icon, you may need to scroll to the right.
 
-    ![](resources/images/resources/images/09-student_guide_files/figure-docx//1a35Mb8f0M-bQkBcHa1cyQc6YxXoBLtExCz96nv08vkA_g14ea2db115d_0_22.png)
+    ![](09-student_guide_files/figure-docx//1a35Mb8f0M-bQkBcHa1cyQc6YxXoBLtExCz96nv08vkA_g14ea2db115d_0_22.png)
 
 1. In the dialogue box, click the "Settings" button under RStudio.
 
-    ![](resources/images/resources/images/09-student_guide_files/figure-docx//1a35Mb8f0M-bQkBcHa1cyQc6YxXoBLtExCz96nv08vkA_g14ea2db115d_0_18.png)
+    ![](09-student_guide_files/figure-docx//1a35Mb8f0M-bQkBcHa1cyQc6YxXoBLtExCz96nv08vkA_g14ea2db115d_0_18.png)
 
 1. You will see some configuration options for the RStudio cloud environment, and a list of costs because it costs a small amount of money to use cloud computing.
 
-    ![](resources/images/resources/images/09-student_guide_files/figure-docx//1a35Mb8f0M-bQkBcHa1cyQc6YxXoBLtExCz96nv08vkA_g256428d32e5_0_10.png)
+    ![](09-student_guide_files/figure-docx//1a35Mb8f0M-bQkBcHa1cyQc6YxXoBLtExCz96nv08vkA_g256428d32e5_0_10.png)
 
 
 
 1. Configure any settings you need for your cloud environment.  If you are uncertain about what you need, the default configuration is a reasonable, cost-conservative choice.  It is fairly easy to increase your compute resources later, if needed, but harder to scale down. Scroll down and click the "CREATE" button when you are satisfied with your setup.
 
-    ![](resources/images/resources/images/09-student_guide_files/figure-docx//1a35Mb8f0M-bQkBcHa1cyQc6YxXoBLtExCz96nv08vkA_g256428d32e5_0_16.png)
+    ![](09-student_guide_files/figure-docx//1a35Mb8f0M-bQkBcHa1cyQc6YxXoBLtExCz96nv08vkA_g256428d32e5_0_16.png)
 
     
 
@@ -162,92 +218,22 @@ Note that, in order to use RStudio, you must have access to a Terra Workspace wi
 
 1. The dialogue box will close and you will be returned to your Workspace.  You can see the status of your cloud environment by hovering over the RStudio icon.  It will take a few minutes for Terra to request computers and install software.
 
-    ![](resources/images/resources/images/09-student_guide_files/figure-docx//1a35Mb8f0M-bQkBcHa1cyQc6YxXoBLtExCz96nv08vkA_g14ea2db115d_0_91.png)
+    ![](09-student_guide_files/figure-docx//1a35Mb8f0M-bQkBcHa1cyQc6YxXoBLtExCz96nv08vkA_g14ea2db115d_0_91.png)
 
 1. When your environment is ready, its status will change to "Running".  Click on the RStudio logo to open a new dialogue box that will let you launch RStudio.
 
-    ![](resources/images/resources/images/09-student_guide_files/figure-docx//1a35Mb8f0M-bQkBcHa1cyQc6YxXoBLtExCz96nv08vkA_g14ea2db115d_0_95.png)
+    ![](09-student_guide_files/figure-docx//1a35Mb8f0M-bQkBcHa1cyQc6YxXoBLtExCz96nv08vkA_g14ea2db115d_0_95.png)
     
 1. Click the launch icon to open RStudio.  This is also where you can pause, modify, or delete your environment when needed.
 
-    ![](resources/images/resources/images/09-student_guide_files/figure-docx//1a35Mb8f0M-bQkBcHa1cyQc6YxXoBLtExCz96nv08vkA_g14ea2db115d_0_99.png)
+    ![](09-student_guide_files/figure-docx//1a35Mb8f0M-bQkBcHa1cyQc6YxXoBLtExCz96nv08vkA_g14ea2db115d_0_99.png)
 
 1. You should now see the RStudio interface with information about the version printed to the console.
 
-    ![](resources/images/resources/images/09-student_guide_files/figure-docx//1a35Mb8f0M-bQkBcHa1cyQc6YxXoBLtExCz96nv08vkA_g14ea2db115d_0_103.png)
+    ![](09-student_guide_files/figure-docx//1a35Mb8f0M-bQkBcHa1cyQc6YxXoBLtExCz96nv08vkA_g14ea2db115d_0_103.png)
+::::
 
-## Touring RStudio
-
-```
-## Warning: Chunk option fig.alt is not supported for docx output
-## Warning: Chunk option fig.alt is not supported for docx output
-## Warning: Chunk option fig.alt is not supported for docx output
-## Warning: Chunk option fig.alt is not supported for docx output
-## Warning: Chunk option fig.alt is not supported for docx output
-## Warning: Chunk option fig.alt is not supported for docx output
-## Warning: Chunk option fig.alt is not supported for docx output
-## Warning: Chunk option fig.alt is not supported for docx output
-## Warning: Chunk option fig.alt is not supported for docx output
-## Warning: Chunk option fig.alt is not supported for docx output
-```
-
-
-
-Next, we will be using RStudio and the package `Glimma` to create interactive plots. See [this vignette](https://bioconductor.org/packages/release/bioc/vignettes/Glimma/inst/doc/limma_edger.html) for more information.
-
-1. The Bioconductor team has created a very useful package to programmatically interact with Terra and Google Cloud. Install the `AnVIL` package. It will make some steps easier as we go along.
-
-    
-
-    ![](resources/images/resources/images/09-student_guide_files/figure-docx//1BLTCaogA04bbeSD1tR1Wt-mVceQA6FHXa8FmFzIARrg_g11f12bc99af_0_49.png)
-
-1. You can now quickly install precompiled binaries using the AnVIL package’s `install()` function. We will use it to install the `Glimma` package and the `airway` package. The `airway` package contains a `SummarizedExperiment` data class. This data describes an RNA-Seq experiment on four human airway smooth muscle cell lines treated with dexamethasone. 
-
-{Note: for some of the packages, you will have to install packaged from the CRAN repository, using the install.packages() function. The examples will show you which install method to use.}
-
-    
-
-    ![](resources/images/resources/images/09-student_guide_files/figure-docx//1BLTCaogA04bbeSD1tR1Wt-mVceQA6FHXa8FmFzIARrg_g11f12bc99af_0_56.png)
-
-1. Load the example data.
-
-    
-
-    ![](resources/images/resources/images/09-student_guide_files/figure-docx//1BLTCaogA04bbeSD1tR1Wt-mVceQA6FHXa8FmFzIARrg_g11f12bc99af_0_56.png)
-
-1. The multidimensional scaling (MDS) plot is frequently used to explore differences in samples. When this data is MDS transformed, the first two dimensions explain the greatest variance between samples, and the amount of variance decreases monotonically with increasing dimension. The following code will launch a new window where you can interact with the MDS plot.
-
-    
-
-    ![](resources/images/resources/images/09-student_guide_files/figure-docx//1BLTCaogA04bbeSD1tR1Wt-mVceQA6FHXa8FmFzIARrg_g11f12bc99af_0_70.png)
-
-1. Change the `colour_by` setting to "groups" so you can easily distinguish between groups. In this data, the "group" is the treatment.
-
-    ![](resources/images/resources/images/09-student_guide_files/figure-docx//1BLTCaogA04bbeSD1tR1Wt-mVceQA6FHXa8FmFzIARrg_g11f12bc99af_0_77.png)
-
-1. You can download the interactive html file by clicking on "Save As".
-
-    ![](resources/images/resources/images/09-student_guide_files/figure-docx//1BLTCaogA04bbeSD1tR1Wt-mVceQA6FHXa8FmFzIARrg_g1204ed6da7f_0_0.png)
-
-1. You can also download plots and other files created directly in RStudio. To download the following plot, click on "Export" and save in your preferred format to the default directory. This saves the file in your cloud environment.
-
-    
-
-    ![](resources/images/resources/images/09-student_guide_files/figure-docx//1BLTCaogA04bbeSD1tR1Wt-mVceQA6FHXa8FmFzIARrg_g1204ed6da7f_0_12.png)
-
-1. You should see the plot in the "Files" pane.
-
-    ![](resources/images/resources/images/09-student_guide_files/figure-docx//1BLTCaogA04bbeSD1tR1Wt-mVceQA6FHXa8FmFzIARrg_g1204ed6da7f_0_19.png)
-
-1. Select this file and click "More" > "Export"
-
-    ![](resources/images/resources/images/09-student_guide_files/figure-docx//1BLTCaogA04bbeSD1tR1Wt-mVceQA6FHXa8FmFzIARrg_g1204ed6db6a_0_0.png)
-
-1. Select "Download" to save the file to your local machine.
-
-    ![](resources/images/resources/images/09-student_guide_files/figure-docx//1BLTCaogA04bbeSD1tR1Wt-mVceQA6FHXa8FmFzIARrg_g1204ed6db6a_0_8.png)
-
-## Pausing RStudio
+:::: {.borrowed_chunk}
 
 ```
 ## Warning: Chunk option fig.alt is not supported for docx output
@@ -262,30 +248,62 @@ Next, we will be using RStudio and the package `Glimma` to create interactive pl
 
 1. You can view costs and make changes to your cloud environments from the panel on the far right of the page.  If you don’t see this panel, you may need to scroll to the right.  Running environments will have a green dot, and paused environments will have an orange dot.
 
-    ![](resources/images/resources/images/09-student_guide_files/figure-docx//16s-TjOg19RrkxS9sM9fGfD0M_WIxlw-e8PFWDymjvRU_g230ed3a46c7_0_0.png)
+    ![](09-student_guide_files/figure-docx//16s-TjOg19RrkxS9sM9fGfD0M_WIxlw-e8PFWDymjvRU_g230ed3a46c7_0_0.png)
 
 1. Hovering over the RStudio icon will show you the costs associated with your RStudio environment.  Click on the RStudio icon to open the cloud environment settings.
 
-    ![](resources/images/resources/images/09-student_guide_files/figure-docx//16s-TjOg19RrkxS9sM9fGfD0M_WIxlw-e8PFWDymjvRU_g230ed3a46c7_0_6.png)
+    ![](09-student_guide_files/figure-docx//16s-TjOg19RrkxS9sM9fGfD0M_WIxlw-e8PFWDymjvRU_g230ed3a46c7_0_6.png)
 
 1. Click the Pause button to pause RStudio.  This will take a few minutes.
 
-    ![](resources/images/resources/images/09-student_guide_files/figure-docx//16s-TjOg19RrkxS9sM9fGfD0M_WIxlw-e8PFWDymjvRU_g230ed3a46c7_0_231.png)
+    ![](09-student_guide_files/figure-docx//16s-TjOg19RrkxS9sM9fGfD0M_WIxlw-e8PFWDymjvRU_g230ed3a46c7_0_231.png)
 
 1. When the environment is paused, an orange dot will be displayed next to the RStudio icon.  If you hover over the icon, you will see that it is paused, and has a small ongoing cost as long as it is paused.  When you’re ready to resume working, you can do so by clicking the RStudio icon and clicking Resume.
 
-    ![](resources/images/resources/images/09-student_guide_files/figure-docx//16s-TjOg19RrkxS9sM9fGfD0M_WIxlw-e8PFWDymjvRU_g230ed3a46c7_0_237.png)
+    ![](09-student_guide_files/figure-docx//16s-TjOg19RrkxS9sM9fGfD0M_WIxlw-e8PFWDymjvRU_g230ed3a46c7_0_237.png)
 
 1. The right-hand side icon reminds you that you are accruing cloud computing costs. If you don’t see this icon, you may need to scroll to the right.
 
-    ![](resources/images/resources/images/09-student_guide_files/figure-docx//1BLTCaogA04bbeSD1tR1Wt-mVceQA6FHXa8FmFzIARrg_g11f12bc99af_0_84.png){width=100%}
+    ![](09-student_guide_files/figure-docx//1BLTCaogA04bbeSD1tR1Wt-mVceQA6FHXa8FmFzIARrg_g11f12bc99af_0_84.png){width=100%}
 
 1. You should minimize charges when you are not performing an analysis. You can do this by clicking on the RStudio icon and selecting “Pause”. This will release the CPU and memory resources for other people to use. Note that your work will be saved in the environment and continue to accrue a very small cost.  This work will be lost if the cloud environment gets deleted.  If there is anything you would like to save permanently, it's a good idea to copy it from your compute environment to another location, such as the Workspace bucket, GitHub, or your local machine, depending on your needs.
 
-    ![](resources/images/resources/images/09-student_guide_files/figure-docx//1BLTCaogA04bbeSD1tR1Wt-mVceQA6FHXa8FmFzIARrg_g11f12bc99af_0_91.png){width=100%}
+    ![](09-student_guide_files/figure-docx//1BLTCaogA04bbeSD1tR1Wt-mVceQA6FHXa8FmFzIARrg_g11f12bc99af_0_91.png){width=100%}
 
 :::{.notice}
 You can also pause your cloud environment(s) at https://anvil.terra.bio/#clusters.
+:::
+::::
+
+:::: {.borrowed_chunk}
+
+```
+## Warning: Chunk option fig.alt is not supported for docx output
+## Warning: Chunk option fig.alt is not supported for docx output
+## Warning: Chunk option fig.alt is not supported for docx output
+## Warning: Chunk option fig.alt is not supported for docx output
+```
+
+
+
+1. Pausing your cloud environment only temporarily stops your work. When you are ready to delete the cloud environment, click on the RStudio icon on the right-hand side and select “Settings”.  If you don’t see this icon, you may need to scroll to the right.
+
+    ![](09-student_guide_files/figure-docx//1eypYLLqD11-NwHLs4adGpcuSB07dYEJfAaALSMvgzqw_ge1182913a6_0_41.png){width=100%}
+
+1. Click on “Delete Environment”.
+
+    ![](09-student_guide_files/figure-docx//1eypYLLqD11-NwHLs4adGpcuSB07dYEJfAaALSMvgzqw_ge1182913a6_0_20.png){width=100%}
+
+1. If you are certain that you do not need the data and configuration on your disk, you should select "Delete everything, including persistent disk".  If there is anything you would like to save, open the compute environment and copy the file(s) from your compute environment to another location, such as the Workspace bucket, GitHub, or your local machine, depending on your needs.
+
+    ![](09-student_guide_files/figure-docx//1eypYLLqD11-NwHLs4adGpcuSB07dYEJfAaALSMvgzqw_ge1182913a6_0_46.png){width=100%}
+
+1. Select "DELETE".
+
+    ![](09-student_guide_files/figure-docx//1eypYLLqD11-NwHLs4adGpcuSB07dYEJfAaALSMvgzqw_ge1182913a6_0_51.png){width=100%}
+
+:::{.notice}
+You can also delete your cloud environment(s) and disk storage at https://anvil.terra.bio/#clusters.
 :::
 ::::
 
@@ -536,7 +554,7 @@ dataset %>%
     pull(column_name) %>%
     hist(main = chart_title, xlab = x_axis_title)
 
-![](resources/images/resources/images/resources/images/09-student_guide_files/figure-docx/unnamed-chunk-149-1.png)<!-- -->
+![](resources/images/09-student_guide_files/figure-docx/unnamed-chunk-140-1.png)<!-- -->
 
 We can see that almost all the soil samples had very low concentrations of arsenic (which is good news for the soil health!). In fact, many of them had arsenic concentrations close to 0, and only one sampling location appears to have high levels of arsenic. 
 
@@ -552,7 +570,7 @@ boxplot(column_we're_plotting ~ grouping_variable,
     xlab = "x_axis_title",
     ylab = "y_axis_title")
 
-![](resources/images/resources/images/resources/images/09-student_guide_files/figure-docx/unnamed-chunk-150-1.png)<!-- -->
+![](resources/images/09-student_guide_files/figure-docx/unnamed-chunk-141-1.png)<!-- -->
 
 By using a boxplot, we can quickly see that, while one sampling site within Baltimore City has a very high concentration of arsenic in the soil, in general there isn't a difference in arsenic content between Baltimore City and Montgomery County.
 
