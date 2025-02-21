@@ -63,6 +63,7 @@ Firstname
 FirstName
 fredhutch
 Funder
+GCP
 GDSCN
 Generis
 github
@@ -147,6 +148,7 @@ summarization
 Summarization
 synched
 textbox
+tibble
 tidyverse
 timeframe
 Towson
