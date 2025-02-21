@@ -42,6 +42,7 @@ culturable
 CUNY
 customizations
 Derwood
+devtools
 dex
 dexamethasone
 Dine
@@ -60,6 +61,7 @@ ExampleWorkspace
 extractant
 Fallon
 faq
+fhdsl
 FHDaSL
 Firstname
 FirstName
@@ -130,6 +132,7 @@ Petersburg
 plotMDS
 pmc
 PMC
+pre
 precompiled
 premade
 preprint
