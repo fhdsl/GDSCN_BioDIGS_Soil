@@ -100,29 +100,48 @@ To clone an AnVIL Workspace:
 
 Next, we will be using RStudio and the package `Glimma` to create interactive plots. See [this vignette](https://bioconductor.org/packages/release/bioc/vignettes/Glimma/inst/doc/limma_edger.html) for more information.
 
+::: {.notice}
+If you need to load data stored in your workspace or a GCP bucket, you'll need to use the [AnVILGCP package](https://bioconductor.org/packages/release/bioc/vignettes/AnVILGCP/inst/doc/AnVILGCPIntroduction.html) to load it into RStudio.
+
+The example in this walkthrough uses data from an imported R package.  
+:::
+
 1. The Bioconductor team has created a very useful package to programmatically interact with Terra and Google Cloud. Install the `AnVIL` package. It will make some steps easier as we go along.
 
     
+    ``` r
+    BiocManager::install("AnVIL")
+    ```
 
     ![](09-student_guide_files/figure-docx//1BLTCaogA04bbeSD1tR1Wt-mVceQA6FHXa8FmFzIARrg_g11f12bc99af_0_49.png)
 
-1. You can now quickly install precompiled binaries using the AnVIL package’s `install()` function. We will use it to install the `Glimma` package and the `airway` package. The `airway` package contains a `SummarizedExperiment` data class. This data describes an RNA-Seq experiment on four human airway smooth muscle cell lines treated with dexamethasone. 
+1. You can now quickly install precompiled binaries using the AnVIL package’s `install()` function. We will use it to install the `Glimma` package and the `airway` package. The `airway` package contains a `SummarizedExperiment` data class. This data describes an RNA-Seq experiment on four human airway smooth muscle cell lines treated with dexamethasone.
 
-{Note: for some of the packages, you will have to install packaged from the CRAN repository, using the install.packages() function. The examples will show you which install method to use.}
+    {Note: for some of the packages, you will have to install packaged from the CRAN repository, using the `install.packages()` function. The examples will show you which install method to use.}
 
     
+    ``` r
+    AnVIL::install(c("Glimma", "airway"))
+    ```
 
     ![](09-student_guide_files/figure-docx//1BLTCaogA04bbeSD1tR1Wt-mVceQA6FHXa8FmFzIARrg_g11f12bc99af_0_56.png)
 
 1. Load the example data.
 
     
+    ``` r
+    library(airway)
+    data(airway)
+    ```
 
     ![](09-student_guide_files/figure-docx//1BLTCaogA04bbeSD1tR1Wt-mVceQA6FHXa8FmFzIARrg_g11f12bc99af_0_56.png)
 
 1. The multidimensional scaling (MDS) plot is frequently used to explore differences in samples. When this data is MDS transformed, the first two dimensions explain the greatest variance between samples, and the amount of variance decreases monotonically with increasing dimension. The following code will launch a new window where you can interact with the MDS plot.
 
     
+    ``` r
+    Glimma::glimmaMDS(assay(airway), group = colData(airway)$dex)
+    ```
 
     ![](09-student_guide_files/figure-docx//1BLTCaogA04bbeSD1tR1Wt-mVceQA6FHXa8FmFzIARrg_g11f12bc99af_0_70.png)
 
@@ -137,6 +156,9 @@ Next, we will be using RStudio and the package `Glimma` to create interactive pl
 1. You can also download plots and other files created directly in RStudio. To download the following plot, click on "Export" and save in your preferred format to the default directory. This saves the file in your cloud environment.
 
     
+    ``` r
+    limma::plotMDS(airway)
+    ```
 
     ![](09-student_guide_files/figure-docx//1BLTCaogA04bbeSD1tR1Wt-mVceQA6FHXa8FmFzIARrg_g1204ed6da7f_0_12.png)
 
@@ -231,6 +253,15 @@ Note that, in order to use RStudio, you must have access to a Terra Workspace wi
 1. You should now see the RStudio interface with information about the version printed to the console.
 
     ![](09-student_guide_files/figure-docx//1a35Mb8f0M-bQkBcHa1cyQc6YxXoBLtExCz96nv08vkA_g14ea2db115d_0_103.png)
+
+:::{.dictionary}
+For more information about configuring your RStudio environment, you can check the Terra docs:
+
+- [Starting and customizing your RStudio app](https://support.terra.bio/hc/en-us/articles/360058138632-Starting-and-customizing-your-RStudio-app)
+- [What packages are installed on preconfigured Cloud Environments?](https://support.terra.bio/hc/en-us/articles/360060989111-What-packages-are-installed-on-preconfigured-Cloud-Environments)
+- [Preconfigure a Cloud Environment with a startup script](https://support.terra.bio/hc/en-us/articles/360058193872-Preconfigure-a-Cloud-Environment-with-a-startup-script)
+- [Cloud Environment FAQs](https://support.terra.bio/hc/en-us/articles/360057425291-Cloud-Environment-FAQs)
+:::
 ::::
 
 :::: {.borrowed_chunk}
@@ -240,11 +271,14 @@ Note that, in order to use RStudio, you must have access to a Terra Workspace wi
 ## Warning: Chunk option fig.alt is not supported for docx output
 ## Warning: Chunk option fig.alt is not supported for docx output
 ## Warning: Chunk option fig.alt is not supported for docx output
-## Warning: Chunk option fig.alt is not supported for docx output
-## Warning: Chunk option fig.alt is not supported for docx output
 ```
 
 
+When you are not actively performing an analysis (but will be returning soon), you should “pause” your cloud environment to minimize costs. This will release the CPU and memory resources for other people to use. Your files will be saved and will continue to accrue a small storage cost.
+
+Before pausing, it’s a good idea to transfer any important files out of your cloud environment. While a paused environment does preserve your files, it has no backup mechanism, so if anything happens to your cloud environment those files will be lost. If there is anything you would like to save permanently, it’s a good idea to copy it to another location, such as the Workspace bucket, GitHub, or your local machine.
+
+**To pause your cloud environment**:
 
 1. You can view costs and make changes to your cloud environments from the panel on the far right of the page.  If you don’t see this panel, you may need to scroll to the right.  Running environments will have a green dot, and paused environments will have an orange dot.
 
@@ -261,14 +295,6 @@ Note that, in order to use RStudio, you must have access to a Terra Workspace wi
 1. When the environment is paused, an orange dot will be displayed next to the RStudio icon.  If you hover over the icon, you will see that it is paused, and has a small ongoing cost as long as it is paused.  When you’re ready to resume working, you can do so by clicking the RStudio icon and clicking Resume.
 
     ![](09-student_guide_files/figure-docx//16s-TjOg19RrkxS9sM9fGfD0M_WIxlw-e8PFWDymjvRU_g230ed3a46c7_0_237.png)
-
-1. The right-hand side icon reminds you that you are accruing cloud computing costs. If you don’t see this icon, you may need to scroll to the right.
-
-    ![](09-student_guide_files/figure-docx//1BLTCaogA04bbeSD1tR1Wt-mVceQA6FHXa8FmFzIARrg_g11f12bc99af_0_84.png){width=100%}
-
-1. You should minimize charges when you are not performing an analysis. You can do this by clicking on the RStudio icon and selecting “Pause”. This will release the CPU and memory resources for other people to use. Note that your work will be saved in the environment and continue to accrue a very small cost.  This work will be lost if the cloud environment gets deleted.  If there is anything you would like to save permanently, it's a good idea to copy it from your compute environment to another location, such as the Workspace bucket, GitHub, or your local machine, depending on your needs.
-
-    ![](09-student_guide_files/figure-docx//1BLTCaogA04bbeSD1tR1Wt-mVceQA6FHXa8FmFzIARrg_g11f12bc99af_0_91.png){width=100%}
 
 :::{.notice}
 You can also pause your cloud environment(s) at https://anvil.terra.bio/#clusters.
@@ -423,13 +449,13 @@ The soil testing data is called `BioDIGS_soil_data` in the BioDIGSData package. 
 
 It *seems* like the dataset loaded, but it's always a good idea to verify. There are many ways to check, but the easiest approach (if you're using RStudio) is to look at the Environment tab on the upper right-hand side of the screen. You should now have an object called `soil.values` that includes some number of observations for 28 variables. The *observations* refer to the number of rows in the dataset, while the *variables* tell you the number of columns. As long as neither the observations or variables are 0, you can be confident that your dataset loaded.
 
-![](resources/images/09-student_guide_files/figure-docx//1u2CIcN2AxprMbWLzAldr_V-njdvjCS8HLYjvuy6jmfs_g33497bd5a49_0_9.png){width=100%}
+![](09-student_guide_files/figure-docx//1u2CIcN2AxprMbWLzAldr_V-njdvjCS8HLYjvuy6jmfs_g33497bd5a49_0_9.png){width=100%}
 
 Let's take a quick look at the dataset. We can do this by clicking on soil.values object in the Environment tab. (Note: this is equivalent to typing `View(soil.values)` in the R console.)
 
 This will open a new window for us to scroll through the dataset.
 
-![](resources/images/09-student_guide_files/figure-docx//1u2CIcN2AxprMbWLzAldr_V-njdvjCS8HLYjvuy6jmfs_g33497bd5a49_0_12.png){width=100%}
+![](09-student_guide_files/figure-docx//1u2CIcN2AxprMbWLzAldr_V-njdvjCS8HLYjvuy6jmfs_g33497bd5a49_0_12.png){width=100%}
 
 Well, the data definitely loaded, but those column names aren't immediately understandable. What could **As_EPA3051** possibly mean? In addition to the dataset, we need to load the *data dictionary* as well.
 
@@ -441,7 +467,7 @@ In this case, the data dictionary can help us make sense of what sort of values 
 
 
 
-![](resources/images/09-student_guide_files/figure-docx//1u2CIcN2AxprMbWLzAldr_V-njdvjCS8HLYjvuy6jmfs_g33497bd5a49_0_15.png){width=100%}
+![](09-student_guide_files/figure-docx//1u2CIcN2AxprMbWLzAldr_V-njdvjCS8HLYjvuy6jmfs_g33497bd5a49_0_15.png){width=100%}
 
 ::: dictionary
 -  **collection_date**: Date sample was collected (soil was removed from a site).
@@ -536,7 +562,7 @@ Let's open `BioDIGS_metadata`, save it as `soil.meta`, and look at it.
 
 
 
-![](resources/images/09-student_guide_files/figure-docx//1u2CIcN2AxprMbWLzAldr_V-njdvjCS8HLYjvuy6jmfs_g33497bd5a49_0_21.png){width=100%}
+![](09-student_guide_files/figure-docx//1u2CIcN2AxprMbWLzAldr_V-njdvjCS8HLYjvuy6jmfs_g33497bd5a49_0_21.png){width=100%}
 
 The metadata (or, data about the samples) contains information stored as 7 different variables. We can see that this dataset contains a variable called `site_id` that matches a column in the `soil.values` and `soil.values.clean` datasets. This is important! Using this variable, we can combine the `soil.values.clean` and `soil.meta` into a single dataset.
 
@@ -550,7 +576,7 @@ The `inner_join` command tells R to combine the first_dataset and the second_dat
 
 
 
-![](resources/images/09-student_guide_files/figure-docx//1u2CIcN2AxprMbWLzAldr_V-njdvjCS8HLYjvuy6jmfs_g33497bd5a49_0_21.png){width=100%}
+![](09-student_guide_files/figure-docx//1u2CIcN2AxprMbWLzAldr_V-njdvjCS8HLYjvuy6jmfs_g33497bd5a49_0_21.png){width=100%}
 
 When you scroll through the `soil.combined` dataset, you now see the metadata columns after all the soil characteristics. In particular, there's a column called `origin` which gives the town or city location for each sample. Many of the samples from the pilot study came from 5 places in Maryland: Baltimore, Derwood, Boyds, Germantown, and Bethesda.
 
@@ -627,7 +653,7 @@ This combination of commands follows the code structure:
 
 dataset %>% pull(column_name) %>% hist(main = chart_title, xlab = x_axis_title)
 
-![](resources/images/09-student_guide_files/figure-docx/unnamed-chunk-146-1.png)<!-- -->
+![](09-student_guide_files/figure-docx/unnamed-chunk-142-1.png)<!-- -->
 
 We can see that almost all the soil samples had very low concentrations of arsenic (which is good news for the soil health!). In fact, many of them had arsenic concentrations close to 0, and only a few sampling locations appear to have high levels of arsenic.
 
@@ -639,7 +665,7 @@ This command follows the code structure:
 
 boxplot(column_we're_plotting ~ grouping_variable, data = dataset, main = "Title of Graph", xlab = "x_axis_title", ylab = "y_axis_title")
 
-![](resources/images/09-student_guide_files/figure-docx/unnamed-chunk-147-1.png)<!-- -->
+![](09-student_guide_files/figure-docx/unnamed-chunk-143-1.png)<!-- -->
 
 By using a boxplot, we can quickly see that, while two sampling sites within Baltimore, MD have a very high concentration of arsenic in the soil (indicated by the two small circles on the plot), in general there isn't a difference in arsenic content between any of our locations.
 
