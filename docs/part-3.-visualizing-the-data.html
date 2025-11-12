@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 12 Part 3. Visualizing the Data | BioDIGS: Exploring Soil Data</title>
   <meta name="description" content="This activity guides students through exploration of the BioDIGS soil data using the tidyverse in R." />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 12 Part 3. Visualizing the Data | BioDIGS: Exploring Soil Data" />
   <meta property="og:type" content="book" />
@@ -22,7 +22,7 @@
 
 
 
-<meta name="date" content="2025-02-24" />
+<meta name="date" content="2025-11-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -51,6 +51,16 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4Q1E4WFD6C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4Q1E4WFD6C');
+</script>
 
 
 <style type="text/css">
@@ -266,7 +276,7 @@ div.csl-indent {
 <span id="cb22-2"><a href="part-3.-visualizing-the-data.html#cb22-2" tabindex="-1"></a>    <span class="fu">pull</span>(As_EPA3051) <span class="sc">%&gt;%</span> </span>
 <span id="cb22-3"><a href="part-3.-visualizing-the-data.html#cb22-3" tabindex="-1"></a>    <span class="fu">hist</span>(<span class="at">main =</span> <span class="st">&#39;Histogram of Arsenic Concentration&#39;</span>, </span>
 <span id="cb22-4"><a href="part-3.-visualizing-the-data.html#cb22-4" tabindex="-1"></a>         <span class="at">xlab =</span><span class="st">&#39;Concentration in mg/kg&#39;</span> )</span></code></pre></div>
-<p><img src="resources/images/09-soil_exploration_module_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p><img src="09-soil_exploration_module_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
 <p>We can see that almost all the soil samples had very low concentrations of arsenic (which is good news for the soil health!). In fact, many of them had arsenic concentrations close to 0, and only a few sampling locations appear to have high levels of arsenic.</p>
 <p>We might also want to graphically compare arsenic concentrations among the geographic regions in our dataset. We can do this by creating boxplots. Boxplots are particularly useful when comparing the mean, variation, and distributions among multiple groups.</p>
 <p>In R, one way to create a boxplot is using the <code>boxplot()</code> function. We don’t need to use pipes for this command, but instead will specify what columns we want to use from the dataset inside the <code>boxplot()</code> function itself.</p>
@@ -277,7 +287,7 @@ div.csl-indent {
 <span id="cb23-3"><a href="part-3.-visualizing-the-data.html#cb23-3" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Arsenic Concentration by Geographic Region&quot;</span>,</span>
 <span id="cb23-4"><a href="part-3.-visualizing-the-data.html#cb23-4" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;Region&quot;</span>,</span>
 <span id="cb23-5"><a href="part-3.-visualizing-the-data.html#cb23-5" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">&quot;Arsenic Concentration in mg/kg&quot;</span>)</span></code></pre></div>
-<p><img src="resources/images/09-soil_exploration_module_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p><img src="09-soil_exploration_module_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
 <p>By using a boxplot, we can quickly see that, while two sampling sites within Baltimore, MD have a very high concentration of arsenic in the soil (indicated by the two small circles on the plot), in general there isn’t a difference in arsenic content between any of our locations.</p>
 <div class="reflection">
 <p>QUESTIONS:</p>
@@ -316,42 +326,42 @@ div.csl-indent {
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "section"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section"
+  }
 });
 });
 </script>

@@ -84,13 +84,13 @@ soil.values <- BioDIGS_soil_data()
 
 It *seems* like the dataset loaded, but it's always a good idea to verify. There are many ways to check, but the easiest approach (if you're using RStudio) is to look at the Environment tab on the upper right-hand side of the screen. You should now have an object called `soil.values` that includes some number of observations for 28 variables. The *observations* refer to the number of rows in the dataset, while the *variables* tell you the number of columns. As long as neither the observations or variables are 0, you can be confident that your dataset loaded.
 
-<img src="resources/images/09-soil_exploration_module_files/figure-html//1u2CIcN2AxprMbWLzAldr_V-njdvjCS8HLYjvuy6jmfs_g33497bd5a49_0_9.png" alt="If the dataset loaded, you will see an object with non-zero observations and variables in the Environment tab." width="100%" style="display: block; margin: auto;" />
+<img src="09-soil_exploration_module_files/figure-html//1u2CIcN2AxprMbWLzAldr_V-njdvjCS8HLYjvuy6jmfs_g33497bd5a49_0_9.png" alt="If the dataset loaded, you will see an object with non-zero observations and variables in the Environment tab." width="100%" style="display: block; margin: auto;" />
 
 Let's take a quick look at the dataset. We can do this by clicking on soil.values object in the Environment tab. (Note: this is equivalent to typing `View(soil.values)` in the R console.)
 
 This will open a new window for us to scroll through the dataset.
 
-<img src="resources/images/09-soil_exploration_module_files/figure-html//1u2CIcN2AxprMbWLzAldr_V-njdvjCS8HLYjvuy6jmfs_g33497bd5a49_0_12.png" alt="You can click on the object in the Environment tab to open a new window that allows you to scroll through the loaded dataset." width="100%" style="display: block; margin: auto;" />
+<img src="09-soil_exploration_module_files/figure-html//1u2CIcN2AxprMbWLzAldr_V-njdvjCS8HLYjvuy6jmfs_g33497bd5a49_0_12.png" alt="You can click on the object in the Environment tab to open a new window that allows you to scroll through the loaded dataset." width="100%" style="display: block; margin: auto;" />
 
 Well, the data definitely loaded, but those column names aren't immediately understandable. What could **As_EPA3051** possibly mean? In addition to the dataset, we need to load the *data dictionary* as well.
 
@@ -105,7 +105,7 @@ In this case, the data dictionary can help us make sense of what sort of values 
 ?BioDIGS_soil_data()
 ```
 
-<img src="resources/images/09-soil_exploration_module_files/figure-html//1u2CIcN2AxprMbWLzAldr_V-njdvjCS8HLYjvuy6jmfs_g33497bd5a49_0_15.png" alt="The data dictionary shows up under the Help tab." width="100%" style="display: block; margin: auto;" />
+<img src="09-soil_exploration_module_files/figure-html//1u2CIcN2AxprMbWLzAldr_V-njdvjCS8HLYjvuy6jmfs_g33497bd5a49_0_15.png" alt="The data dictionary shows up under the Help tab." width="100%" style="display: block; margin: auto;" />
 
 ::: dictionary
 -  **collection_date**: Date sample was collected (soil was removed from a site).
@@ -240,7 +240,7 @@ soil.meta <- BioDIGS_metadata()
 View(soil.meta)
 ```
 
-<img src="resources/images/09-soil_exploration_module_files/figure-html//1u2CIcN2AxprMbWLzAldr_V-njdvjCS8HLYjvuy6jmfs_g33497bd5a49_0_21.png" alt="The metadata, or data about the data, opens when you view the soil.meta object." width="100%" style="display: block; margin: auto;" />
+<img src="09-soil_exploration_module_files/figure-html//1u2CIcN2AxprMbWLzAldr_V-njdvjCS8HLYjvuy6jmfs_g33497bd5a49_0_21.png" alt="The metadata, or data about the data, opens when you view the soil.meta object." width="100%" style="display: block; margin: auto;" />
 
 The metadata (or, data about the samples) contains information stored as 7 different variables. We can see that this dataset contains a variable called `site_id` that matches a column in the `soil.values` and `soil.values.clean` datasets. This is important! Using this variable, we can combine the `soil.values.clean` and `soil.meta` into a single dataset.
 
@@ -259,7 +259,7 @@ soil.combined <- soil.values.clean %>% inner_join(soil.meta, by = "site_id")
 View(soil.combined)
 ```
 
-<img src="resources/images/09-soil_exploration_module_files/figure-html//1u2CIcN2AxprMbWLzAldr_V-njdvjCS8HLYjvuy6jmfs_g33497bd5a49_0_21.png" alt="The soil characteristics and metadata have been combined in the soil.combined dataset, which you see if you scroll to the end of the table." width="100%" style="display: block; margin: auto;" />
+<img src="09-soil_exploration_module_files/figure-html//1u2CIcN2AxprMbWLzAldr_V-njdvjCS8HLYjvuy6jmfs_g33497bd5a49_0_21.png" alt="The soil characteristics and metadata have been combined in the soil.combined dataset, which you see if you scroll to the end of the table." width="100%" style="display: block; margin: auto;" />
 
 When you scroll through the `soil.combined` dataset, you now see the metadata columns after all the soil characteristics. In particular, there's a column called `origin` which gives the town or city location for each sample. Many of the samples from the pilot study came from 5 places in Maryland: Baltimore, Derwood, Boyds, Germantown, and Bethesda.
 
@@ -362,7 +362,7 @@ soil.combined %>%
          xlab ='Concentration in mg/kg' )
 ```
 
-<img src="resources/images/09-soil_exploration_module_files/figure-html/unnamed-chunk-20-1.png" width="672" />
+<img src="09-soil_exploration_module_files/figure-html/unnamed-chunk-20-1.png" width="672" />
 
 We can see that almost all the soil samples had very low concentrations of arsenic (which is good news for the soil health!). In fact, many of them had arsenic concentrations close to 0, and only a few sampling locations appear to have high levels of arsenic.
 
@@ -383,7 +383,7 @@ boxplot(As_EPA3051 ~ origin,
         ylab = "Arsenic Concentration in mg/kg")
 ```
 
-<img src="resources/images/09-soil_exploration_module_files/figure-html/unnamed-chunk-21-1.png" width="672" />
+<img src="09-soil_exploration_module_files/figure-html/unnamed-chunk-21-1.png" width="672" />
 
 By using a boxplot, we can quickly see that, while two sampling sites within Baltimore, MD have a very high concentration of arsenic in the soil (indicated by the two small circles on the plot), in general there isn't a difference in arsenic content between any of our locations.
 

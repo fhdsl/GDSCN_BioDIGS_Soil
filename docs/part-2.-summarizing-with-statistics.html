@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 11 Part 2. Summarizing with Statistics | BioDIGS: Exploring Soil Data</title>
   <meta name="description" content="This activity guides students through exploration of the BioDIGS soil data using the tidyverse in R." />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 11 Part 2. Summarizing with Statistics | BioDIGS: Exploring Soil Data" />
   <meta property="og:type" content="book" />
@@ -22,7 +22,7 @@
 
 
 
-<meta name="date" content="2025-02-24" />
+<meta name="date" content="2025-11-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -51,6 +51,16 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4Q1E4WFD6C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4Q1E4WFD6C');
+</script>
 
 
 <style type="text/css">
@@ -287,7 +297,7 @@ minimum (<code>min</code>), and maximum (<code>max</code>) for the soil arsenic 
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="part-2.-summarizing-with-statistics.html#cb16-1" tabindex="-1"></a>soil.meta <span class="ot">&lt;-</span> <span class="fu">BioDIGS_metadata</span>()</span>
 <span id="cb16-2"><a href="part-2.-summarizing-with-statistics.html#cb16-2" tabindex="-1"></a></span>
 <span id="cb16-3"><a href="part-2.-summarizing-with-statistics.html#cb16-3" tabindex="-1"></a><span class="fu">View</span>(soil.meta)</span></code></pre></div>
-<p><img src="resources/images/09-soil_exploration_module_files/figure-html/1u2CIcN2AxprMbWLzAldr_V-njdvjCS8HLYjvuy6jmfs_g33497bd5a49_0_21.png" alt="The metadata, or data about the data, opens when you view the soil.meta object." width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="09-soil_exploration_module_files/figure-html/1u2CIcN2AxprMbWLzAldr_V-njdvjCS8HLYjvuy6jmfs_g33497bd5a49_0_21.png" alt="The metadata, or data about the data, opens when you view the soil.meta object." width="100%" style="display: block; margin: auto;" /></p>
 <p>The metadata (or, data about the samples) contains information stored as 7 different variables. We can see that this dataset contains a variable called <code>site_id</code> that matches a column in the <code>soil.values</code> and <code>soil.values.clean</code> datasets. This is important! Using this variable, we can combine the <code>soil.values.clean</code> and <code>soil.meta</code> into a single dataset.</p>
 <p>The command for combining the datasets follows the code structure:</p>
 <p>combined_dataset_name &lt;- first_dataset %&gt;% inner_join(second_dataset, by = column_name_in_common)</p>
@@ -295,7 +305,7 @@ minimum (<code>min</code>), and maximum (<code>max</code>) for the soil arsenic 
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="part-2.-summarizing-with-statistics.html#cb17-1" tabindex="-1"></a>soil.combined <span class="ot">&lt;-</span> soil.values.clean <span class="sc">%&gt;%</span> <span class="fu">inner_join</span>(soil.meta, <span class="at">by =</span> <span class="st">&quot;site_id&quot;</span>)</span>
 <span id="cb17-2"><a href="part-2.-summarizing-with-statistics.html#cb17-2" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="part-2.-summarizing-with-statistics.html#cb17-3" tabindex="-1"></a><span class="fu">View</span>(soil.combined)</span></code></pre></div>
-<p><img src="resources/images/09-soil_exploration_module_files/figure-html/1u2CIcN2AxprMbWLzAldr_V-njdvjCS8HLYjvuy6jmfs_g33497bd5a49_0_21.png" alt="The soil characteristics and metadata have been combined in the soil.combined dataset, which you see if you scroll to the end of the table." width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="09-soil_exploration_module_files/figure-html/1u2CIcN2AxprMbWLzAldr_V-njdvjCS8HLYjvuy6jmfs_g33497bd5a49_0_21.png" alt="The soil characteristics and metadata have been combined in the soil.combined dataset, which you see if you scroll to the end of the table." width="100%" style="display: block; margin: auto;" /></p>
 <p>When you scroll through the <code>soil.combined</code> dataset, you now see the metadata columns after all the soil characteristics. In particular, there’s a column called <code>origin</code> which gives the town or city location for each sample. Many of the samples from the pilot study came from 5 places in Maryland: Baltimore, Derwood, Boyds, Germantown, and Bethesda.</p>
 <p>Let’s look at the average arsenic content of the soil for each of these locations! We have to do a little bit of clever coding trickery for this using the <code>group_by</code> and <code>summarize</code> functions.</p>
 <p>First, we tell R to split our dataset up by a particular column (in this case, <code>origin</code>) using the <code>group_by</code> function, then we tell R to summarize the mean arsenic concentration for each group.</p>
@@ -376,42 +386,42 @@ minimum (<code>min</code>), and maximum (<code>max</code>) for the soil arsenic 
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "section"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section"
+  }
 });
 });
 </script>

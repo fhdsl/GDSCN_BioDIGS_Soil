@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 10 Part 1. Examining the Data | BioDIGS: Exploring Soil Data</title>
   <meta name="description" content="This activity guides students through exploration of the BioDIGS soil data using the tidyverse in R." />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 10 Part 1. Examining the Data | BioDIGS: Exploring Soil Data" />
   <meta property="og:type" content="book" />
@@ -22,7 +22,7 @@
 
 
 
-<meta name="date" content="2025-02-24" />
+<meta name="date" content="2025-11-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -51,6 +51,16 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4Q1E4WFD6C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4Q1E4WFD6C');
+</script>
 
 
 <style type="text/css">
@@ -280,17 +290,17 @@ div.csl-indent {
 <span id="cb5-2"><a href="part-1.-examining-the-data.html#cb5-2" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="part-1.-examining-the-data.html#cb5-3" tabindex="-1"></a>soil.values <span class="ot">&lt;-</span> <span class="fu">BioDIGS_soil_data</span>()</span></code></pre></div>
 <p>It <em>seems</em> like the dataset loaded, but it’s always a good idea to verify. There are many ways to check, but the easiest approach (if you’re using RStudio) is to look at the Environment tab on the upper right-hand side of the screen. You should now have an object called <code>soil.values</code> that includes some number of observations for 28 variables. The <em>observations</em> refer to the number of rows in the dataset, while the <em>variables</em> tell you the number of columns. As long as neither the observations or variables are 0, you can be confident that your dataset loaded.</p>
-<p><img src="resources/images/09-soil_exploration_module_files/figure-html/1u2CIcN2AxprMbWLzAldr_V-njdvjCS8HLYjvuy6jmfs_g33497bd5a49_0_9.png" alt="If the dataset loaded, you will see an object with non-zero observations and variables in the Environment tab." width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="09-soil_exploration_module_files/figure-html/1u2CIcN2AxprMbWLzAldr_V-njdvjCS8HLYjvuy6jmfs_g33497bd5a49_0_9.png" alt="If the dataset loaded, you will see an object with non-zero observations and variables in the Environment tab." width="100%" style="display: block; margin: auto;" /></p>
 <p>Let’s take a quick look at the dataset. We can do this by clicking on soil.values object in the Environment tab. (Note: this is equivalent to typing <code>View(soil.values)</code> in the R console.)</p>
 <p>This will open a new window for us to scroll through the dataset.</p>
-<p><img src="resources/images/09-soil_exploration_module_files/figure-html/1u2CIcN2AxprMbWLzAldr_V-njdvjCS8HLYjvuy6jmfs_g33497bd5a49_0_12.png" alt="You can click on the object in the Environment tab to open a new window that allows you to scroll through the loaded dataset." width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="09-soil_exploration_module_files/figure-html/1u2CIcN2AxprMbWLzAldr_V-njdvjCS8HLYjvuy6jmfs_g33497bd5a49_0_12.png" alt="You can click on the object in the Environment tab to open a new window that allows you to scroll through the loaded dataset." width="100%" style="display: block; margin: auto;" /></p>
 <p>Well, the data definitely loaded, but those column names aren’t immediately understandable. What could <strong>As_EPA3051</strong> possibly mean? In addition to the dataset, we need to load the <em>data dictionary</em> as well.</p>
 <div class="dictionary">
 <p><strong>Data dictionary:</strong> a file containing the names, definitions, and attributes about data in a database or dataset.</p>
 </div>
 <p>In this case, the data dictionary can help us make sense of what sort of values each column represents. The data dictionary for the BioDIGS soil testing data is available in the R package (see code below), but we have also reproduced it here.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="part-1.-examining-the-data.html#cb6-1" tabindex="-1"></a>?<span class="fu">BioDIGS_soil_data</span>()</span></code></pre></div>
-<p><img src="resources/images/09-soil_exploration_module_files/figure-html/1u2CIcN2AxprMbWLzAldr_V-njdvjCS8HLYjvuy6jmfs_g33497bd5a49_0_15.png" alt="The data dictionary shows up under the Help tab." width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="09-soil_exploration_module_files/figure-html/1u2CIcN2AxprMbWLzAldr_V-njdvjCS8HLYjvuy6jmfs_g33497bd5a49_0_15.png" alt="The data dictionary shows up under the Help tab." width="100%" style="display: block; margin: auto;" /></p>
 <div class="dictionary">
 <ul>
 <li><strong>collection_date</strong>: Date sample was collected (soil was removed from a site).</li>
@@ -369,42 +379,42 @@ div.csl-indent {
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "section"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section"
+  }
 });
 });
 </script>
